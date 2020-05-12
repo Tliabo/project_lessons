@@ -31,6 +31,10 @@ header {
   margin-left: 2rem;
 }
 
+#logo-brand {
+  margin-left: 2rem;
+}
+
 header, main, aside, footer {
   border: solid #0b6789 2px;
 }
