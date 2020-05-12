@@ -1,0 +1,53 @@
+
+
+#hauptheader {
+    width: 100%;
+    height: 30vh;
+    background: coral;
+}
+
+main {
+    height: 50vh;
+    width: 60%;
+    background: darkcyan;
+    float: left;
+}
+
+aside {
+    height: 50vh;
+    width: 40%;
+    background: burlywood;
+    float: right;
+}
+
+footer {
+    height: 20vh;
+    width: 100%;
+    background: lightblue;
+    clear: both;
+}
+#hauptheader nav {
+    clear: both;
+    margin-top: 25px;
+}
+
+#hauptheader nav ul li {
+    background: linear-gradient(180deg, white 0%, transparent 100%);
+    list-style: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0 0.4rem;
+    border: 2px solid dodgerblue;
+}
+
+#hauptheader nav li:active {
+    background: linear-gradient(180deg, white 0%, lime 100%);
+}
+
+.underline a {
+    text-decoration: none;
+}
+
+#logo-brand {
+    float: left;
+}

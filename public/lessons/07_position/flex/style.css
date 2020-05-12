@@ -1,0 +1,31 @@
+body {
+    box-sizing: border-box;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding: 1rem;
+    width: 900px;
+    height: 900px;
+    background: lightgray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    /*flex-wrap: wrap;*/
+}
+
+.item {
+    height: 150px;
+    width: 150px;
+    border: solid 1px #112233;
+    background: #8f20e3;
+}
+

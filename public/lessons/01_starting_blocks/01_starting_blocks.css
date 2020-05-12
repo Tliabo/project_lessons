@@ -1,0 +1,37 @@
+
+
+#hauptheader {
+    background: coral;
+}
+
+main {
+    background: darkcyan;
+}
+
+body > footer {
+    background: lightblue;
+}
+
+body > aside {
+    background: burlywood;
+}
+
+#hauptheader nav ul {
+    padding: 0;
+}
+
+#hauptheader nav li {
+    background: linear-gradient(180deg, white 0%, transparent 100%);
+}
+
+#hauptheader nav li:active {
+    background: linear-gradient(180deg, white 0%, lime 100%);
+}
+
+#hauptheader nav li {
+    list-style: none;
+}
+
+.underline a {
+    text-decoration: none;
+}
