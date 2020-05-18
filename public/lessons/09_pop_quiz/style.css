@@ -1,0 +1,139 @@
+body {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+#main-header {
+  background: #222222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+#main-header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+#main-header nav li {
+  padding: 1rem;
+}
+
+#main-header nav li > a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+#main-header nav li a:hover {
+  color: orangered;
+}
+
+main > section:nth-child(odd) {
+  background: white;
+  color: #222222;
+}
+
+main > section:nth-child(even){
+  background: #222222;
+  color: white;
+}
+
+#products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+#products .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#products .cards .card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #222;
+  border-radius: 10px;
+  margin: 1rem;
+}
+
+#products .card img {
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+#products .card .discount-text {
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+#products .card button {
+  background: #222222;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  justify-self: flex-end;
+  font-weight: bolder;
+}
+
+#products .card button:hover {
+  color: orangered;
+  cursor: pointer;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+#about h2 {
+  align-self: center;
+}
+
+#about p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+#about p > span {
+  color: orangered;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+#main-footer {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+
+
+
