@@ -1,0 +1,121 @@
+
+.flag {
+  height: 200px;
+  width: 300px;
+  margin: 50px;
+  border: 1px solid lightgray;
+  position: relative;
+  float: left;
+}
+
+.flag label {
+  position: absolute;
+  z-index: 1;
+  background: white;
+  border: 2px dotted black;
+}
+
+.colombia {
+  background: linear-gradient(yellow 50%, blue 50%, blue 75%, red 75%);
+}
+
+.italy {
+  background: linear-gradient(90deg, green 33%, white 33%, white 66%, red 66%);
+}
+
+.tanzania {
+  background: linear-gradient(
+    to bottom right,
+    green 35%,
+    yellow 35%, yellow 39%,
+    black 39%, black 61%,
+    yellow 61%, yellow 65%,
+    blue 65%
+  );
+}
+
+.murica {
+  background: repeating-linear-gradient(red, red 7.69%, white 7.69%, white 15.38%);
+}
+
+.murica:before {
+  content: '';
+  background: blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 53.85%;
+  width: 40%;
+}
+
+.zimbabwe {
+  background: linear-gradient(
+    green, green calc(100% / 7),
+    yellow calc(100% / 7), yellow calc(100% / 7 * 2),
+    red calc(100% / 7 * 2), red calc(100% / 7 * 3),
+    black calc(100% / 7 * 3), black calc(100% / 7 * 4),
+    red calc(100% / 7 * 4), red calc(100% / 7 * 5),
+    yellow calc(100% / 7 * 5), yellow calc(100% / 7 * 6),
+    green calc(100% / 7 * 6), green
+  );
+  overflow: hidden;
+}
+
+.zimbabwe:before {
+  content: '';
+  width: 142px;
+  height: 142px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateX(-50%) translateY(-50%) rotate(-135deg);
+  border-bottom: 5px solid black;
+  border-left: 5px solid black;
+}
+
+.zimbabwe label {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* with a second element*/
+/*.zimbabwe:before {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  left: 0;*/
+/*  width: 0;*/
+/*  height: 0;*/
+/*  border-top: 110px solid transparent;*/
+/*  border-left: 110px solid black;*/
+/*  border-bottom: 110px solid transparent;*/
+/*  transform: translate(0, -50%);*/
+/*}*/
+
+.ch {
+  width: 200px;
+  height: 200px;
+  background: red;
+}
+
+.ch:after {
+  content: '';
+  background: white;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 30px;
+  width: 100px;
+  transform: translate(50%, -50%);
+}
+
+.ch:before {
+  content: '';
+  background: white;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 30px;
+  width: 100px;
+  transform: translate(50%, -50%) rotate(90deg);
+}
