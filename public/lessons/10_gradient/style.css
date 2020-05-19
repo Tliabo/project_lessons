@@ -38,7 +38,7 @@
   background: repeating-linear-gradient(red, red 7.69%, white 7.69%, white 15.38%);
 }
 
-.murica:before {
+.murica::before {
   content: '';
   background: blue;
   position: absolute;
@@ -61,7 +61,7 @@
   overflow: hidden;
 }
 
-.zimbabwe:before {
+.zimbabwe::before {
   content: '';
   width: 142px;
   height: 142px;
@@ -98,7 +98,7 @@
   background: red;
 }
 
-.ch:after {
+.ch::after {
   content: '';
   background: white;
   position: absolute;
@@ -109,7 +109,7 @@
   transform: translate(50%, -50%);
 }
 
-.ch:before {
+.ch::before {
   content: '';
   background: white;
   position: absolute;
