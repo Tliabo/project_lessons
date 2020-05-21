@@ -61,36 +61,49 @@
   overflow: hidden;
 }
 
-.zimbabwe:before {
+/* nur mit rechtem winkel */
+/*.zimbabwe:after {*/
+/*  content: '';*/
+/*  width: 142px;*/
+/*  height: 142px;*/
+/*  background: white;*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  left: 3px;*/
+/*  transform: translateX(-50%) translateY(-50%) rotate(-135deg);*/
+/*  border-bottom: 5px solid black;*/
+/*  border-left: 5px solid black;*/
+/*}*/
+
+.zimbabwe:after {
   content: '';
-  width: 142px;
-  height: 142px;
-  background: white;
   position: absolute;
-  top: 50%;
-  left: 3px;
-  transform: translateX(-50%) translateY(-50%) rotate(-135deg);
-  border-bottom: 5px solid black;
-  border-left: 5px solid black;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 100px 0 100px 150px;
+  border-color: transparent transparent transparent white;
+  transform: translate(-50% 50%);
 }
 
 .zimbabwe label {
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* with a second element*/
-/*.zimbabwe:before {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  left: 0;*/
-/*  width: 0;*/
-/*  height: 0;*/
-/*  border-top: 110px solid transparent;*/
-/*  border-left: 110px solid black;*/
-/*  border-bottom: 110px solid transparent;*/
-/*  transform: translate(0, -50%);*/
-/*}*/
+/* with a second element */
+.zimbabwe:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 105px solid transparent;
+  border-left: 160px solid black;
+  border-bottom: 105px solid transparent;
+  transform: translate(0, -50%);
+}
 
 .ch {
   width: 200px;
