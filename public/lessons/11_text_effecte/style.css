@@ -1,0 +1,41 @@
+
+#exercice_1 {
+  color: #7fc97f;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#exercice_1 span {
+  color: blue;
+  background: #7fc97f;
+  border-radius: 50%;
+  padding: 0.28rem 0.5rem;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #ff4b4b;
+  margin-right: 5px;
+}
+
+#exercice_2_1 {
+  background: #222222;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-shadow: white 0 0 0.5rem, white 0 0 0.5rem;
+}
+
+#exercice_2_2 {
+  background: #d0d0d0;
+  color: #c2c2c2;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-shadow: rgba(0,0,0,0.1) 0 -1px 0.5px, rgba(255,255,255,0.1) 0 1px 0.5px;
+}
+
+#exercice_2_3 {
+  background: #c2c2c2;
+  color: #d0d0d0;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-shadow: rgba(0,0,0,0.1) 0 1px 0.5px, rgba(255,255,255,0.1) 0 -1px 0.5px;
+}
