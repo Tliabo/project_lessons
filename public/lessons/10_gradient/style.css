@@ -76,7 +76,7 @@
 /*}*/
 
 
-.zimbabwe::before {
+.zimbabwe::after {
   content: '';
   position: absolute;
   left: 0;

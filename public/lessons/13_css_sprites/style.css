@@ -1,0 +1,24 @@
+
+.icon {
+  background: url("sprite-social.gif") no-repeat;
+  width: 80px;
+  height: 80px;
+}
+
+.icon-globe {
+  background-position: 0px 0px;
+}
+
+.icon-globe:hover {
+  background-position: 0 -94px;
+}
+
+.icon-nfc {
+  background-position: -124px 0px;
+}
+.icon-twitter {
+  background-position: -204px 0px;
+}
+.icon-github {
+  background-position: -240px 0px;
+}
