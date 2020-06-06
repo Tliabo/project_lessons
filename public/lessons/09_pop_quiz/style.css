@@ -64,14 +64,14 @@ main > section:nth-child(even){
   padding: 2rem 0;
 }
 
-#products .cards {
+#products .members {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
 }
 
-#products .cards .card {
+#products .members .card {
   padding: 2rem;
   display: flex;
   flex-direction: column;

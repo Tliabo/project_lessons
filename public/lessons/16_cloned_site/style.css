@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 
-/*
+:root {
   --pri-color: #000;
   --sec-color: #ff4069;
   --ter-color: #ffd171;
   --ter-dark-color: #fda742;
   --qua-color: #fff;
-*/
+
+}
 
 body {
   font-family: 'Indie Flower';
   font-size: 1rem;
-  background: #000;
-  color: #ff4069;
+  background: var(--pri-color);
+  color: var(--sec-color);
 }
 
 header {
@@ -50,6 +51,42 @@ a {
   text-decoration: none;
 }
 
+hr {
+  overflow: visible;
+  width: 50vw;
+  position: relative;
+  border-color: var(--sec-color);
+}
+
+hr::before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  height: 0;
+  width: 0;
+  left: -1px;
+  top: 1px;
+
+  border-color: #ff4069 transparent;
+  border-style: solid;
+  border-width: 0.3rem 47vw 0 3vw;
+}
+
+hr::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  height: 0;
+  width: 0;
+  left: -1px;
+  bottom: 1px;
+
+  border-color: #ff4069 transparent;
+  border-style: solid;
+  border-width: 0 3vw 0.3rem 47vw;
+}
+
+
 #banner {
   background: url("images/background.jpg") no-repeat center;
   background-size: cover;
@@ -61,15 +98,15 @@ a {
 }
 
 #banner .container-middle {
-  background: #ff4069;
-  color: #fff;
+  background: var(--sec-color);
+  color: var(--qua-color);
   padding: 1rem;
   width: 25vw;
-  border: 3px solid #000;
+  border: 3px solid var(--pri-color);
 }
 
 #banner .container-middle span {
-  color: #ffd171;
+  color: var(--ter-color);
 }
 
 #offer {
@@ -79,18 +116,18 @@ a {
   margin-top: 3rem;
 }
 
-#offer .cards {
+#offer .members {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
 }
 
-#offer .cards .card {
+#offer .members .card {
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--qua-color);
   margin: 1rem;
   padding: 1rem;
   height: 40vh;
@@ -101,66 +138,66 @@ a {
   background-position-x: right;
 }
 
-#offer .cards .card:nth-child(1) {
-  background-image:  url("images/alastorflipped.png");
-  border: solid 2px #ff4069;
+#offer .members .card:nth-child(1) {
+  background-image: url("images/alastorflipped.png");
+  border: solid 2px var(--sec-color);
 }
 
-#offer .cards .card:nth-child(2) {
-  background-image:  url("images/angeldust.webp");
-  border: solid 2px #ff4069;
+#offer .members .card:nth-child(2) {
+  background-image: url("images/angeldust.webp");
+  border: solid 2px var(--sec-color);
 }
 
-#offer .cards .card:nth-child(3) {
-  background-image:  url("images/charlie.png");
-  border: solid 2px #ff4069;
+#offer .members .card:nth-child(3) {
+  background-image: url("images/charlie.png");
+  border: solid 2px var(--sec-color);
 }
 
-#offer .cards .card h3 {
-  color: #ffd171;
-  text-shadow: 1px 1px 0 #ff4069;
+#offer .members .card h3 {
+  color: var(--ter-color);
+  text-shadow: 1px 1px 0 var(--sec-color);
   font-size: 2rem;
   position: absolute;
   top: 3rem;
 }
 
-#offer .cards .card ul {
-  background-color: #000;
+#offer .members .card ul {
+  background-color: var(--pri-color);
   padding: 1rem 3.5rem 3rem 2rem;
   position: absolute;
   left: 2rem;
   bottom: 5rem;
-  border: solid 1px #ff4069;
+  border: solid 1px var(--sec-color);
 }
 
-#offer .cards .card button {
-  background: #ffd171;
-  color: #000;
+#offer .members .card button {
+  background: var(--ter-color);
+  color: var(--pri-color);
   padding: 0.25rem 2rem;
   font-family: inherit;
   font-size: 1rem;
   position: absolute;
   bottom: -1rem;
   right: -1rem;
-  border: solid 2px #ff4069;
+  border: solid 2px var(--sec-color);
 }
 
-#offer .cards .card button:hover, #contact form button:hover {
+#offer .members .card button:hover, #contact form button:hover {
   cursor: pointer;
 }
 
-#offer .cards .card .price {
-  background: #000;
+#offer .members .card .price {
+  background: var(--pri-color);
   position: absolute;
   right: 1rem;
   bottom: 1rem;
   padding: 0.5rem 0.25rem;
-  border: solid 1px #ff4069;
+  border: solid 1px var(--sec-color);
 }
 
 input, textarea {
   font-family: 'Quicksand';
-  background: #ffd171;
+  background: var(--ter-color);
 }
 
 #contact {
@@ -192,9 +229,9 @@ input, textarea {
   color: inherit;
   font-family: inherit;
   align-self: flex-end;
-  background: #000;
+  background: var(--pri-color);
   padding: 0.5rem 1rem;
-  border: solid 1px #ff4069;
+  border: solid 1px var(--sec-color);
 }
 
 #contact::before {
@@ -241,8 +278,8 @@ footer ul > li {
 }
 
 footer ul > li i {
-  color: #000;
-  background: #ff4069;
-  border: 1px solid #ff4069;
+  color: var(--pri-color);
+  background: var(--sec-color);
+  border: 1px solid var(--sec-color);
   border-radius: 2px;
 }
