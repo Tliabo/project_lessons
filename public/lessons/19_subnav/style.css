@@ -1,0 +1,34 @@
+body {
+  background: #333;
+}
+
+nav {
+  font-family: sans-serif;
+  background: palegreen;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  padding: 1rem 1.2rem;
+}
+
+.dropdown {
+  position: relative;
+}
+
+#subnav {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: palevioletred;
+  display: none;
+}
+
+.dropdown:hover > #subnav {
+  display: block;
+}
