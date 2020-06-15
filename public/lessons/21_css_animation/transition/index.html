@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transitions</title>
+
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      transition: 2s;
+      margin-bottom: 20px;
+    }
+
+    .colorChange:hover {
+      background-color: blue;
+    }
+
+    .move {
+      transition: 1s;
+    }
+
+    .move:hover {
+      transform: translateX(200px);
+      background-color: yellow;
+    }
+
+    .rotate {
+      transition: 10s;
+    }
+
+    .rotate:hover {
+      transform: rotate(360deg);
+    }
+
+  </style>
+</head>
+<body>
+<p>color change</p>
+<div class="box colorChange"></div>
+<p>Move</p>
+<div class="box move"></div>
+<p>Rotate</p>
+<div class="box rotate"></div>
+
+</body>
+</html>

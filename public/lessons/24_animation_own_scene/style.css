@@ -1,0 +1,79 @@
+body {
+  position: relative;
+}
+
+.scene-bg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("assets/wolf_moon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.scene-bg .stars {
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+}
+
+.scene-bg .stars i {
+  color: transparent;
+  animation-name: blink;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.scene-bg .stars > .fa-star:nth-child(1) {
+  position: absolute;
+  left: 36%;
+  top: 78%;
+}
+
+.scene-bg .stars > .fa-star:nth-child(2) {
+  position: absolute;
+  left: 42%;
+  top: 15%;
+  animation-delay: 3s;
+}
+
+.scene-bg .stars > .fa-star:nth-child(3) {
+  position: absolute;
+  left: 79%;
+  top: 60%;
+  animation-delay: 1s;
+}
+
+@keyframes blink {
+  0% {color: transparent}
+  50% {color: white}
+  100% {color: transparent}
+}
+
+.scene-bg .fa-planet-moon {
+  display: none;
+}
+
+.scene-bg .fa-meteor {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  color: transparent;
+  transform: rotate(45deg);
+  animation-name: meteor;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes meteor {
+  50% {right: 50%;top: 10%;color: #DE4679;}
+  100% {right: 90%;top: 10%;color: transparent;}
+}
+
+.fa-rocket {
+  position: absolute;
+  display: none;
+}
+

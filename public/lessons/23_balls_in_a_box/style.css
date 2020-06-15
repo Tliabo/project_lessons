@@ -1,0 +1,61 @@
+.box {
+  width: 500px;
+  height: 300px;
+  border: 2px solid black;
+  position: relative;
+}
+
+.box .ball {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+}
+
+.ball .dot {
+  width: 5px;
+  height: 5px;
+  background: yellow;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.move {
+  animation: move 15s linear;
+}
+
+.move-reverse {
+  animation: move-reverse 15s linear;
+}
+
+.color-change {
+  animation: colorChange steps(5, end);
+}
+
+@keyframes move {
+  0% {left: 50%; top: 0; transform: rotate(0);}
+  25% {left: calc(100% - 20px); top: 50%; transform: rotate(calc(360deg * 5));}
+  50% {left: 75%; top: calc(100% - 20px); transform: rotate(calc(360deg * 10));}
+  75% {left: 0; top: 50%;transform: rotate(calc(360deg * 20));}
+  100% {left: 50%; top: 0; transform: rotate(calc(360deg * 30));}
+}
+
+@keyframes move-reverse {
+  0% {left: 50%; top: 0; transform: rotate(0);}
+  25% {left: 0; top: 50%;transform: rotate(calc(-360deg * 5));}
+  50% {left: 75%; top: calc(100% - 20px); transform: rotate(calc(-360deg * 10));}
+  75% {left: calc(100% - 20px); top: 50%; transform: rotate(calc(-360deg * 20));}
+  100% {left: 50%; top: 0; transform: rotate(calc(-360deg * 30));}
+}
+
+@keyframes colorChange {
+  0% {background: orange}
+  25% {background: black}
+  50% {background: yellow}
+  75% {background: gray}
+  100% {background: orange}
+}

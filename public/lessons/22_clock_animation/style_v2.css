@@ -1,0 +1,38 @@
+.clock-body {
+  width: 300px;
+  height: 300px;
+  border: 5px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+
+.clock-center {
+  height: 15px;
+  width: 15px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock-pointer {
+  width: 5px;
+  height: 150px;
+  background: black;
+  position: absolute;
+  left: 50%;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(0);
+}
+
+.rotate {
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: translateX(-50%) rotate(360deg)
+  }
+}
