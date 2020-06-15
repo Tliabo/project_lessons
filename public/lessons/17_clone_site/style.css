@@ -96,6 +96,7 @@ header h1 {
 #work article {
   width: 25vw;
 }
+
 #work .cards {
   display: flex;
 }
@@ -130,7 +131,7 @@ header h1 {
 }
 
 #contact {
-  background:  var(--light-color);
+  background: var(--light-color);
   color: var(--dark-color);
   display: flex;
   padding: 1rem;
