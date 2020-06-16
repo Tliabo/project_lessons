@@ -16,3 +16,7 @@ a {
 a:visited {
   color: inherit;
 }
+
+ul {
+  list-style: none;
+}
