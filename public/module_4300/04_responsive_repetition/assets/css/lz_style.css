@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap');
+
+body, main, html, figure {
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+p, span, a, li, b, i, strong {
+  font-family: 'Open Sans', sans-serif;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+body > main {
+  display: flex;
+  justify-content: center;
+}
+
+body > header {
+  height: 200px;
+  background: lightgrey;
+  display: flex;
+  justify-content: center;
+}
+
+main section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 800px;
+}
+
+article {
+  border-bottom: 15px solid #eeeeee;
+  padding-bottom: 20px;
+}
+
+main section article:first-of-type {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+
+body > footer {
+  height: 200px;
+  background: black;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 80px;
+}
+
+body > footer p {
+  color: white;
+}
+
+.lz_button {
+  display: inline-block;
+  padding: 15px 20px 15px 30px;
+  background: #293133;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.lz_button::before {
+  content: '»';
+  color: white;
+  height: 10px;
+  width: 10px;
+  margin: 0 10px 0 0;
+}
+
+/*NAVIGATION*/
+
+nav {
+  z-index: 99999;
+}
+
+body > header,
+nav,
+ul {
+  height: 150px;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav > ul > li:hover {
+  border-top: 3px solid darkblue;
+}
+
+nav ul,
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: darkblue;
+  text-transform: uppercase;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: center;
+}
+
+nav > ul > li {
+  position: relative;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  border-top: 3px solid lightgrey;
+}
+
+.lz_is_child {
+  display: none;
+  position: absolute;
+}
+
+.lz_is_child > li > a {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: 1px solid darkblue;
+}
+
+.lz_has_child:hover .lz_is_child {
+  display: block;
+  width: 200%;
+  bottom: -60%;
+}
+
+/* Responsive */
+
+@media all and (max-width: 700px) {
+
+  body > main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  main article {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "header aside"
+      "main main";
+  }
+
+  article header {
+    position: relative;
+    grid-area: header;
+  }
+
+  article header h2 {
+    position: absolute;
+    color: white;
+    left: 1rem;
+  }
+
+  article main {
+    grid-area: main;
+
+  }
+
+  article footer {
+    grid-area: aside;
+    writing-mode: vertical-lr;
+  }
+
+  .lz_button {
+    width: 100%;
+    display: block;
+    padding: unset;
+    padding-top: 1rem;
+  }
+
+}
+

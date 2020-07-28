@@ -1,0 +1,28 @@
+VARIABLES:              var
+CONDITIONALS:           if / else
+FUNCTION / OPERATIONS:  xxx()
+JA / NEIN:              true / false
+
+var water = 150
+var beans = 50
+var minWater = 100
+var minBeans = 100
+
+if (machine is plugged in?) then:
+
+  if (machine turned on?) then:
+
+    if (water > minWater) then:
+
+      if (beans > minBeans) then:
+
+        SUCCESS
+
+      else:
+          refillBeans()
+    else:
+      refillWater()
+  else:
+    turnOn()
+else:
+  plugIn()
