@@ -1,18 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&display=swap');
 
-body, main, html, figure {
+body,
+main,
+html,
+figure {
   box-sizing: border-box;
   text-decoration: none;
   padding: 0;
   margin: 0;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Raleway', sans-serif;
 }
 
-
-p, span, a, li, b, i, strong {
+p,
+span,
+a,
+li,
+b,
+i,
+strong {
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -49,7 +60,6 @@ main section article:first-of-type {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-
 
 body > footer {
   height: 200px;
@@ -147,7 +157,6 @@ nav > ul > li {
 /* Responsive */
 
 @media all and (max-width: 700px) {
-
   body > main {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -158,8 +167,8 @@ nav > ul > li {
     grid-template-columns: 1fr 40px;
     grid-template-rows: 1fr auto;
     grid-template-areas:
-      "header aside"
-      "main main";
+      'header aside'
+      'main main';
   }
 
   article header {
@@ -175,7 +184,6 @@ nav > ul > li {
 
   article main {
     grid-area: main;
-
   }
 
   article footer {
@@ -189,6 +197,4 @@ nav > ul > li {
     padding: unset;
     padding-top: 1rem;
   }
-
 }
-

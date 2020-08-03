@@ -1,5 +1,5 @@
 .game-background {
-  background-image: url("assets/wolf_moon.jpg ");
+  background-image: url('assets/wolf_moon.jpg ');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -53,9 +53,18 @@
 }
 
 @keyframes movement {
-  0% {right: 0; opacity: 0}
-  50% {opacity: 100%; color: white}
-  100% {right: 100%; opacity: 0}
+  0% {
+    right: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 100%;
+    color: white;
+  }
+  100% {
+    right: 100%;
+    opacity: 0;
+  }
 }
 
 .targets .fa-meteor:hover {

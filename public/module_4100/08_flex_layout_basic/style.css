@@ -3,7 +3,9 @@ body {
   background: #0b6789;
 }
 
-*, *:after, *:before {
+*,
+*:after,
+*:before {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
@@ -35,7 +37,10 @@ header {
   margin-left: 2rem;
 }
 
-header, main, aside, footer {
+header,
+main,
+aside,
+footer {
   border: solid #0b6789 2px;
 }
 
@@ -76,7 +81,8 @@ body > .container {
   padding: 2rem;
 }
 
-main, aside {
+main,
+aside {
   border-radius: 10px;
 }
 
@@ -101,7 +107,8 @@ main .zitat-footer {
   font-style: italic;
 }
 
-aside, footer {
+aside,
+footer {
   display: flex;
   justify-content: center;
   align-items: center;

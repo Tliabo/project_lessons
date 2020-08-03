@@ -1,5 +1,5 @@
 :root {
-  --pri-color: #33B1A4;
+  --pri-color: #33b1a4;
   --dark-color: #000;
   --light-color: #fff;
 }
@@ -30,7 +30,7 @@ body nav ul li:last-child {
 }
 
 header {
-  background-image: url("images/boat_sea_bw_145622_2048x1152.jpg");
+  background-image: url('images/boat_sea_bw_145622_2048x1152.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right bottom;

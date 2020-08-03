@@ -1,4 +1,3 @@
-
 body {
   padding: 1rem;
   display: grid;
@@ -6,9 +5,9 @@ body {
   grid-template-rows: 1fr 2fr 1fr;
   grid-gap: 1rem;
   grid-template-areas:
-    ". navigation navigation navigation navigation navigation navigation navigation navigation navigation navigation ."
-    ". main main main main main main main main main main ."
-    ". footer footer footer footer footer footer footer footer footer footer .";
+    '. navigation navigation navigation navigation navigation navigation navigation navigation navigation navigation .'
+    '. main main main main main main main main main main .'
+    '. footer footer footer footer footer footer footer footer footer footer .';
 }
 
 body > nav {
@@ -41,13 +40,10 @@ body > footer {
 }
 
 @media screen and (min-width: 900px) {
-
 }
 
 @media screen and (max-width: 899px) and (min-width: 600px) {
-
 }
 
 @media screen and (max-width: 599px) {
-
 }

@@ -52,7 +52,7 @@ main > section:nth-child(odd) {
   color: #222222;
 }
 
-main > section:nth-child(even){
+main > section:nth-child(even) {
   background: #222222;
   color: white;
 }
@@ -133,7 +133,3 @@ main > section:nth-child(even){
   justify-content: center;
   padding: 4rem 0;
 }
-
-
-
-

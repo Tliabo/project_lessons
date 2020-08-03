@@ -33,6 +33,6 @@
 
 @keyframes rotate {
   100% {
-    transform: translateX(-50%) rotate(360deg)
+    transform: translateX(-50%) rotate(360deg);
   }
 }

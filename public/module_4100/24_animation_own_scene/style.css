@@ -5,7 +5,7 @@ body {
 .scene-bg {
   width: 100vw;
   height: 100vh;
-  background-image: url("assets/wolf_moon.jpg");
+  background-image: url('assets/wolf_moon.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -45,9 +45,15 @@ body {
 }
 
 @keyframes blink {
-  0% {color: transparent}
-  50% {color: white}
-  100% {color: transparent}
+  0% {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: transparent;
+  }
 }
 
 .scene-bg .fa-planet-moon {
@@ -68,12 +74,19 @@ body {
 }
 
 @keyframes meteor {
-  50% {right: 50%;top: 10%;color: #DE4679;}
-  100% {right: 90%;top: 10%;color: transparent;}
+  50% {
+    right: 50%;
+    top: 10%;
+    color: #de4679;
+  }
+  100% {
+    right: 90%;
+    top: 10%;
+    color: transparent;
+  }
 }
 
 .fa-rocket {
   position: absolute;
   display: none;
 }
-

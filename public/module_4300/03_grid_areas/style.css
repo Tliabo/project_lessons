@@ -1,12 +1,11 @@
-
 .tp_parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 80vh 50vh 20vh;
   grid-template-areas:
-    "header header header header header header"
-    ". . content content . ."
-    ". footer footer footer footer .";
+    'header header header header header header'
+    '. . content content . .'
+    '. footer footer footer footer .';
 }
 
 .tp_child {
@@ -21,7 +20,6 @@
   grid-area: header;
   background: lightblue;
 }
-
 
 .tp_child:nth-child(2) {
   grid-area: content;

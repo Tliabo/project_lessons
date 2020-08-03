@@ -1,102 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>HAZBIN HOTEL</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
-        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HAZBIN HOTEL</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" title="to home"><img id="logo-brand" src="images/logohazbin.png" /></a>
+      <nav>
+        <ul>
+          <li><a href="#offer">ABOUT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<header>
-  <a href="#" title="to home"><img id="logo-brand" src="images/logohazbin.png"></a>
-  <nav>
-    <ul>
-      <li><a href="#offer">ABOUT</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-  </nav>
-
-</header>
-
-<div id="banner">
-  <div class="container-middle">
-    <h1>A Typical Company</h1>
-    <h2>we only care about <span>$$$</span></h2>
-  </div>
-</div>
-<hr>
-<section id="offer">
-
-  <h2>OUR OFFER</h2>
-  <div class="cards">
-
-    <div class="card">
-      <h3>Basic</h3>
-      <ul>
-        <li>Cheap</li>
-        <li>Easy</li>
-        <li>24/7 Support</li>
-        <li>For everyone</li>
-        <button>GET</button>
-      </ul>
-      <div class="price">$15.95 / Month</div>
+    <div id="banner">
+      <div class="container-middle">
+        <h1>A Typical Company</h1>
+        <h2>we only care about <span>$$$</span></h2>
+      </div>
     </div>
+    <hr />
+    <section id="offer">
+      <h2>OUR OFFER</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Basic</h3>
+          <ul>
+            <li>Cheap</li>
+            <li>Easy</li>
+            <li>24/7 Support</li>
+            <li>For everyone</li>
+            <button>GET</button>
+          </ul>
+          <div class="price">$15.95 / Month</div>
+        </div>
 
-    <div class="card">
-      <h3>Flex</h3>
-      <ul>
-        <li>Flexible</li>
-        <li>Reliable</li>
-        <li>24/7 Support</li>
-        <li>Best value</li>
-        <button>GET</button>
+        <div class="card">
+          <h3>Flex</h3>
+          <ul>
+            <li>Flexible</li>
+            <li>Reliable</li>
+            <li>24/7 Support</li>
+            <li>Best value</li>
+            <button>GET</button>
+          </ul>
+          <div class="price">$35.95 / Month</div>
+        </div>
+
+        <div class="card">
+          <h3>Premium</h3>
+          <ul>
+            <li>Enterprise level</li>
+            <li>Best option</li>
+            <li>24/7 Support</li>
+            <li>Powerlevel over 9000!</li>
+            <button>GET</button>
+          </ul>
+
+          <div class="price">$95.95 / Month</div>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" />
+        <label for="email">Email Address</label>
+        <input type="email" id="email" />
+        <label for="message">what do you want to tell us?</label>
+        <textarea id="message"></textarea>
+        <small
+          >* By Clicking send you are agreeing to give us your information, which we will sell to the highest
+          bidder</small
+        >
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <small>Legal Information</small>
+      <p id="socialmedia-text">Find us on Social Media</p>
+      <ul id="socialmedia-icons">
+        <li>
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter-square"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-snapchat-square"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-github-square"></i></a>
+        </li>
       </ul>
-      <div class="price">$35.95 / Month</div>
-    </div>
-
-    <div class="card">
-      <h3>Premium</h3>
-      <ul>
-        <li>Enterprise level</li>
-        <li>Best option</li>
-        <li>24/7 Support</li>
-        <li>Powerlevel over 9000!</li>
-        <button>GET</button>
-      </ul>
-
-      <div class="price">$95.95 / Month</div>
-    </div>
-  </div>
-</section>
-<hr>
-<section id="contact">
-  <h2>Contact Us</h2>
-  <form>
-    <label for="name">Full Name</label>
-    <input type="text" id="name">
-    <label for="email">Email Address</label>
-    <input type="email" id="email">
-    <label for="message">what do you want to tell us?</label>
-    <textarea id="message"></textarea>
-    <small>* By Clicking send you are agreeing to give us your information, which we will sell to the highest
-      bidder</small>
-    <button type="submit">Send</button>
-  </form>
-</section>
-
-<footer>
-  <small>Legal Information</small>
-  <p id="socialmedia-text">Find us on Social Media</p>
-  <ul id="socialmedia-icons">
-    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-    <li><a href="#"><i class="fab fa-snapchat-square"></i></a></li>
-    <li><a href="#"><i class="fab fa-github-square"></i></a></li>
-  </ul>
-</footer>
-
-</body>
+    </footer>
+  </body>
 </html>

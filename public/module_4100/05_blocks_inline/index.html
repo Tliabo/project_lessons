@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Block vs Inline</title>
 
     <style>
-        div {
-            background: indigo;
-            color: white;
-            height: 3rem;
-            padding: 1rem;
-            margin: 5rem;
-        }
+      div {
+        background: indigo;
+        color: white;
+        height: 3rem;
+        padding: 1rem;
+        margin: 5rem;
+      }
 
-        p {
-            background: lightgray;
-        }
+      p {
+        background: lightgray;
+      }
 
-        span {
-            background: red;
-        }
+      span {
+        background: red;
+      }
     </style>
+  </head>
+  <body>
+    <div id="block">Im a Block</div>
+    <p>Audax, neuter amors mechanice gratia de <span>regius</span>, rusticus diatria.</p>
+    <section>
+      Hello
+      <img src="https://placedog.net/500" alt="" />
+      <img src="https://placedog.net/500" alt="" />
+      <img src="https://placedog.net/500" alt="" />
+    </section>
 
-</head>
-<body>
-<div id="block">Im a Block</div>
-<p>Audax, neuter amors mechanice gratia de <span>regius</span>, rusticus diatria.</p>
-<section>Hello
-    <img src="https://placedog.net/500" alt="">
-    <img src="https://placedog.net/500" alt="">
-    <img src="https://placedog.net/500" alt="">
-</section>
-
-<section>Hello
-    <img src="https://placedog.net/500" alt=""><img src="https://placedog.net/500" alt=""><img src="https://placedog.net/500" alt="">
-</section>
-</body>
+    <section>
+      Hello <img src="https://placedog.net/500" alt="" /><img src="https://placedog.net/500" alt="" /><img
+        src="https://placedog.net/500"
+        alt=""
+      />
+    </section>
+  </body>
 </html>
