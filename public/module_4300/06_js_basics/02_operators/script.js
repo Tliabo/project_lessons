@@ -2,21 +2,21 @@
 
 // Assignment Operator (=)
 
-var myNum = 24;
+let myNum = 24;
 
 // The addition Operator (+)
 
 // with numbers (adds)
-var result = myNum + myNum;
+let result = myNum + myNum;
 
 // with strings (concatenates)
-var myString1 = 'Hello';
-var myString2 = 'World';
+let myString1 = 'Hello';
+let myString2 = 'World';
 
-var conc = myString1 + ' ' + myString2;
+let conc = myString1 + ' ' + myString2;
 
 // The substractor operator (-)
-var substraction = 100 - myNum;
+let substraction = 100 - myNum;
 
 // kleiner als (<)
 console.log(100 < 200);

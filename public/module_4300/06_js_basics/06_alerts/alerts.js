@@ -8,6 +8,6 @@
 //True False
 // Confirm
 
-var firstNumber = parseInt(prompt('Please input your first number'));
+let firstNumber = parseInt(prompt('Please input your first number'));
 
 console.log(firstNumber);

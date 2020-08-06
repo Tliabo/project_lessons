@@ -1,4 +1,4 @@
-var myArray = ['Popcorn', 'Acorn', 'Lolzz', 'Ant', 'Fish'];
+let myArray = ['Popcorn', 'Acorn', 'Lolzz', 'Ant', 'Fish'];
 
 for (let i = 0; i < myArray.length; i++) {
   if (
@@ -31,9 +31,9 @@ for (let i = 0; i < myArray.length; i++) {
 console.log('---');
 
 for (let i = 0; i < myArray.length; i++) {
-  var firstLetter = myArray[i][0];
-  var lastIndex = myArray[i].length - 1;
-  var lastLetter = myArray[i][lastIndex];
+  let firstLetter = myArray[i][0];
+  let lastIndex = myArray[i].length - 1;
+  let lastLetter = myArray[i][lastIndex];
 
   if (
     firstLetter === 'A' ||

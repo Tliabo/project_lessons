@@ -9,9 +9,9 @@
  */
 
 (function ($) {
-  var createdElements = [];
+  let createdElements = [];
 
-  var defaults = {
+  let defaults = {
     options: {
       prependExistingHelpBlock: false,
       sniffHtml: true, // sniff for 'required', 'maxlength', etc
@@ -29,13 +29,13 @@
     },
     methods: {
       init: function (options) {
-        var settings = $.extend(true, {}, defaults);
+        let settings = $.extend(true, {}, defaults);
 
         settings.options = $.extend(true, settings.options, options);
 
-        var $siblingElements = this;
+        let $siblingElements = this;
 
-        var uniqueForms = $.unique(
+        let uniqueForms = $.unique(
           $siblingElements
             .map(function () {
               return $(this).parents('form')[0];
@@ -44,16 +44,16 @@
         );
 
         $(uniqueForms).bind('submit', function (e) {
-          var $form = $(this);
-          var warningsFound = 0;
-          var $inputs = $form
+          let $form = $(this);
+          let warningsFound = 0;
+          let $inputs = $form
             .find('input,textarea,select')
             .not('[type=submit],[type=image]')
             .filter(settings.options.filter);
           $inputs.trigger('submit.validation').trigger('validationLostFocus.validation');
 
           $inputs.each(function (i, el) {
-            var $this = $(el),
+            let $this = $(el),
               $controlGroup = $this.parents('.control-group').first();
             if ($controlGroup.hasClass('warning')) {
               $controlGroup.removeClass('warning').addClass('error');
@@ -81,7 +81,7 @@
 
         return this.each(function () {
           // Get references to everything we're interested in
-          var $this = $(this),
+          let $this = $(this),
             $controlGroup = $this.parents('.control-group').first(),
             $helpBlock = $controlGroup.find('.help-block').first(),
             $form = $this.parents('form').first(),
@@ -101,7 +101,7 @@
           // *snort sniff snuffle*
 
           if (settings.options.sniffHtml) {
-            var message = '';
+            let message = '';
             // ---------------------------------------------------------
             //                                                   PATTERN
             // ---------------------------------------------------------
@@ -117,7 +117,7 @@
             //                                                       MAX
             // ---------------------------------------------------------
             if ($this.attr('max') !== undefined || $this.attr('aria-valuemax') !== undefined) {
-              var max = $this.attr('max') !== undefined ? $this.attr('max') : $this.attr('aria-valuemax');
+              let max = $this.attr('max') !== undefined ? $this.attr('max') : $this.attr('aria-valuemax');
               message = "Too high: Maximum of '" + max + "'<!-- data-validation-max-message to override -->";
               if ($this.data('validationMaxMessage')) {
                 message = $this.data('validationMaxMessage');
@@ -129,7 +129,7 @@
             //                                                       MIN
             // ---------------------------------------------------------
             if ($this.attr('min') !== undefined || $this.attr('aria-valuemin') !== undefined) {
-              var min = $this.attr('min') !== undefined ? $this.attr('min') : $this.attr('aria-valuemin');
+              let min = $this.attr('min') !== undefined ? $this.attr('min') : $this.attr('aria-valuemin');
               message = "Too low: Minimum of '" + min + "'<!-- data-validation-min-message to override -->";
               if ($this.data('validationMinMessage')) {
                 message = $this.data('validationMinMessage');
@@ -238,7 +238,7 @@
 
           // Get extra ones defined on the element's data attributes
           $.each($this.data(), function (i, el) {
-            var parts = i.replace(/([A-Z])/g, ',$1').split(',');
+            let parts = i.replace(/([A-Z])/g, ',$1').split(',');
             if (parts[0] === 'validation' && parts[1]) {
               validatorNames.push(parts[1]);
             }
@@ -248,8 +248,8 @@
           //                                     NORMALISE VALIDATOR NAMES
           // =============================================================
 
-          var validatorNamesToInspect = validatorNames;
-          var newValidatorNamesToInspect = [];
+          let validatorNamesToInspect = validatorNames;
+          let newValidatorNamesToInspect = [];
 
           do // repeatedly expand 'shortcut' validators into their real validators
           {
@@ -273,7 +273,7 @@
               } else if (settings.builtInValidators[el.toLowerCase()]) {
                 // Is this a recognised built-in?
                 // Pull it out!
-                var validator = settings.builtInValidators[el.toLowerCase()];
+                let validator = settings.builtInValidators[el.toLowerCase()];
                 if (validator.type.toLowerCase() === 'shortcut') {
                   $.each(validator.shortcut.split(','), function (i, el) {
                     el = formatValidatorName(el);
@@ -291,13 +291,13 @@
           //                                       SET UP VALIDATOR ARRAYS
           // =============================================================
 
-          var validators = {};
+          let validators = {};
 
           $.each(validatorNames, function (i, el) {
             // Set up the 'override' message
-            var message = $this.data('validation' + el + 'Message');
-            var hasOverrideMessage = message !== undefined;
-            var foundValidator = false;
+            let message = $this.data('validation' + el + 'Message');
+            let hasOverrideMessage = message !== undefined;
+            let foundValidator = false;
             message = message
               ? message
               : "'" +
@@ -329,11 +329,11 @@
             });
 
             if (!foundValidator && settings.builtInValidators[el.toLowerCase()]) {
-              var validator = $.extend(true, {}, settings.builtInValidators[el.toLowerCase()]);
+              let validator = $.extend(true, {}, settings.builtInValidators[el.toLowerCase()]);
               if (hasOverrideMessage) {
                 validator.message = message;
               }
-              var validatorType = validator.type.toLowerCase();
+              let validatorType = validator.type.toLowerCase();
 
               if (validatorType === 'shortcut') {
                 foundValidator = true;
@@ -388,10 +388,10 @@
           // =============================================================
 
           $this.bind('validation.validation', function (event, params) {
-            var value = getValue($this);
+            let value = getValue($this);
 
             // Get a list of the errors to apply
-            var errorsFound = [];
+            let errorsFound = [];
 
             $.each(validators, function (validatorType, validatorTypeArray) {
               if (
@@ -424,19 +424,19 @@
           $this.bind(
             ['keyup', 'focus', 'blur', 'click', 'keydown', 'keypress', 'change'].join('.validation ') + '.validation',
             function (e, params) {
-              var value = getValue($this);
+              let value = getValue($this);
 
-              var errorsFound = [];
+              let errorsFound = [];
 
               $controlGroup.find('input,textarea,select').each(function (i, el) {
-                var oldCount = errorsFound.length;
+                let oldCount = errorsFound.length;
                 $.each($(el).triggerHandler('validation.validation', params), function (j, message) {
                   errorsFound.push(message);
                 });
                 if (errorsFound.length > oldCount) {
                   $(el).attr('aria-invalid', 'true');
                 } else {
-                  var original = $this.data('original-aria-invalid');
+                  let original = $this.data('original-aria-invalid');
                   $(el).attr('aria-invalid', original !== undefined ? original : false);
                 }
               });
@@ -490,7 +490,7 @@
       },
       destroy: function () {
         return this.each(function () {
-          var $this = $(this),
+          let $this = $(this),
             $controlGroup = $this.parents('.control-group').first(),
             $helpBlock = $controlGroup.find('.help-block').first();
 
@@ -511,11 +511,11 @@
         });
       },
       collectErrors: function (includeEmpty) {
-        var errorMessages = {};
+        let errorMessages = {};
         this.each(function (i, el) {
-          var $el = $(el);
-          var name = $el.attr('name');
-          var errors = $el.triggerHandler('validation.validation', { includeEmpty: true });
+          let $el = $(el);
+          let name = $el.attr('name');
+          let errors = $el.triggerHandler('validation.validation', { includeEmpty: true });
           errorMessages[name] = $.extend(true, errors, errorMessages[name]);
         });
 
@@ -528,7 +528,7 @@
         return errorMessages;
       },
       hasErrors: function () {
-        var errorMessages = [];
+        let errorMessages = [];
 
         this.each(function (i, el) {
           errorMessages = errorMessages.concat(
@@ -566,8 +566,8 @@
             validator.lastValid = true;
             validator.lastFinished = false;
 
-            var rrjqbvValidator = validator;
-            var rrjqbvThis = $this;
+            let rrjqbvValidator = validator;
+            let rrjqbvThis = $this;
             executeFunctionByName(validator.callback, window, $this, value, function (data) {
               if (rrjqbvValidator.lastValue === data.value) {
                 rrjqbvValidator.lastValid = data.valid;
@@ -665,7 +665,7 @@
       match: {
         name: 'match',
         init: function ($this, name) {
-          var element = $this
+          let element = $this
             .parents('form')
             .first()
             .find('[name="' + $this.data('validation' + name + 'Match') + '"]')
@@ -734,7 +734,7 @@
       maxchecked: {
         name: 'maxchecked',
         init: function ($this, name) {
-          var elements = $this
+          let elements = $this
             .parents('form')
             .first()
             .find('[name="' + $this.attr('name') + '"]');
@@ -754,7 +754,7 @@
       minchecked: {
         name: 'minchecked',
         init: function ($this, name) {
-          var elements = $this
+          let elements = $this
             .parents('form')
             .first()
             .find('[name="' + $this.attr('name') + '"]');
@@ -838,16 +838,16 @@
     },
   };
 
-  var formatValidatorName = function (name) {
+  let formatValidatorName = function (name) {
     return name.toLowerCase().replace(/(^|\s)([a-z])/g, function (m, p1, p2) {
       return p1 + p2.toUpperCase();
     });
   };
 
-  var getValue = function ($this) {
+  let getValue = function ($this) {
     // Extract the value we're talking about
-    var value = $this.val();
-    var type = $this.attr('type');
+    let value = $this.val();
+    let type = $this.attr('type');
     if (type === 'checkbox') {
       value = $this.is(':checked') ? value : '';
     }
@@ -868,10 +868,10 @@
    * Short link: http://tinyurl.com/executeFunctionByName
    **/
   function executeFunctionByName(functionName, context /*, args*/) {
-    var args = Array.prototype.slice.call(arguments).splice(2);
-    var namespaces = functionName.split('.');
-    var func = namespaces.pop();
-    for (var i = 0; i < namespaces.length; i++) {
+    let args = Array.prototype.slice.call(arguments).splice(2);
+    let namespaces = functionName.split('.');
+    let func = namespaces.pop();
+    for (let i = 0; i < namespaces.length; i++) {
       context = context[namespaces[i]];
     }
     return context[func].apply(this, args);

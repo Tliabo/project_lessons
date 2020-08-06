@@ -12,8 +12,8 @@
 body {
   font-family: 'Indie Flower';
   font-size: 1rem;
-  background: var(--pri-color);
-  color: var(--sec-color);
+  background: let(--pri-color);
+  color: let(--sec-color);
 }
 
 header {
@@ -54,7 +54,7 @@ hr {
   overflow: visible;
   width: 50vw;
   position: relative;
-  border-color: var(--sec-color);
+  border-color: let(--sec-color);
 }
 
 hr::before {
@@ -96,15 +96,15 @@ hr::after {
 }
 
 #banner .container-middle {
-  background: var(--sec-color);
-  color: var(--qua-color);
+  background: let(--sec-color);
+  color: let(--qua-color);
   padding: 1rem;
   width: 25vw;
-  border: 3px solid var(--pri-color);
+  border: 3px solid let(--pri-color);
 }
 
 #banner .container-middle span {
-  color: var(--ter-color);
+  color: let(--ter-color);
 }
 
 #offer {
@@ -125,7 +125,7 @@ hr::after {
   position: relative;
   flex-direction: column;
   align-items: center;
-  background-color: var(--qua-color);
+  background-color: let(--qua-color);
   margin: 1rem;
   padding: 1rem;
   height: 40vh;
@@ -138,46 +138,46 @@ hr::after {
 
 #offer .members .card:nth-child(1) {
   background-image: url('images/alastorflipped.png');
-  border: solid 2px var(--sec-color);
+  border: solid 2px let(--sec-color);
 }
 
 #offer .members .card:nth-child(2) {
   background-image: url('images/angeldust.webp');
-  border: solid 2px var(--sec-color);
+  border: solid 2px let(--sec-color);
 }
 
 #offer .members .card:nth-child(3) {
   background-image: url('images/charlie.png');
-  border: solid 2px var(--sec-color);
+  border: solid 2px let(--sec-color);
 }
 
 #offer .members .card h3 {
-  color: var(--ter-color);
-  text-shadow: 1px 1px 0 var(--sec-color);
+  color: let(--ter-color);
+  text-shadow: 1px 1px 0 let(--sec-color);
   font-size: 2rem;
   position: absolute;
   top: 3rem;
 }
 
 #offer .members .card ul {
-  background-color: var(--pri-color);
+  background-color: let(--pri-color);
   padding: 1rem 3.5rem 3rem 2rem;
   position: absolute;
   left: 2rem;
   bottom: 5rem;
-  border: solid 1px var(--sec-color);
+  border: solid 1px let(--sec-color);
 }
 
 #offer .members .card button {
-  background: var(--ter-color);
-  color: var(--pri-color);
+  background: let(--ter-color);
+  color: let(--pri-color);
   padding: 0.25rem 2rem;
   font-family: inherit;
   font-size: 1rem;
   position: absolute;
   bottom: -1rem;
   right: -1rem;
-  border: solid 2px var(--sec-color);
+  border: solid 2px let(--sec-color);
 }
 
 #offer .members .card button:hover,
@@ -186,18 +186,18 @@ hr::after {
 }
 
 #offer .members .card .price {
-  background: var(--pri-color);
+  background: let(--pri-color);
   position: absolute;
   right: 1rem;
   bottom: 1rem;
   padding: 0.5rem 0.25rem;
-  border: solid 1px var(--sec-color);
+  border: solid 1px let(--sec-color);
 }
 
 input,
 textarea {
   font-family: 'Quicksand';
-  background: var(--ter-color);
+  background: let(--ter-color);
 }
 
 #contact {
@@ -229,9 +229,9 @@ textarea {
   color: inherit;
   font-family: inherit;
   align-self: flex-end;
-  background: var(--pri-color);
+  background: let(--pri-color);
   padding: 0.5rem 1rem;
-  border: solid 1px var(--sec-color);
+  border: solid 1px let(--sec-color);
 }
 
 #contact::before {
@@ -278,8 +278,8 @@ footer ul > li {
 }
 
 footer ul > li i {
-  color: var(--pri-color);
-  background: var(--sec-color);
-  border: 1px solid var(--sec-color);
+  color: let(--pri-color);
+  background: let(--sec-color);
+  border: 1px solid let(--sec-color);
   border-radius: 2px;
 }

@@ -16,7 +16,7 @@ console.log('My name is ' + name + ', I am ' + age + ' years old and love ' + ho
 
 /* 5. This console.log should be printing out 25, fix it */
 
-var num = 25;
+let num = 25;
 
 if (num === 25) {
   console.log(num);
@@ -24,8 +24,8 @@ if (num === 25) {
 
 /* 6. Something is wrong with this shopping list */
 
-// var shoppingList = [apples; bananas; pears ; 'lettuce' };
-var shoppingList = ['apples', 'bananas', 'pears', 'lettuce'];
+// let shoppingList = [apples; bananas; pears ; 'lettuce' };
+let shoppingList = ['apples', 'bananas', 'pears', 'lettuce'];
 
 /* 7. Now that you have fixed the shopping list, lets print out each individual item to the console using a loop*/
 

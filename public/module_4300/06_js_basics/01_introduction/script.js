@@ -10,16 +10,16 @@
 */
 
 // Number
-var myNumber = 24;
+let myNumber = 24;
 
 // String
-var myText = 'Hello World';
-var strNumber = '24';
+let myText = 'Hello World';
+let strNumber = '24';
 
 // Boolean
-var foo = true;
-var bar = false;
+let foo = true;
+let bar = false;
 
 console.log(myPopcorn);
 
-var myPopcorn = 'popcornius';
+let myPopcorn = 'popcornius';

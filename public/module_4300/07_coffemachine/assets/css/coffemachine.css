@@ -1,0 +1,77 @@
+@import "../../../../assets/css/reset_own.css";
+
+#power-output, #water-tank, #bean-tank, #display, #on-off-switch, #coffee-outlet, #power-plug {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+#power-output {
+  background: gray;
+  left: 10vw;
+  bottom: 50vh;
+}
+
+#water-tank {
+  background: #0b6789;
+  left: 40vw;
+  top: 10vh;
+}
+
+#bean-tank {
+  background: saddlebrown;
+  position: absolute;
+  right: 40vw;
+  top: 10vh;
+}
+
+#display {
+  background: #333;
+  color: white;
+  transform-origin: center center;
+  left: 50vw;
+  top: 30vh;
+  transform: translateX(-50%);
+}
+
+#on-off-switch {
+  background: lightgray;
+  border-radius: 50%;
+  font-size: 3em;
+  border: 2px inset white;
+  left: 60vw;
+  top: 50vh;
+  transform: translateX(-50%);
+}
+
+#on-off-switch.off {
+  color: #dddddd;
+  text-shadow: 0 0 0.5rem;
+}
+
+#on-off-switch.on {
+  color: #34cadb;
+  text-shadow: 0 0 0.3rem, 0 0 0.5rem white;
+}
+
+#on-off-switch .fa-power-off {
+  /*opacity: 1;*/
+}
+
+#coffee-outlet {
+  background: gray;
+  top: 50vh;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+
+#power-plug {
+  background: #d4d4d4;
+  left: 30vw;
+  top: 50vh;
+}
+
+body {
+  background: #ffc1c1;
+}
+

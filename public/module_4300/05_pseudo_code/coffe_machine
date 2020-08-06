@@ -1,12 +1,12 @@
-VARIABLES:              var
+letIABLES:              let
 CONDITIONALS:           if / else
 FUNCTION / OPERATIONS:  xxx()
 JA / NEIN:              true / false
 
-var water = 150
-var beans = 50
-var minWater = 100
-var minBeans = 100
+let water = 150
+let beans = 50
+let minWater = 100
+let minBeans = 100
 
 if (machine is plugged in?) then:
 
