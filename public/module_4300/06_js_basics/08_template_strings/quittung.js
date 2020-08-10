@@ -94,7 +94,7 @@ function getReceipt(purchases) {
 
     receipt += `
         ${quantity}x ${item} for ${price}G. Total : ${quantity * price}G
-    `;
+`;
     totalPrice += price * quantity;
   }
 
@@ -108,7 +108,7 @@ TOTAL: ${totalPrice}G
 
 for (let i = 0; i < report.length; i++) {
 
-  let quittung = `
+  let quittung = `^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Dear ${report[i].client.title} ${report[i].client.firstName} ${report[i].client.lastName},
 
 Thank you for visiting us at ${report[i].shop}
