@@ -114,13 +114,13 @@ Thank you for visiting us at ${reportPos.shop}
 
 Here is your online receipt :
 ${getPurchaseList(reportPos.purchases)}
-Please do not hessitate to contact us if you have any questions
+Please do not hesitate to contact us if you have any questions
 ${reportPos.date}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`;
 }
 
-// console.log(getReceipt(report[0]));
+console.log(getReceipt(report[0]));
 
-for (let i = 0; i < report.length; i++) {
-  console.log(getReceipt(report[i]));
-}
+// for (let i = 0; i < report.length; i++) {
+//   console.log(getReceipt(report[i]));
+// }
