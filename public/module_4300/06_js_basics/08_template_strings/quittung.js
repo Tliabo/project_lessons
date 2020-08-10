@@ -81,7 +81,7 @@ let report = [
   }
 ];
 
-function getReceipt(purchases) {
+function getPurchaseList(purchases) {
 
   let receipt = ``;
   let totalPrice = 0;
@@ -106,18 +106,21 @@ TOTAL: ${totalPrice}G
   return receipt;
 }
 
-for (let i = 0; i < report.length; i++) {
+function getReceipt(reportPos) {
+  return `^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dear ${reportPos.client.title} ${reportPos.client.firstName} ${reportPos.client.lastName},
 
-  let quittung = `^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Dear ${report[i].client.title} ${report[i].client.firstName} ${report[i].client.lastName},
-
-Thank you for visiting us at ${report[i].shop}
+Thank you for visiting us at ${reportPos.shop}
 
 Here is your online receipt :
-${getReceipt(report[i].purchases)}
+${getPurchaseList(reportPos.purchases)}
 Please do not hessitate to contact us if you have any questions
-${report[i].date}
+${reportPos.date}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`;
+}
 
-  console.log(quittung);
+// console.log(getReceipt(report[0]));
+
+for (let i = 0; i < report.length; i++) {
+  console.log(getReceipt(report[i]));
 }
