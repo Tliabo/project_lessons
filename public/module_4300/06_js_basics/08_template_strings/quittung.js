@@ -119,8 +119,8 @@ ${reportPos.date}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`;
 }
 
-console.log(getReceipt(report[0]));
+// console.log(getReceipt(report[0]));
 
-// for (let i = 0; i < report.length; i++) {
-//   console.log(getReceipt(report[i]));
-// }
+for (let i = 0; i < report.length; i++) {
+  console.log(getReceipt(report[i]));
+}

@@ -1,15 +1,16 @@
-let water = 200;
-let beans = 200;
+let water = 0;
+let beans = 0;
 let minWater = 100;
 let minBeans = 100;
 
-let hasMachinePower = true;
-let isMachineOn = true;
+let hasMachinePower = false;
+let isMachineOn = false;
 let hasEnoughWater = false;
 let hasEnoughBeans = false;
 
+
 if (hasMachinePower) {
-   console.log('has power');
+  console.log('has power');
 
   if (isMachineOn) {
     console.log('machine is on');
@@ -19,14 +20,14 @@ if (hasMachinePower) {
       hasEnoughWater = true;
       console.log('there is enough water in machine');
     } else {
-      console.log('fill in more water');
+      alert('fill in more water');
     }
 
     if (beans > minBeans) {
       hasEnoughBeans = true;
       console.log('there are enough beans in machine');
     } else {
-      console.log('put more beans in machine');
+      alert('put more beans in machine');
     }
 
     if (hasEnoughWater && hasEnoughBeans) {
@@ -35,9 +36,9 @@ if (hasMachinePower) {
     }
 
   } else {
-    console.log('turn machine on');
+    alert('turn machine on');
   }
 
 } else {
-  console.log('no Power');
+  alert('no Power');
 }
