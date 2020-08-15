@@ -118,8 +118,13 @@
   text-shadow: 0 0 0.5rem;
 }
 
-#on-off-switch.on {
+#on-off-switch.power {
   color: #34cadb;
+  text-shadow: 0 0 0.3rem, 0 0 0.5rem white;
+}
+
+#on-off-switch.on {
+  color: #53db34;
   text-shadow: 0 0 0.3rem, 0 0 0.5rem white;
 }
 

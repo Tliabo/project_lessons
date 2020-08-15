@@ -1,4 +1,4 @@
-let report = [
+let reports = [
   {
     client: {
       firstName: 'Harry',
@@ -86,17 +86,14 @@ function getPurchaseList(purchases) {
   let receipt = ``;
   let totalPrice = 0;
 
-  for (let i = 0; i < purchases.length; i++) {
+  purchases.forEach(purchase => {
+    let quantity = purchase.quantity;
+    let item = purchase.item;
+    let price = purchase.price;
 
-    let quantity = purchases[i].quantity;
-    let item = purchases[i].item;
-    let price = purchases[i].price;
-
-    receipt += `
-        ${quantity}x ${item} for ${price}G. Total : ${quantity * price}G
-`;
+    receipt += `\n\t\t${quantity}x ${item} for ${price}G. Total : ${quantity * price}G \n`;
     totalPrice += price * quantity;
-  }
+  })
 
   receipt += `
 -----------------------------------------
@@ -119,8 +116,6 @@ ${reportPos.date}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^`;
 }
 
-// console.log(getReceipt(report[0]));
-
-for (let i = 0; i < report.length; i++) {
-  console.log(getReceipt(report[i]));
-}
+reports.forEach(report => {
+  console.log(getReceipt(report))
+})
