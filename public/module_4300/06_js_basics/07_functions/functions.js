@@ -29,8 +29,14 @@ let powerArrow = number => number * number;
 
 console.log(powerArrow(5));
 
-let lordifyArrow;
-lordifyArrow = name => name + ' from ' + 'Canada';
-// lordifyArrow = (name, location) => name + ' from ' + location;
+// with concatenation
+// let lordifyArrow = name => name + ' from Canada';
+// console.log(lordifyArrow('Tobia', 'ree'));
 
-console.log(lordifyArrow('Tobia', 'ree'));
+// with concatenation and additional variable
+// let lordifyArrow = (name, location) => name + ' from ' + location;
+// console.log(lordifyArrow('Tobia', 'ree'));
+
+// templatestring with variables
+// let lordifyArrow = (name, location) => `${name} from ${location}`;
+// console.log(lordifyArrow('Tobia', 'ree2'));

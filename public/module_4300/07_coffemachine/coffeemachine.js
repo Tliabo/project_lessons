@@ -1,9 +1,9 @@
 let water = 0;
 let beans = 0;
-let minWater = 100;
-let minBeans = 100;
-let maxWater = 500;
-let maxBeans = 500;
+const minWater = 100;
+const minBeans = 100;
+const maxWater = 500;
+const maxBeans = 500;
 
 let hasMachinePower = true;
 let isMachineOn = false;
