@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Input</title>
+  <style>
+
+    label {
+      font-size: 2em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 50vw;
+      margin: 0 auto;
+    }
+
+    #storyContainer {
+      margin: 0 auto;
+      width: 50vw;
+    }
+
+  </style>
+</head>
+<body>
+<form>
+  <label for="hero">Hero</label>
+  <input id="hero" type="text">
+  <label for="enemy">Enemy</label>
+  <input id="enemy" type="text">
+  <label for="princess">Princess</label>
+  <input id="princess" type="text">
+  <label for="verbEnemy">Verb for Enemy</label>
+  <input id="verbEnemy" type="text">
+  <label for="verbStory">Verb for story</label>
+  <input id="verbStory" type="text">
+  <label for="verbStory2">another verb for story</label>
+  <input id="verbStory2" type="text">
+  <button type="submit">Send</button>
+</form>
+
+<div id="storyContainer"></div>
+<script src="01_input_event.js"></script>
+</body>
+</html>
