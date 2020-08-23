@@ -4,9 +4,14 @@ class coffeeMachine {
   #onOffSwitch;
   #addWaterButton;
   #addBeansButton;
+  #display;
+  #powerPlug;
 
   #waterLvl = 0;
   #beanLvl = 0;
+  #displayText = '';
+  #isPowerPlugDown = false;
+  #powerPlugOffset = [0, 0];
 
   static MIN_WATER_LVL = 50;
   static MIN_BEANS_LVL = 25;
@@ -19,62 +24,50 @@ class coffeeMachine {
   #machineIsOn = false;
   #machineMakesCoffee = false;
 
-  constructor(waterTank, beanTank, onOffSwitch, addWaterButton, addBeansButton) {
+  constructor(waterTank, beanTank, onOffSwitch, addWaterButton, addBeansButton, displayInner, powerPlug) {
     this.#waterTank = waterTank;
     this.#beanTank = beanTank;
     this.#onOffSwitch = onOffSwitch;
     this.#addWaterButton = addWaterButton;
     this.#addBeansButton = addBeansButton;
+    this.#display = displayInner;
+    this.#powerPlug = powerPlug;
 
+    this.#onOffSwitch.addEventListener('click', e => this.turnMachineOnOff(e));
+    this.#addWaterButton.addEventListener('click', e => this.addWater(e));
+    this.#addBeansButton.addEventListener('click', e => this.addBeans(e));
+    this.#display.addEventListener('click', e => this.#makeCoffee(e));
 
-    this.#onOffSwitch.addEventListener('click', e => this.turnMachineOnOff());
+    this.#powerPlug.addEventListener('mousedown', e => this.setDownPowerPlug(e));
+    this.#powerPlug.addEventListener('mouseup', e => this.pickUpPowerPlug(e));
+    this.#powerPlug.addEventListener('mousemove', e => this.movePowerPlug(e));
 
-    this.#addWaterButton.addEventListener('click', e => this.addWater());
-
-    this.#addBeansButton.addEventListener('click', e => this.addBeans());
-
-    this.updateBeanLvl();
-    this.updateWaterLvl();
+    this.#updateBeanLvl();
+    this.#updateWaterLvl();
 
     coffeeMachine.LIST.push(this);
-  }
-
-  isWaterLvlOk() {
-    return this.#waterLvl >= coffeeMachine.MIN_WATER_LVL && coffeeMachine.#waterLvl <= coffeeMachine.MAX_WATER_LVL;
-  }
-
-  isBeanLvlOk() {
-    return this.#beanLvl >= coffeeMachine.MIN_BEANS_LVL && coffeeMachine.#beanLvl <= coffeeMachine.MAX_BEAN_LVL;
-  }
-
-  isMakingCoffee() {
-    return this.#machineMakesCoffee;
-  }
-
-  plugMachineInOut() {
-    if (!this.#machineHasPower) {
-      this.#machineHasPower = true;
-      this.#onOffSwitch.classList.replace('nopower', 'off');
-    } else {
-      this.#machineMakesCoffee = false;
-      this.#machineIsOn = false;
-      this.#machineHasPower = false;
-      this.#onOffSwitch.classList.replace('off', 'nopower');
-      this.#onOffSwitch.classList.replace('on', 'nopower');
-    }
   }
 
   turnMachineOnOff() {
     if (this.#machineHasPower && this.#machineIsOn) {
       this.#machineIsOn = false;
       this.#onOffSwitch.classList.replace('on', 'off');
+      this.#setDisplayText('');
     } else if (this.#machineHasPower && !this.#machineIsOn) {
       this.#machineIsOn = true;
       this.#onOffSwitch.classList.replace('off', 'on');
+      this.#addTextToDisplay('machine is starting...\n');
     } else {
       alert('machine has no power to turn on');
     }
-    console.table(this);
+  }
+
+  #isWaterLvlOk() {
+        return this.#waterLvl >= coffeeMachine.MIN_WATER_LVL;
+  }
+
+  #isBeanLvlOk() {
+    return this.#beanLvl >= coffeeMachine.MIN_BEANS_LVL;
   }
 
   addWater() {
@@ -83,18 +76,14 @@ class coffeeMachine {
     } else {
       this.#waterLvl = coffeeMachine.MAX_WATER_LVL;
     }
-    this.updateWaterLvl();
+    this.#updateWaterLvl();
 
     // console.table(this);
   }
 
-  useWater() {
-    if (this.isWaterLvlOk()) {
-      this.#waterLvl -= 50;
-    } else {
-      console.log('fill in more water');
-    }
-    this.updateWaterLvl();
+  #useWater() {
+    this.#waterLvl -= 50;
+    this.#updateWaterLvl();
   }
 
   addBeans() {
@@ -103,44 +92,114 @@ class coffeeMachine {
     } else {
       this.#beanLvl = coffeeMachine.MAX_BEAN_LVL;
     }
-    this.updateBeanLvl();
+    this.#updateBeanLvl();
     // console.table(this);
   }
 
-  useBeans() {
-    if (this.isBeanLvlOk()) {
-      this.#beanLvl -= 25;
-    } else {
-      console.log('put more beans in machine');
-    }
-    this.updateBeanLvl();
+  #useBeans() {
+    this.#beanLvl -= 25;
+    this.#updateBeanLvl();
   }
 
-  makeCoffee() {
-    if (!this.isMakingCoffee()) {
+  #makeCoffee() {
+
+    if (!this.#isWaterLvlOk() && this.#machineHasPower && this.#machineIsOn) {
+      this.#addTextToDisplay('fill in more water \n');
+    }
+
+    if (!this.#isBeanLvlOk() && this.#machineHasPower && this.#machineIsOn) {
+      this.#addTextToDisplay('fill in more beans \n');
+    }
+
+    if (this.#isWaterLvlOk() && this.#isBeanLvlOk() && !this.#machineMakesCoffee && this.#machineHasPower && this.#machineIsOn) {
       this.#machineMakesCoffee = true;
-      console.log('Im making cofefe!');
-      this.useWater();
-      this.useBeans();
-      console.log('cofefe done!');
+      this.#addTextToDisplay('Me is doing cofefe!\n');
+      document.querySelector('#coffee-cup').hidden = false;
+      this.#useWater();
+      this.#useBeans();
+      this.#addTextToDisplay('Cofefe is done!\n');
       this.#machineMakesCoffee = false;
-    } else {
-      console.log('Machine is already making Cofefe!');
+    } else if (this.#machineMakesCoffee) {
+      this.#addTextToDisplay('Can\'t do more then one Cofefe\n');
+    }
+
+
+  }
+
+  #calcTankLvlPercent(tankLvl, maxTankLvl) {
+    return (100 * tankLvl) / maxTankLvl;
+  }
+
+  #updateWaterLvl() {
+    this.#waterTank.style.background = `linear-gradient(to top, #0b6789 0%, #0b6789 ${this.#calcTankLvlPercent(this.#waterLvl, coffeeMachine.MAX_WATER_LVL)}%, transparent ${this.#calcTankLvlPercent(this.#waterLvl, coffeeMachine.MAX_WATER_LVL)}%, transparent 100%)`;
+  }
+
+  #updateBeanLvl() {
+    this.#beanTank.style.background = `linear-gradient(to top, saddlebrown 0%, saddlebrown ${this.#calcTankLvlPercent(this.#beanLvl, coffeeMachine.MAX_BEAN_LVL)}%, transparent ${this.#calcTankLvlPercent(this.#beanLvl, coffeeMachine.MAX_BEAN_LVL)}%, transparent 100%)`;
+  }
+
+  #addTextToDisplay(text) {
+    this.#displayText += text;
+    this.#setDisplayText(this.#displayText);
+  }
+
+  #setDisplayText(text) {
+
+    let lines = text.split('\n');
+
+    if (lines.length >= 11) {
+      lines.splice(0,1);
+      text = lines.join('\n');
+    }
+    console.log(text);
+    this.#displayText = text;
+    this.#display.querySelector('.inner').innerText = this.#displayText;
+  }
+
+  setDownPowerPlug(e) {
+    this.#isPowerPlugDown = true;
+    this.#powerPlugOffset = [
+      this.#powerPlug.offsetLeft - e.clientX,
+      this.#powerPlug.offsetTop - e.clientY
+    ];
+  }
+
+  pickUpPowerPlug() {
+    this.#isPowerPlugDown = false;
+  }
+
+  movePowerPlug(e) {
+    if (this.#isPowerPlugDown) {
+      this.#powerPlug.style.left = (e.clientX + this.#powerPlugOffset[0]) + 'px';
+      this.#powerPlug.style.top = (e.clientY + this.#powerPlugOffset[1]) + 'px';
+
+      this.#powerPlug.hidden = true;
+      let elemBelow = document.elementFromPoint(e.clientX, e.clientY);
+      this.#powerPlug.hidden = false;
+
+      if (!elemBelow) {
+        return;
+      }
+
+      let droppablePlace = document.querySelector('#power-output');
+
+      if (elemBelow === droppablePlace) {
+        this.#enterDroppable(droppablePlace);
+      } else {
+        this.#leaveDroppable(droppablePlace);
+      }
     }
   }
 
-  calcTankLvlPercent(tankLvl, maxTankLvl) {
-    let result = (100 * tankLvl) / maxTankLvl;
-    console.log(result);
-    return result;
+  #leaveDroppable(e) {
+    this.#machineHasPower = false;
+    this.#onOffSwitch.classList.replace('off', 'nopower');
+    this.#onOffSwitch.classList.replace('on', 'nopower');
   }
 
-  updateWaterLvl() {
-    this.#waterTank.style.background = `linear-gradient(to top, #0b6789 0%, #0b6789 ${this.calcTankLvlPercent(this.#waterLvl, coffeeMachine.MAX_WATER_LVL)}%, transparent ${this.calcTankLvlPercent(this.#waterLvl, coffeeMachine.MAX_WATER_LVL)}%, transparent 100%)`;
-  }
-
-  updateBeanLvl() {
-    this.#beanTank.style.background = `linear-gradient(to top, saddlebrown 0%, saddlebrown ${this.calcTankLvlPercent(this.#beanLvl, coffeeMachine.MAX_BEAN_LVL)}%, transparent ${this.calcTankLvlPercent(this.#beanLvl, coffeeMachine.MAX_BEAN_LVL)}%, transparent 100%)`;
+  #enterDroppable(e) {
+    this.#machineHasPower = true;
+    this.#onOffSwitch.classList.replace('nopower', 'off');
   }
 
 }
@@ -150,11 +209,10 @@ new coffeeMachine(
   document.querySelector('#bean-tank'),
   document.querySelector('#on-off-switch'),
   document.querySelector('#add-water'),
-  document.querySelector('#add-beans')
+  document.querySelector('#add-beans'),
+  document.querySelector('#display'),
+  document.querySelector('#power-plug')
 );
 
-coffeeMachine.LIST[0].plugMachineInOut();
-
-console.table(coffeeMachine.LIST[0]);
 
 // console.table(coffeeMachines[0]);
