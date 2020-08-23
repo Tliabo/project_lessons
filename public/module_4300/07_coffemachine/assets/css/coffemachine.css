@@ -101,6 +101,7 @@
   grid-area: button-r;
   left: 0.5rem;
   top: 2.2rem;
+  background: transparent;
 }
 
 #on-off-switch.nopower {
