@@ -1,5 +1,11 @@
 function mask(cc) {
   // code here
+
+  let result1 = cc;
+  for (let i = 0; i < cc.length-4; i++) {
+    result1 = result1.replace(result1[i], '*');
+  }
+  return result1;
 }
 /*
   Um den Code zu testen, richten Sie eine Testumgebung ein
