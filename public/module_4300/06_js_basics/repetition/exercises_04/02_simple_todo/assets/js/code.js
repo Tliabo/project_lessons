@@ -7,11 +7,10 @@
 //        If NOT inform the user
 
 
-let toDoList = '';
+let toDoList = document.querySelector('.list');
 
 const creatTaskButton = document.querySelector('.add');
 
-let task;
 let message = document.querySelector('.message');
 
 
@@ -26,15 +25,14 @@ creatTaskButton.addEventListener('click', e => {
     // clear the input field
     document.querySelector('#todo').value = '';
 
-    addListToCode();
-
     document.querySelectorAll('.remove-item').forEach(icon => {
       icon.addEventListener('click', e => {
         e.target.parentNode.remove();
 
-        toDoList = document.querySelector('.list').innerHTML;
+        toDoList = document.querySelector('.list');
       });
     });
+
   } else {
     message.style.opacity = '1';
     message.innerHTML = 'You need more then 3 characters to creat a task!';
@@ -44,10 +42,8 @@ creatTaskButton.addEventListener('click', e => {
 });
 
 function creatTask(text) {
-  task = `<li class="list-item">${text} <i class="fas fa-dumpster remove-item"></i></li>`;
-  toDoList += task;
-}
-
-function addListToCode() {
-  document.querySelector('.list').innerHTML = toDoList;
+  let task = document.createElement('li');
+  task.classList.add('list-item');
+  task.innerHTML = `${text} <i class="fas fa-dumpster remove-item"></i>`;
+  toDoList.appendChild(task);
 }

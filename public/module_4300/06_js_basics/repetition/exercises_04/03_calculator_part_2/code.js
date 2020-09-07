@@ -46,7 +46,6 @@ function addClickToKeys() {
   }
 }
 
-
 function calculate() {
   let result;
 
@@ -61,6 +60,8 @@ function calculate() {
         result = query[i] * query[i + 2];
       } else if (query[i + 1] === '/') {
         result = query[i] / query[i + 2];
+      } else {
+        console.log('you are a bad boi!')
       }
     }
   }

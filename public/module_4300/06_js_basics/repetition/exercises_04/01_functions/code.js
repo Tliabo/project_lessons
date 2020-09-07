@@ -6,11 +6,15 @@ Example string : 'the quick brown fox'
 Expected Output : 'The Quick Brown Fox '
 */
 
-function setFirstLetterCapped(text) {
-    let letters = text.split(' ');
-    let editedLetters = []
+function setFirstLettersCapped(str) {
+    let letters = str.split(' ');
+    let editedLetters = [];
+
     letters.forEach(letter => {
         let editedLetter = letter[0].toUpperCase() + letter.slice(1);
+
+        // .charAt(pos) spezifischer, erkennt ob es ein string ist.
+        // let editedLetter = letter.charAt(0).toUpperCase() + letter.slice(1);
         editedLetters.push(editedLetter);
     })
     return editedLetters.join(' ');
@@ -24,11 +28,11 @@ Example string : 'Web Development Tutorial'
 Expected Output : 'Development'
 */
 
-function findLongestWord(text) {
-    let letters = text.split(' ');
+function findLongestWord(str) {
+    let words = str.split(' ');
     let longestWord = '';
 
-    letters.forEach(word => {
+    words.forEach(word => {
         if (word.length > longestWord.length) {
             longestWord = word;
         }

@@ -1,0 +1,25 @@
+body {
+  background: #333333;
+}
+
+.gallery {
+  max-width: 760px;
+  margin: auto;
+  border: white solid 3px;
+  background: white;
+}
+
+.gallery img {
+  height: auto;
+  width: 100%;
+}
+
+.gallery .img-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.gallery img.active {
+  opacity: 50%;
+}
