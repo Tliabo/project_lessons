@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #333333;
+}
+
+form {
+  width: 25vw;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr 1fr;
+  background: white;
+  padding: 1rem;
+}
+
+.message {
+  grid-column-start: 2;
+  opacity: 0;
+  color: darkred;
+  transition: opacity 0.6s;
+}
+
+.list {
+  width: 25vw;
+}
+
+.list .list-item {
+  font-size: 1em;
+  background: #d4d4d4;
+  padding: 0.25rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list .list-item .remove-item {
+  display: none;
+}
+
+.list .list-item:hover .remove-item {
+  display: unset;
+  color: #434343;
+}

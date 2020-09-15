@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-weight: 400;
+  text-align: end;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background: white;
+  padding: 1rem;
+  font-size: 2em;
+}
+
+.contact #btn-send {
+  align-self: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 1em;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid #333333;
+  border-radius: 0.25rem;
+}
+
+.contact #btn-send:hover {
+  transition: background 0.5s, color 0.5s;
+  background: #333333;
+  color: white;
+}
+
+.contact > label {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  margin-top: 1rem;
+  font-size: 2em;
+}
+
+.contact #message, .contact input {
+  padding: 0.5rem;
+}
+
+.contact input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.contact .info-message {
+  color: red;
+  font-size: 1em;
+  margin-top: 0.5rem;
+}
+
+.contact .counterBox {
+  font-size: 1.5em;
+}
