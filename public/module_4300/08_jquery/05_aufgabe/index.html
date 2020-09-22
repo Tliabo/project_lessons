@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click, Hover Event</title>
+
+  <style>
+    body {
+      background: #333333;
+    }
+
+  </style>
+</head>
+<body>
+<h1>My Priority List</h1>
+<ul class="prio-list">
+  <li class="med">task 1</li>
+  <li class="low">task 2</li>
+  <li class="high">task 3</li>
+  <li class="med">task 4</li>
+  <li class="low">task 5</li>
+  <li class="high">task 6</li>
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+
+    $('.med').hover(
+      function (e) {
+        $(this).append('<span>medium priority</span>')
+    },
+      function (e) {
+        $('span').remove()
+    })
+
+    $('.low').hover(
+      function (e) {
+        $(this).append('<span>low priority</span>')
+      },
+      function (e) {
+        $('span').remove()
+      })
+
+    $('.high').hover(
+      function (e) {
+        $(this).append('<span>high priority</span>')
+      },
+      function (e) {
+        $('span').remove()
+      })
+
+  })
+</script>
+</body>
+</html>

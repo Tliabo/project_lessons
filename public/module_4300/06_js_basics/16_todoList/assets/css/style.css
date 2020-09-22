@@ -43,3 +43,14 @@ form {
   display: unset;
   color: #434343;
 }
+
+.list .list-item .todoCheck {
+  background-image: url("../images/check-square.svg");
+  background-repeat: no-repeat;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.list .list-item .todoCheck.false {
+  background-image: url("../images/square.svg");
+}

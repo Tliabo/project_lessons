@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation</title>
+
+  <style>
+    body {
+      background: #333333;
+    }
+
+    div {
+      background: deeppink;
+      height: 300px;
+      width: 300px;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<button type="button">Activate</button>
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, expedita fuga hic illum molestiae mollitia neque perspiciatis quo tenetur velit.</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  // is .ready is deprecated
+  $(document).ready(function () {
+
+    $('button').on('click', e => {
+      // $('div').show();
+      // $('div').hide('slow');
+      // $('div').toggle('slow');
+      // $('div').slideDown(8000);
+      // $('div').slideToggle(500);
+      // $('div').fadeToggle(500);
+    })
+
+    // needs to be hidden first
+    $('div').slideDown(500, function () {
+      $('body').append('<p>Animation is done</p>')
+    });
+
+  })
+</script>
+</body>
+</html>

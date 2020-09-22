@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JQuery</title>
+</head>
+<body>
+
+<div class="foo">
+  <p>fisch</p>
+  <p>fisch</p>
+  <p>fisch</p>
+  <p>fisch</p>
+  <p>fisch</p>
+</div>
+
+<div class="baz">
+  <ul>
+    <li>ham</li>
+    <li>ham</li>
+    <li>ham</li>
+    <li>ham</li>
+    <li>ham</li>
+  </ul>
+  <p class="evil">cream</p>
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+
+    $('p').css('border', '1px solid blue')
+    $('.foo').css({'background': 'pink', 'border': '3px solid red'})
+    $('p:not(.evil)').css('font-family', 'sans-serif')
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation</title>
+
+  <style>
+    body {
+      background: #333333;
+    }
+
+    .pink, .yellow {
+      height: 300px;
+      width: 300px;
+      display: block;
+    }
+
+    .pink {
+      background: deeppink;
+    }
+
+    .yellow {
+      background: yellow;
+    }
+
+    div {
+      background: cadetblue;
+      width: 200px;
+      height: 100px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="hover-fade">fade mit hover</div>
+<div class="yellow"></div>
+
+<div class="click-toggle">toggle mit click</div>
+<div class="pink"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+  $(function () {
+    $('.hover-fade').hover(function (){
+      $('.yellow').fadeToggle(500);
+    });
+
+
+    $('.click-toggle').on('click', e => {
+      $('.pink').toggle(500);
+    });
+  });
+</script>
+</body>
+</html>

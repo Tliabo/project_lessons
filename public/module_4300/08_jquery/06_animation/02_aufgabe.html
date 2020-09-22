@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation</title>
+
+  <style>
+    body {
+      background: #333333;
+    }
+
+    div {
+      background: pink;
+      height: 300px;
+      width: 300px;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+<div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  // is .ready is deprecated
+  $(function () {
+
+    $('div').on('click', function () {
+      $('div').animate({
+        width: 'toggle',
+        opacity: 0.5
+      },
+        1000,
+        function () {
+        $('div').animate({
+          width: 'toggle',
+          opacity: 1,
+        })
+        })
+    })
+
+  })
+</script>
+</body>
+</html>

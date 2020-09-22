@@ -1,8 +1,9 @@
-
 const creatTaskButton = document.querySelector('.add');
 const message = document.querySelector('.message');
+const clearButton = document.querySelector('#clearComplete');
+const markButton = document.querySelector('#markAllComplete');
 
-let todoList = new Array;
+let todoList = new Array();
 getTodos();
 populateList();
 
@@ -10,10 +11,28 @@ creatTaskButton.addEventListener('click', e => {
   addTodo();
 });
 
+clearButton.addEventListener('click', e => {
+  e.preventDefault();
+  todoList = todoList.filter(task => task.complete == false);
+  updateStorage();
+  populateList();
+});
+
+markButton.addEventListener('click', e => {
+  e.preventDefault();
+
+  todoList = todoList.forEach(task => {
+    task.complete = true;
+  });
+
+  populateList();
+  updateStorage();
+})
+
 function getTodos() {
 
   // If there are items in the local storage
-  if (localStorage.getItem('todos')){
+  if (localStorage.getItem('todos')) {
     todoList = JSON.parse(localStorage.getItem('todos'));
   } else {
     // There are NO items in the local storage
@@ -22,7 +41,7 @@ function getTodos() {
 }
 
 function addTodo() {
-  // Only add a todo if there is a value in the input
+  // Only add a to-do if there is a value in the input
   const newTask = document.querySelector('#todoInput').value;
 
   if (newTask) {
@@ -49,6 +68,24 @@ function updateStorage() {
   localStorage.setItem('todos', JSON.stringify(todoList));
 }
 
+function updateBoxes() {
+  let boxes = document.querySelectorAll('.todoCheck');
+
+  boxes.forEach((box, i) => {
+    box.addEventListener('click', e => {
+      box.classList.toggle('false');
+
+      if (box.classList.contains('false')) {
+        todoList[i].complete = false;
+      } else {
+        todoList[i].complete = true;
+      }
+
+      updateStorage()
+    })
+  })
+}
+
 // populate the list in the HTML
 function populateList() {
   // delete the current list
@@ -57,15 +94,16 @@ function populateList() {
 
   if (todoList) {
     todoList.forEach(task => {
-      const todoWrapper = document.createElement('li');
-      todoWrapper.classList.add('todoWrapper');
-      todoWrapper.innerHTML = `
-      <div class="todoText">${task.text}</div>
-      <div class="todoCheck">${task.complete}</div>
+      const listItem = document.createElement('li');
+      listItem.classList.add('list-item');
+      listItem.innerHTML = `
+<div class="todoText">${task.text}</div>
+<div class="todoCheck ${task.complete == false ? 'false' : ''}"></div>
 `
-      list.appendChild(todoWrapper)
+      list.appendChild(listItem)
     })
   }
+  updateBoxes();
 }
 
 
