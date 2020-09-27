@@ -1,0 +1,80 @@
+@import "fonts.css";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-weight: 400;
+  text-align: end;
+}
+
+h2 {
+  margin-top: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background: #e5e5e5;
+  padding: 1rem;
+}
+
+form .btn-submit {
+  align-self: center;
+  padding: 0.25rem 0.5rem;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid #333333;
+  border-radius: 0.25rem;
+}
+
+form .btn-submit:hover {
+  transition: background 0.5s, color 0.5s;
+  background: #333333;
+  color: white;
+}
+
+form .input-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+form .input-group.check {
+  flex-direction: row;
+  align-items: center;
+}
+
+form textarea, form input {
+  padding: 0.5rem;
+}
+
+form textarea {
+  max-width: 100%;
+  min-width: 100%;
+}
+
+form input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+form input[type="radio"], form input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+form .error-message {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+form .counterBox {
+}
