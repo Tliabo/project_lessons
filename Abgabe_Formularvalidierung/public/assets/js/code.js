@@ -1,5 +1,6 @@
 const sendButton = document.querySelector('.btn-submit');
 sendButton.addEventListener('click', validateForm);
+const storageKey = 'formData';
 
 let form = [];
 
@@ -18,6 +19,12 @@ let validationErrors = {}
 
 function validateForm(e) {
   e.preventDefault();
+
+  if(localStorage.getItem(storageKey)) {
+    getStorageData();
+  } else {
+    updateStorage();
+  }
 
   validateFirstName();
   validateLastName();
@@ -135,10 +142,18 @@ function validatePhone() {
 }
 
 function updateStorage() {
-  localStorage.setItem('form', JSON.stringify(form));
+  localStorage.setItem(storageKey, JSON.stringify(form));
 }
 
-function populateStorage() {
-  // delete content in form
+function getStorageData() {
+  form = JSON.parse(localStorage.getItem(storageKey));
+}
 
+// populate the form in HTML
+function populateForm() {
+  // reset the form content
+  const textInputList = ['firstName', 'lastName', 'email', 'phoneNumber']
+  textInputList.forEach(selector => {
+    document.querySelector(`#${selector}`).
+  })
 }

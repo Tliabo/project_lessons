@@ -1,0 +1,56 @@
+@import "fonts.css";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 60%;
+  min-height: 60%;
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-right: 1rem;;
+}
+
+.container .accordion {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.accordion .card {
+  padding: 0.5rem;
+  position: relative;
+  border: 1px solid lightgray;
+  margin: 0.5rem 0;
+}
+
+.card .card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion .toggle {
+  background: lightgray;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.card .card-body {
+  width: 90%;
+  display: none;
+}

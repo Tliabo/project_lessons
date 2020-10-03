@@ -1,0 +1,25 @@
+@import "../../assets/css/tp_reset.css";
+
+body {
+  background: #333333;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background: #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 2px 2px 4px #ccc;
+}
+
+.card img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  filter: drop-shadow(2px 2px 4px #333333);
+}
