@@ -1,0 +1,25 @@
+@import "../../assets/css/tp_reset.css";
+
+
+nav {
+  display: flex;
+  position: relative;
+}
+
+#trigger {
+  padding: 1rem;
+  background: white;
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform-origin: center top;
+}
+
+.nav-menu.active {
+  display: flex;
+}

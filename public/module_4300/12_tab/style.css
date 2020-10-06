@@ -1,0 +1,49 @@
+@import "../../assets/css/tp_reset.css";
+
+.tab-container {
+  color: white;
+  font-family: sans-serif;
+}
+
+.tab-container {
+  margin: 10rem auto;
+  width: 70%;
+  max-width: 500px;
+}
+
+.tab-auswahl li {
+  position: relative;
+  background: white;
+  color: #444444;
+  display: inline-block;
+  padding: 1rem 2rem;
+  opacity: .8;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.tab-auswahl li:hover {
+  color: #222222;
+}
+
+.tab-auswahl li.active {
+  color: #222222;
+  opacity: 1;
+}
+
+.tab-inhalt > div {
+  background: white;
+  color: #333333;
+  width: 100%;
+  padding: 2rem;
+  min-height: 200px;
+}
+
+.line {
+  position: absolute;
+  width: 0;
+  height: 7px;
+  background: aqua;
+  top: 0;
+  left: 0;
+}

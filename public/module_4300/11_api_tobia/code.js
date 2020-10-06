@@ -12,9 +12,7 @@ fetch('https://api.magicthegathering.io/v1/cards')
         const cardContainer = document.createElement('div');
         cardContainer.classList.add('card');
 
-        const template = `
-        <img src="${card.imageUrl}" title="${card.name}">
-      `;
+        const template = `<img src="${card.imageUrl}" title="${card.name}">`;
 
         cardContainer.innerHTML = template;
         document.querySelector('.container').appendChild(cardContainer);
@@ -24,6 +22,8 @@ fetch('https://api.magicthegathering.io/v1/cards')
     });
 
     $('.card img').on('click', function(e) {
+
+      $('.card img').parent().removeClass('active');
 
       $('.card img').not($(this)).animate({
         width: '50px'
@@ -37,7 +37,11 @@ fetch('https://api.magicthegathering.io/v1/cards')
 
       $(this).animate({
         width: '200px'
-      }, 1000);
+      }, 1000, function () {
+        $('.card img').not($(this)).animate({
+          width: '50px'
+        }, 500)
+      });
 
       $(this).parent().css('position', 'absolute').animate({
         top: '50vh',
