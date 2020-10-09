@@ -1,5 +1,5 @@
 @import "../../assets/css/tp_reset.css";
-
+@import url(https://use.fontawesome.com/releases/v5.13.0/css/all.css);
 
 nav {
   display: flex;
@@ -9,6 +9,7 @@ nav {
 #trigger {
   padding: 1rem;
   background: white;
+  font-size: 2em;
 }
 
 .nav-menu {
@@ -22,4 +23,9 @@ nav {
 
 .nav-menu.active {
   display: flex;
+}
+
+.menu-item {
+  background: white;
+  padding: 1rem 2rem;
 }
