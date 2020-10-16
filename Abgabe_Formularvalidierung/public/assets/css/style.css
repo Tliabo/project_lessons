@@ -42,15 +42,17 @@ form .btn-submit:hover {
   color: white;
 }
 
-form .input-group {
+form .form-group {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  border: none;
 }
 
-form .input-group.check {
+form .form-group.check {
   flex-direction: row;
   align-items: center;
+  margin: 0;
 }
 
 form textarea, form input {
@@ -67,13 +69,17 @@ form input {
   border-bottom: 1px solid black;
 }
 
-form input[type="radio"], form input[type="checkbox"] {
+form input[type=radio], form input[type=checkbox] {
   margin-right: 0.5rem;
 }
 
 form .error-message {
   color: red;
   margin-top: 0.5rem;
+}
+
+form .text-success {
+  color: green;
 }
 
 form .counterBox {
