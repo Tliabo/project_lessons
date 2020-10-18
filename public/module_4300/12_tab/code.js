@@ -23,7 +23,7 @@ $(function () {
   })
 
   tabMenu.on('click', function () {
-    let dataTab = $(this).data('tab')
+    let dataTabIndex = $(this).data('tab')
     let getWrapper = $(this).closest(wrapper)
 
     // remove 'active' from the tabs and add it to the clicked tab
@@ -37,7 +37,7 @@ $(function () {
     // we reeset all the content div's
     getWrapper.find(allTabs).hide()
     // show the tab content using it's corresponding data-tab attribute
-    getWrapper.find(allTabs).filter(`[data-tab=${dataTab}]`).show()
+    getWrapper.find(allTabs).filter(`[data-tab=${dataTabIndex}]`).show()
   })
 
 
