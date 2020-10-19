@@ -1,0 +1,59 @@
+@import url(https://use.fontawesome.com/releases/v5.13.0/css/all.css);
+@import "mixins";
+
+$primary-color: skyblue;
+$text-color: white;
+
+*, *:after, *:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+}
+
+nav {
+  background: $primary-color;
+  color: $text-color;
+
+  ul {
+    height: 10vh;
+    list-style: none;
+    @include flexL(space-between, center, row);
+
+    li {
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
+
+.jumbotron {
+  background-image: url("G5Z8.gif");
+  height: 70vh;
+  width: 100%;
+  color: $text-color;
+  position: relative;
+
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    @include flexL(center, center, column);
+    padding: 2rem;
+    background: rgba($primary-color, 0.3);
+
+    .fa-arrow-down {
+      font-size: 2em;
+      color: gold;
+    }
+  }
+}

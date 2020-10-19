@@ -1,0 +1,32 @@
+@import "variable";
+@import "mixins";
+
+h1 {
+  color: $main-color;
+  @include bordered(1px solid black, 2px dashed grey);
+}
+
+.container {
+  @include flex-centered(column);
+}
+
+nav {
+  background: skyblue;
+
+  ul {
+    @include flex-centered(row);
+    list-style: none;
+    margin: 0 1rem;
+
+    li {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid gold;
+
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        font-family: monospace;
+      }
+    }
+  }
+}

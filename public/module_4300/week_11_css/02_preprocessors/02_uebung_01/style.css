@@ -1,0 +1,55 @@
+@import url(https://use.fontawesome.com/releases/v5.13.0/css/all.css);
+*, *:after, *:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+}
+
+nav {
+  background: skyblue;
+  color: white;
+}
+nav ul {
+  height: 10vh;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.jumbotron {
+  background-image: url("G5Z8.gif");
+  height: 70vh;
+  width: 100%;
+  color: white;
+  position: relative;
+}
+.jumbotron .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  background: rgba(135, 206, 235, 0.3);
+}
+.jumbotron .caption .fa-arrow-down {
+  font-size: 2em;
+  color: gold;
+}
+
+/*# sourceMappingURL=style.css.map */
