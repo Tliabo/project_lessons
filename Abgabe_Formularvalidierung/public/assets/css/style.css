@@ -82,5 +82,19 @@ form .text-success {
   color: green;
 }
 
-form .counterBox {
+form .dropdown {
+  position: relative;
+}
+
+form .dropdown .list-menu {
+  flex-direction: column;
+}
+
+form .dropdown .list-menu > li > a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+form .dropdown:hover .list-menu {
+  display: flex;
 }
