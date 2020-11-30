@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GSAP Tweens</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+            padding: 3rem;
+        }
+
+        .conatiner {
+            width: 800px;
+            height: 600px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1rem;
+        }
+
+        .box {
+            background: lime;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="conatiner">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script>
+
+    // Staggering Elements with GSAP
+    gsap.to('.box', {
+        scale: 1.1,
+        stagger: {
+            each: .1,
+            from: 'center',
+            grid: 'auto',
+            repeat: -1
+        }
+    })
+
+</script>
+</body>
+</html>

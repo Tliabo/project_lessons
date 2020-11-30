@@ -1,0 +1,28 @@
+@import "../../../../assets/css/tp_reset.css";
+
+.slide .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.parallax {
+  background: url("space.jpg") 50% 0;
+  background-size: 300%;
+}
+
+.slideIn {
+  background: lightgrey;
+}
+
+.slideIn2 {
+  background: pink;
+}
+
+.slideIn2 .row {
+  justify-content: space-around;
+}

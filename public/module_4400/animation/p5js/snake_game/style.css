@@ -1,0 +1,5 @@
+@import "../../../../assets/css/tp_reset.css";
+
+canvas {
+  vertical-align: top;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Callback in Greensock</title>
+</head>
+<link rel="stylesheet" href="../../../../assets/css/tp_reset.css">
+<style>
+
+  .square, .circle {
+    height: 100px;
+    width: 100px;
+  }
+
+  .circle {
+    border-radius: 50%;
+    background: green;
+  }
+
+  .square {
+    background: blueviolet;
+  }
+
+</style>
+<body>
+
+
+<button>Start Animation</button>
+<div class="circle"></div>
+<div class="square"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script>
+
+  const tl = gsap.timeline({
+    repeat: -1,
+    onComplete: function() {
+      console.log('Animation is done...');
+    },
+    onStart: function() {
+      console.log('Animation has started...');
+    },
+    onRepeat: function() {
+      console.log('Animation restarted...');
+    }
+  });
+
+  // Animation starts on button click
+  document.querySelector('button').addEventListener('click', e => {
+    tl.to('.circle', {x: 500, y: 500, onStart: animationStart})
+    .to('.circle', {x: 100, y: 100, onUpdate: animationFrame})
+    .to('.circle', {x: 350, y: 350, onComplete: animationDone})
+  });
+
+  // On Start
+  // When the animations tarts, call this function :
+  function animationStart() {
+    // console.log('Animation has started');
+  }
+
+  // On Update
+  // For each frame of the animation, call this function :
+  let counter = 1;
+  function animationFrame() {
+    // console.log(`Current frame on second tween: ${counter}`)
+    counter++
+  }
+
+  // On Complete
+  function animationDone() {
+    // console.log('Animation is complete');
+  }
+
+
+</script>
+</body>
+</html>

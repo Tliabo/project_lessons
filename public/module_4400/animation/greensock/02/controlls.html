@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controlls</title>
+</head>
+<link rel="stylesheet" href="../../../../assets/css/tp_reset.css">
+<style>
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: green;
+  }
+</style>
+<body>
+
+<div class="circle"></div>
+
+<ul>
+  <li>
+    <button id="play">Play</button>
+  </li>
+  <li>
+    <button id="pause">Pause</button>
+  </li>
+  <li>
+    <button id="reverse">Reverse</button>
+  </li>
+  <li>
+    <button id="accelerate">Accelerate</button>
+  </li>
+  <li>
+    <button id="slow">Slow Down</button>
+  </li>
+  <li>
+    <button id="seek">Go to (2s)</button>
+  </li>
+  <li>
+    <button id="progress">Go to (50%)</button>
+  </li>
+  <li>
+    <button id="restart">Restart</button>
+  </li>
+</ul>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script>
+
+  const tl = gsap.timeline();
+  tl.pause();
+
+  tl
+    .to('.circle', {
+      x: 900,
+      y: 20,
+      duration: 2
+    })
+    .to('.circle', {
+      x: 20,
+      y: 900,
+      duration: 3
+    })
+    .to('.circle', {
+      x: 900,
+      y: 800,
+      duration: 4
+    })
+    .to('.circle', {
+      x: 500,
+      y: 400,
+      duration: 2
+    });
+
+  // Controlls
+
+  // Play
+  document.querySelector('#play').addEventListener('click', e => {
+    console.log('Animation: Play');
+    tl.play();
+  });
+
+  // Pause
+  document.querySelector('#pause').addEventListener('click', e => {
+    console.log('Animation: Pause');
+    tl.pause();
+  });
+
+  // Reverse
+  document.querySelector('#reverse').addEventListener('click', e => {
+    console.log('Animation: Reverse');
+    tl.reverse();
+  });
+
+  // Time Scale (accelerate)
+  document.querySelector('#accelerate').addEventListener('click', e => {
+    console.log('Animation: Faster');
+    tl.timeScale(2);
+  });
+
+  // Time Scale (slow down)
+  document.querySelector('#slow').addEventListener('click', e => {
+    console.log('Animation: Slower');
+    tl.timeScale(0.5);
+  });
+
+  // Seek
+  document.querySelector('#seek').addEventListener('click', e => {
+    console.log('Animation: Seeks');
+    tl.seek(2);
+  });
+
+  // Progress
+  document.querySelector('#progress').addEventListener('click', e => {
+    console.log('Animation: Progresses to 50%');
+    tl.progress(0.5);
+  });
+
+  // Restart
+  document.querySelector('#restart').addEventListener('click', e => {
+    console.log('Animation: Restart');
+    tl.restart();
+  });
+
+</script>
+</body>
+</html>

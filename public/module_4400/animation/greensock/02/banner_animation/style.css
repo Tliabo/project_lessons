@@ -1,0 +1,112 @@
+@import "../../../../../assets/css/tp_reset.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333333;
+  width: 100vw;
+  height: 100vh;
+}
+
+.banner {
+  width: 380px;
+  height: 800px;
+  overflow: hidden;
+  background: #333333;
+  border: solid red 1px;
+  position: relative;
+}
+
+.logo-web, .logo-sae, .text, ul {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Web Department logo */
+.logo-web {
+  position: absolute;
+  top: 30%;
+  width: 100px;
+}
+
+/* SAE logo */
+.logo-sae {
+  position: absolute;
+  bottom: 1rem;
+  width: 200px;
+}
+
+.text {
+  font-family: 'Black Ops One', cursive;
+  color: #ffc92b;
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 1.5;
+  width: 60%;
+}
+
+.line {
+  opacity: 0;
+  text-align: left;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 1em;
+  background: #ffc92b;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  position: absolute;
+  top: 30%;
+}
+
+ul > li {
+  opacity: 0;
+  color: white;
+  letter-spacing: 0.1em;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  text-indent: -3rem;
+  font-size: 1.2em;
+}
+
+.disc {
+  background: #764897;
+  width: 0.5em;
+  height: 1em;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.cta {
+  display: none;
+  position: absolute;
+  color: white;
+  background: #d3d3d3;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0;
+}
+
+.cta a {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  word-spacing: 100vw;
+  text-align: center;
+}
