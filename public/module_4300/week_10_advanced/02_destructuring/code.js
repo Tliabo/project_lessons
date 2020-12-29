@@ -8,7 +8,7 @@ let sandwich = {
 }
 
 
-// in this case we want to 'extact' the bread and meat properties
+// in this case we want to 'extract' the bread and meat properties
 let {bread, meat} = sandwich
 
 //still the same content
