@@ -1,0 +1,55 @@
+@import 'reset.css';
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  overflow: hidden;
+  margin-bottom: .5rem;
+  width: 150px;
+}
+
+.parts {
+  display: inline-flex;
+}
+
+.saber_part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(23, 153, 79, 0.5);
+  margin: 0 0.5rem;
+  width: 50px;
+}
+
+.saber_part img {
+  width: 100%;
+  height: auto;
+}
+
+#slider-emitters .saber_part {
+  justify-content: flex-end;
+}
+
+#slider-switches .saber_part {
+  justify-content: flex-start;
+}
+
+#slider-bodies .saber_part {
+  justify-content: flex-start;
+}
+
+#slider-pommels .saber_part {
+  justify-content: flex-start;
+}

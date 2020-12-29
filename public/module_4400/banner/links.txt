@@ -1,0 +1,209 @@
+emitters:
+
+
+Commando Emitter
+Emitter 11
+Emitter 12
+Emitter 13
+Emitter 14
+Outcast Emitter
+Pathfinder Emitter
+Emitter 1
+Emitter 2
+Emitter 3
+---
+Angled Emitter 1
+Angled Emitter 2
+Relic Emitter
+Templar Emitter
+
+Emitter 4
+Emitter 5
+Emitter 6
+Emitter 7
+Emitter 8A
+Emitter 8B
+Emitter 8C
+Emitter 9
+Emitter 10
+Avenger Emitter
+Dissident Emitter
+Epoch Emitter
+Exile Emitter
+Fallen Emitter
+Fury Emitter
+Gladius Emitter
+Graflex Emitter
+Juggernaut Emitter
+Jade Emitter
+Katana Emitter 4A
+Katana Emitter 4B
+Katana Emitter 4C
+Katana Emitter 5A
+Katana Emitter 5B
+Katana Emitter 5C
+Mauler Emitter
+Prodigal Son Emitter 1
+Prodigal Son Emitter 2
+Prodigal Son Emitter 3
+Rebel Emitter
+Reborn Emitter
+Redeemer Emitter 1
+Redeemer Emitter 2
+Redeemer Emitter 3
+Reliant Emitter
+Resilient Emitter
+Sinister Prophecy Emitter
+Sorcerer Emitter
+Vengeance Emitter
+Venom Emitter
+Vigilant Emitter
+Viper Emitter
+Black Lotus Emitter
+
+
+switch section:
+
+Commando Switch
+Outcast Switch
+Pathfinder Switch
+Switch 11
+Switch 12
+Switch 13
+Switch 14
+Switch 15
+Switch 16
+Switch 17
+---
+Switch 1
+Switch 2
+Switch 3
+Switch 4
+Switch 5
+Switch 6
+Switch 7
+Switch 8
+Switch 9
+Switch 10
+Avenger Switch
+Dissident Switch
+Epoch Switch
+Exile Switch
+Fallen Switch
+Fury Switch
+Gladius Switch
+Graflex Switch
+Jade Switch
+Juggernaut Switch
+Katana Switch
+Mauler Switch
+Prodigal Son Switch
+Reborn Switch
+Redeemer Switch
+Reliant Switch
+Resilient Switch
+Sinister Prophecy Switch
+Sorcerer Switch
+Vengeance Switch
+Venom Switch
+Vigilant Switch
+
+
+Bodies:
+
+Body 11
+Body 12
+Body 13
+Body 14
+Body 15
+Commando Body
+Curved Body 1
+Curved Body 2
+Curved Body 3
+Curved Body 4
+---
+Outcast Body
+Pathfinder Body
+Body 1
+Body 2
+Body 3
+Body 4
+Body 5
+Body 6
+Body 7
+Body 8
+Body 9
+Body 10
+Avenger Body
+Dissident Body
+Epoch Body
+Exile Body
+Fallen Body
+Fury Body
+Gladius Body
+Graflex Body
+Jade Body
+Juggernaut Body
+Katana Body 4
+Katana Body 5
+Mauler Body
+Monarch Body
+Prodigal Son Body
+Reborn Body
+Redeemer Body
+Reliant Body
+Resilient Body
+Sinister Prophecy Body
+Sorcerer Body
+Vengeance Body
+Venom Body
+Vigilant Body
+
+
+pommels:
+
+Commando Pommel
+Outcast Pommel
+Pathfinder Pommel
+Pommel 11
+Pommel 12
+Pommel 13
+Pommel 14
+Pommel 15
+Pommel 16
+Pommel 17
+Pommel 1
+Pommel 2
+Pommel 3
+Pommel 4
+Pommel 5
+Pommel 6
+Pommel 7
+Pommel 8
+Pommel 9
+Pommel 10
+Avenger Pommel
+Dissident Pommel
+Epoch Pommel
+Exile Pommel
+Fallen Pommel
+Fury Pommel
+Gladius Pommel
+Graflex Pommel
+Jade Pommel
+Juggernaut Pommel
+Katana Pommel
+Mauler Pommel
+Monarch Pommel
+Rebel Pommel
+Reliant Pommel
+Resilient Pommel
+Sinister Prophecy Pommel
+Sorcerer Pommel
+Vengeance Pommel
+Venom Pommel
+Vigilant Pommel
+Relic Pommel
+Prodigal Son Pommel
+Redeemer Pommel
+Phoenix Pommel
