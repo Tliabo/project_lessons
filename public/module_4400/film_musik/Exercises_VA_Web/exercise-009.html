@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by SAE Institute Zurich
+-->
+<html>
+<head>
+    <title>Exercise 9</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+    <style>
+        .audioplayer {
+            width: 100%;
+            /*height: auto;*/
+        }
+    </style>
+
+    <script src="core/lib/jquery-3.2.1.js"></script>
+    <script src="core/lib/semantic-ui/semantic.min.js"></script>
+
+</head>
+<body>
+<div class="ui raised padded container segment">
+    <div class="ui segments">
+        <div class="ui segment">
+            <h3>Video & Audio for Web (Basics) - Exercise 9</h3>
+        </div>
+        <div class="ui segment">
+            <!-- area for audio-element -->
+            <audio class="audioplayer" loop controls>
+                <source src="core/media/audio/sae_spot_1.mp3" type="audio/mpeg">
+                <source src="core/media/audio/sae_spot_1.ogg" type="audio/ogg">
+                <source src="core/media/audio/sae_spot_1.aac" type="audio/aac">
+                <source src="core/media/audio/sae_spot_1.wav" type="audio/wav">
+            </audio>
+        </div>
+        <div class="ui segment">
+            <strong>Download audio:</strong>
+            <a href="core/media/audio/sae_spot_1.mp3">MP3 format</a> |
+            <a href="core/media/audio/sae_spot_1.ogg">Ogg format</a> |
+            <a href="core/media/audio/sae_spot_1.aac">AAC format</a> |
+            <a href="core/media/audio/sae_spot_1.wav">WAV format</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

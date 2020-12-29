@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by SAE Institute Zurich
+-->
+<html>
+<head>
+  <title>Exercise 10</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+  <style>
+    .audioplayer {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="ui raised padded container segment">
+  <div class="ui segments">
+    <div class="ui segment">
+      <h3>Video & Audio for Web (Basics) - Exercise 10 (Audiomixer)</h3>
+    </div>
+    <div class="ui segment">
+      <div class="ui grid">
+        <div class="four wide column">Acoustic Electro A</div>
+        <div class="twelve wide column">
+          <input class="AcousticElectroA" type="range" min="0" max="1" step="0.05" value="0"/></div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui grid">
+        <div class="four wide column">Camper A1</div>
+        <div class="twelve wide column"><input class="CamperA1" type="range" min="0" max="1" step="0.05" value="0"/>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui grid">
+        <div class="four wide column">Camper B1</div>
+        <div class="twelve wide column"><input class="CamperB1" type="range" min="0" max="1" step="0.05" value="0"/>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui grid">
+        <div class="four wide column">In the morning 1</div>
+        <div class="twelve wide column"><input class="Inthemorning1" type="range" min="0" max="1" step="0.05"
+                                               value="0"/></div>
+      </div>
+    </div>
+    <div class="ui segment">
+      <div class="ui grid">
+        <div class="four wide column">Violin 1</div>
+        <div class="twelve wide column"><input class="Violin1" type="range" min="0" max="1" step="0.05" value="0"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="core/lib/jquery-3.2.1.js"></script>
+<script src="core/lib/semantic-ui/semantic.min.js"></script>
+<script src="core/lib/howler.js"></script>
+
+<script>
+  const allsoundnames = Array('AcousticElectroA', 'CamperA1', 'CamperB1', 'Inthemorning1', 'Violin1');
+  let sounds = [];
+
+  function init() {
+    for (let i = 0; i < allsoundnames.length; i++) {
+      //create new howler-audio-object
+      sounds[i] = new Howl({
+        src: [
+          `core/media/audio/${allsoundnames[i]}.mp3`,
+          `core/media/audio/${allsoundnames[i]}.ogg`
+        ],
+        autoplay: true,
+        loop: true,
+        volume: 0
+      });
+
+      $('input.' + allsoundnames[i]).on('change', function() {
+        let index = allsoundnames.indexOf(this.className);
+        if ((index >= 0) && (index < sounds.length)) {
+          //change volue of changed sound
+          sounds[index].volume(this.value);
+        }
+      });
+    }
+  }
+
+  $(function() {
+    init();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Getting Started with ml5.js</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../../../animation/p5js/p5.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+</head>
+
+<body>
+
+<script>
+  // start model
+  let classifier;
+  let video;
+  let resultP;
+
+  function setup() {
+
+    video = createCapture(VIDEO);
+
+    classifier = ml5.imageClassifier('MobileNet', video, modelReady);
+    resultP = createP('Loading model and video ...');
+  }
+
+  function modelReady() {
+    console.log('Model has loaded');
+    classifyVideo();
+  }
+
+  function classifyVideo() {
+    classifier.classify(gotResult);
+  }
+
+  function gotResult(error, results) {
+    if (error) {
+      console.log(error);
+    }
+
+    console.log(results);
+    resultP.html(results[0].label + ' ' + results[0].confidence);
+    classifyVideo();
+  }
+
+</script>
+</body>
+</html>

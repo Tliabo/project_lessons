@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by SAE Institute Zurich
+-->
+<html>
+<head>
+    <title>Exercise 4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+    <style>
+        .videoplayer {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-data {
+            display: inline;
+        }
+    </style>
+
+    <script src="core/lib/jquery-3.2.1.js"></script>
+    <script src="core/lib/semantic-ui/semantic.min.js"></script>
+
+    <script>
+        let refVideoControl = null;
+
+        function init() {
+            refVideoControl = document.querySelector('#myVideoElement');
+
+            $('button.playpause').on('click', playPauseVideo);
+            $(refVideoControl).on('timeupdate', updateVideoTimeData).on('loadedmetadata', updateVideoTimeData);
+
+        }
+
+        function playPauseVideo() {
+            if (refVideoControl.paused) {
+                refVideoControl.play();
+                $(this).text("Pause");
+            } else {
+                refVideoControl.pause();
+                $(this).text("Play");
+            }
+        }
+
+        function getZeroFormattedNumber(data) {
+            let result = "" + data;
+            if (data <= 9) {
+                result = "0" + result;
+            }
+            return result;
+        }
+
+        function getFormattedTimeData(secData) {
+            let result = "";
+            const minData = parseInt(secData / 60);
+            secData = parseInt(secData % 60);
+            result = getZeroFormattedNumber(minData) + ":" + getZeroFormattedNumber(secData);
+            return result;
+        }
+
+        function updateVideoTimeData() {
+            $(".video-data").html(`${getFormattedTimeData(refVideoControl.currentTime)} / ${getFormattedTimeData(refVideoControl.duration)}`);
+        }
+
+        $(function () {
+            init();
+        });
+    </script>
+
+</head>
+<body>
+<div class="ui raised padded container segment">
+    <div class="ui segments">
+        <div class="ui segment">
+            <h3>Video & Audio for Web (Basics) - Exercise 4</h3>
+        </div>
+        <div class="ui segment">
+            <!-- area for video-element -->
+            <video class="videoplayer" id="myVideoElement" poster="core/media/img/video_still.jpg" width="640"
+                   height="360">
+                <source src="core/media/video/sae_spot.mp4" type="video/mp4">
+                <source src="core/media/video/sae_spot.ogv" type="video/ogg">
+                <source src="core/media/video/sae_spot.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="ui segment">
+            <button class="ui button playpause">
+                Play
+            </button>
+            <div class="column video-data">
+                00:00 / 00:00
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
