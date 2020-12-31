@@ -2,23 +2,24 @@ emitters:
 
 
 Commando Emitter
-Emitter 11
 Emitter 12
 Emitter 13
-Emitter 14
 Outcast Emitter
 Pathfinder Emitter
 Emitter 1
 Emitter 2
 Emitter 3
+Emitter 4
+Emitter 5
 ---
 Angled Emitter 1
 Angled Emitter 2
 Relic Emitter
 Templar Emitter
+Emitter 14
 
-Emitter 4
-Emitter 5
+Emitter 11
+
 Emitter 6
 Emitter 7
 Emitter 8A
@@ -110,24 +111,21 @@ Vigilant Switch
 
 
 Bodies:
-
+Body 1
+Body 2
+Body 3
+Body 4
 Body 11
 Body 12
 Body 13
 Body 14
 Body 15
 Commando Body
-Curved Body 1
-Curved Body 2
-Curved Body 3
-Curved Body 4
+
 ---
 Outcast Body
 Pathfinder Body
-Body 1
-Body 2
-Body 3
-Body 4
+
 Body 5
 Body 6
 Body 7
@@ -158,6 +156,10 @@ Sorcerer Body
 Vengeance Body
 Venom Body
 Vigilant Body
+Curved Body 1
+Curved Body 2
+Curved Body 3
+Curved Body 4
 
 
 pommels:

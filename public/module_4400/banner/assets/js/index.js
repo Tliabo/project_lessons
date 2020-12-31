@@ -1,188 +1,188 @@
-
 const saberParts = {
   emitters: [
     {
       name: 'Emitter 3',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Emitter 1',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Commando Emitter',
-      size: 'sm'
+      size: 'xs'
     },
     {
-      name: 'Emitter 11',
-      size: 'sm'
+      name: 'Emitter 5',
+      size: 'xs'
     },
     {
       name: 'Emitter 12',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Emitter 13',
-      size: 'sm'
+      size: 'xs'
     },
     {
-      name: 'Emitter 14',
-      size: 'sm'
+      name: 'Emitter 4',
+      size: 'xs'
     },
     {
       name: 'Outcast Emitter',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pathfinder Emitter',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Emitter 2',
-      size: 'sm'
-    },
+      size: 'xs'
+    }
   ],
   switches: [
     {
       name: 'Commando Switch',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Outcast Switch',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pathfinder Switch',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 11',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 12',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 13',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 14',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 15',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 16',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Switch 17',
-      size: 'sm'
-    },
+      size: 'xs'
+    }
   ],
   bodies: [
     {
       name: 'Body 11',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Body 12',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Body 13',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Body 14',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Body 15',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Commando Body',
-      size: 'sm'
+      size: 'xs'
     },
     {
-      name: 'Curved Body 1',
-      size: 'sm'
+      name: 'Body 1',
+      size: 'xs'
     },
     {
-      name: 'Curved Body 2',
-      size: 'sm'
+      name: 'Body 2',
+      size: 'xs'
     },
     {
-      name: 'Curved Body 3',
-      size: 'sm'
+      name: 'Body 3',
+      size: 'xs'
     },
     {
-      name: 'Curved Body 4',
-      size: 'sm'
-    },
+      name: 'Body 4',
+      size: 'xs'
+    }
   ],
   pommels: [
     {
       name: 'Commando Pommel',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Outcast Pommel',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pathfinder Pommel',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 11',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 12',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 13',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 14',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 15',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 16',
-      size: 'sm'
+      size: 'xs'
     },
     {
       name: 'Pommel 17',
-      size: 'sm'
-    },
+      size: 'xs'
+    }
   ]
-}
+};
 
 const srcBaseUrl = 'http://www.saberparts.com/Media/';
 
-const sliders = [];
+const hSliders = [];
 
-let buildSrc = function ({name, size}) {
-  return encodeURI(`${srcBaseUrl}${name}.png?media=${size}`)
-}
+let buildSrc = function({ name, size }) {
+  return encodeURI(`${srcBaseUrl}${name}.png?media=${size}`);
+};
 
-let logPartsSrc = function (type) {
+let logPartsSrc = function(type) {
   eval(`this.${type}`).forEach(emitter => {
-    console.log(buildSrc(emitter.name, emitter.size))
-  })
-}
+    console.log(buildSrc(emitter.name, emitter.size));
+  });
+};
+
 // logPartsSrc('emitters')
 
 function createSlider(name, parts) {
@@ -192,13 +192,13 @@ function createSlider(name, parts) {
   hSlider.id = `slider-${name}`;
 
   const hParts = document.createElement('ul');
-  hParts.className = 'parts';
+  hParts.className = 'saber_parts slider-items';
 
   parts.forEach(part => {
-    let li = document.createElement('li')
-    li.className = 'saber_part';
+    let li = document.createElement('li');
+    li.className = 'saber_part slider-item';
 
-    let img = document.createElement("img")
+    let img = document.createElement('img');
     img.src = buildSrc(part);
 
     li.appendChild(img);
@@ -206,9 +206,30 @@ function createSlider(name, parts) {
   });
   hSlider.appendChild(hParts);
 
-  console.log(hSlider)
+  const hControlls = {
+    prev: document.createElement('button'),
+    next: document.createElement('button')
+  };
 
-  sliders.push(hSlider)
+  let prevIcon = document.createElement('i');
+  prevIcon.classList.add('fas', 'fa-chevron-circle-left');
+  let nextIcon = document.createElement('i');
+  nextIcon.classList.add('fas', 'fa-chevron-circle-right');
+
+  hControlls.prev.classList.add('slider-control', 'prev');
+  hControlls.prev.type = 'button';
+  hControlls.prev.appendChild(prevIcon);
+
+  hControlls.next.classList.add('slider-control', 'next');
+  hControlls.next.type = 'button';
+  hControlls.next.appendChild(nextIcon);
+
+  hSlider.appendChild(hControlls.prev);
+  hSlider.appendChild(hControlls.next);
+
+  // console.log(hSlider)
+
+  hSliders.push(hSlider);
 }
 
 createSlider('emitters', saberParts.emitters);
@@ -216,7 +237,7 @@ createSlider('switches', saberParts.switches);
 createSlider('bodies', saberParts.bodies);
 createSlider('pommels', saberParts.pommels);
 
-sliders.forEach(slider => {
+hSliders.forEach(slider => {
   document.querySelector('.sliders').appendChild(slider);
-})
+});
 

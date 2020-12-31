@@ -13,6 +13,7 @@
   "author": "Tobia Prezioso",
   "license": "MIT",
   "dependencies": {
+    "animejs": "^3.2.1",
     "bootstrap": "^4.5.3",
     "fuck-shit-up": "^1.3.0"
   }

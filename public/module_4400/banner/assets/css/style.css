@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+.container {
+  background: lightgrey;
+}
+
 .sliders {
   display: flex;
   flex-direction: column;
@@ -15,12 +19,33 @@ body {
 
 .slider {
   overflow: hidden;
+  display: flex;
   margin-bottom: .5rem;
   width: 150px;
+  position: relative;
 }
 
-.parts {
-  display: inline-flex;
+.slider .slider-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  align-self: center;
+  background: white;
+  border-radius: 50% 50%;
+  border: none;
+}
+.slider .slider-control.prev {
+  left: 0.5rem;
+}
+.slider .slider-control.next {
+  right: 0.5rem;
+}
+
+.saber_parts {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 0.5rem;
 }
 
 .saber_part {
@@ -28,14 +53,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   background: rgba(23, 153, 79, 0.5);
-  margin: 0 0.5rem;
-  width: 50px;
 }
 
 .saber_part img {
-  width: 100%;
-  height: auto;
+  /*width: 50px;*/
+  /*height: auto;*/
 }
 
 #slider-emitters .saber_part {
@@ -43,13 +67,14 @@ body {
 }
 
 #slider-switches .saber_part {
-  justify-content: flex-start;
+  /*justify-content: flex-start;*/
 }
 
 #slider-bodies .saber_part {
-  justify-content: flex-start;
+  /*justify-content: flex-start;*/
 }
 
 #slider-pommels .saber_part {
   justify-content: flex-start;
 }
+
