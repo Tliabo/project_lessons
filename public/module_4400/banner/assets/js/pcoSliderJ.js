@@ -10,40 +10,36 @@ $(function() {
   for (let i = 0; i < pcoSliders.length; i++) {
     let sliderObj = {
       slider: pcoSliders[i],
-      sliderId: `slider-${i}`,
-      sliderControlsActive: true,
 
       init() {
         if (!this.slider.id) {
-          this.slider.id = this.sliderId;
-        } else {
-          this.sliderId = this.slider.id;
+          this.slider.id = `slider-${i}`;
         }
-        console.log(this.slider);
-        this.sliderItems = this.slider.querySelectorAll('.slider-item');
+        console.log(`
+        initializing slider... 
+        id: ${this.slider.id}
+        `);
 
-        if (this.sliderControlsActive && this.slider.querySelectorAll('.slider-control').length > 0) {
-          this.sliderControls = this.slider.querySelectorAll('.slider-control');
+        this.sliderItems = $(this.slider).children('.slider-item');
 
-          this.initSliderControl();
-        }
+        this.sliderControls = $(this.slider).children('.slider-control');
+        this.initSliderControl();
+
         this.updateData('active-slide', 0);
       },
       initSliderControl() {
         for (let j = 0; j < this.sliderControls.length; j++) {
           let control = this.sliderControls[j];
-          this.addEventListenerToControl(control);
+          console.log(control);
+          $(control).on('click', function() {
+            if (control.className.includes('next')) {
+              this.slideNext();
+            }
+            if (control.className.includes('prev')) {
+              this.slidePrev();
+            }
+          });
         }
-      },
-      addEventListenerToControl(control) {
-        control.addEventListener('click', e => {
-          if (control.className.includes('next')) {
-            this.slideNext();
-          }
-          if (control.className.includes('prev')) {
-            this.slidePrev();
-          }
-        });
       },
       slideNext() {
         let activeItem = this.slider.getAttribute('data-active-slide');
@@ -90,6 +86,6 @@ $(function() {
     // console.log(sliderObj);
   }
 
-})
+});
 
 

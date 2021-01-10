@@ -200,6 +200,7 @@ function createSlider(name, parts) {
 
     let img = document.createElement('img');
     img.src = buildSrc(part);
+    img.alt = part.name;
 
     li.appendChild(img);
     hParts.appendChild(li);
