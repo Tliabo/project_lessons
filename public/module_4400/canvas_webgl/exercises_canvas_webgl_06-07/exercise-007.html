@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by Pascal Stoop
+-->
+<html>
+<head>
+  <title>Exercise 7</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+  <style>
+    .aspect-container {
+      position: relative;
+      padding: 0 0 50% 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    #myCanvas {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #link {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="ui raised padded container segment">
+  <div class="ui segments">
+    <div class="ui segment">
+      <h3>Canvas - Exercise 7 (Clock)</h3>
+    </div>
+    <div class="ui segment">
+
+      <select class="ui dropdown" id="i-timeswitcher">
+        <option value="inputtime" selected="selected">Input-Time</option>
+        <option value="livetime">Live-Time</option>
+      </select>
+
+      <div class="ui labeled input">
+        <div class="ui label">
+          h
+        </div>
+        <input id="i-time-h" type="number" value="16">
+      </div>
+      <div class="ui labeled input">
+        <div class="ui label">
+          min
+        </div>
+        <input id="i-time-min" type="number" value="33">
+      </div>
+      <div class="ui labeled input">
+        <div class="ui label">
+          s
+        </div>
+        <input id="i-time-s" type="number" value="59">
+      </div>
+    </div>
+    <div class="ui segment">
+      <!-- area for canvas-element -->
+      <div class="aspect-container">
+        <canvas id="myCanvas" width="100" height="100"></canvas>
+      </div>
+    </div>
+    <div class="ui segment">
+      <button id="b-screenshot" class="ui button">Create Screenshot</button>
+      <a id="link"></a>
+    </div>
+  </div>
+</div>
+
+<script src="core/lib/jquery-3.2.1.js"></script>
+<script src="core/lib/semantic-ui/semantic.min.js"></script>
+<script src="core/lib/howler.js"></script>
+
+<script>
+  let refCanvas = undefined;
+  let ctx = null;
+  let bgimg = null;
+  let tickSound = null;
+
+  function init() {
+    refCanvas = document.getElementById('myCanvas');
+    if (refCanvas.getContext) {
+      ctx = refCanvas.getContext('2d', { alpha: true });
+      resizeCanvas();
+    }
+
+    window.addEventListener('resize', function() {
+      resizeCanvas();
+    });
+
+    $('#myCanvas').on('mousedown', function(evt) {
+      let cPos = getPositionFromEvent(evt, refCanvas);
+      console.log('x:' + cPos.x + ', y:' + cPos.y);
+    });
+
+    $('#b-screenshot').on('click', function(evt) {
+      if (refCanvas.msToBlob) { //for IE
+        let blob = refCanvas.msToBlob();
+        window.navigator.msSaveBlob(blob, 'canvas.png');
+      } else {
+        //other browsers
+        let link = document.getElementById('link');
+        link.setAttribute('download', 'canvas.png');
+        link.setAttribute('href', refCanvas.toDataURL('image/png').replace('image/png', 'image/octet-stream'));
+        link.click();
+      }
+
+    });
+
+    //load image
+    bgimg = new Image();
+    bgimg.src = 'media/zifferblatt.png';
+    bgimg.onload = function() {
+      // paint();
+      setInterval(paint, 1000);
+    };
+
+    // load tick sound
+    tickSound = new Howl({
+      src: ['media/clock-ticking-2_10s_loopable.mp3'],
+      autoplay: true,
+      loop: true,
+      volume: 0.5
+    });
+
+  }
+
+  function checkStartClock() {
+
+  }
+
+  function getPositionFromEvent(event, refCanvas) {
+    let result = { x: 0, y: 0 };
+
+    if (event.x !== undefined && event.y !== undefined) {
+      result.x = event.x;
+      result.y = event.y;
+    } else {
+      result.x = event.clientX;
+      result.y = event.clientY;
+    }
+
+    let elemInfos = refCanvas.getBoundingClientRect();
+
+    result.x -= parseInt(elemInfos.left);
+    result.y -= parseInt(elemInfos.top);
+
+    return result;
+  }
+
+  function resizeCanvas() {
+    refCanvas.width = refCanvas.clientWidth;
+    refCanvas.height = refCanvas.clientHeight;
+  }
+
+  function paint() {
+    // bgimg because resize canvas gets loaded before
+    if (ctx != null) {
+      ctx.clearRect(0, 0, refCanvas.width, refCanvas.height);
+
+      ctx.save();
+
+      //get actual time
+      let hours = 0, minutes = 0, seconds = 0;
+      if ($('#i-timeswitcher').val() === 'inputtime') {
+        hours = parseInt($('#i-time-h').val());
+        minutes = parseInt($('#i-time-min').val());
+        seconds = parseInt($('#i-time-s').val());
+      } else {
+        let actData = new Date();
+        hours = actData.getHours();
+        minutes = actData.getMinutes();
+        seconds = actData.getSeconds();
+      }
+
+      //check hours
+      if (hours >= 12) {
+        hours -= 12;
+      }
+
+      if (bgimg.complete) {
+        //draw image
+        let newImgWidth = refCanvas.height * (bgimg.width / bgimg.height);
+        ctx.drawImage(bgimg, (refCanvas.width - newImgWidth) / 2, 0, newImgWidth, refCanvas.height);
+      }
+
+      ctx.translate(refCanvas.width / 2, refCanvas.height / 2);
+
+      const degreePerSecond = 360 / 60; // 6degree per seconds
+
+      ctx.save();
+      let totalTimeInSeconds = (hours / 3600) + (minutes / 60) + seconds;
+
+      //draw hours
+      ctx.strokeStyle = 'red';
+      ctx.lineWidth = 10;
+      ctx.lineCap = 'round';
+
+      let hoursDegree = (360 / 12) * (hours + minutes / 60);
+      ctx.rotate(hoursDegree * (Math.PI / 180));
+
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, refCanvas.height / 2 * (-0.6));
+      ctx.stroke();
+
+      ctx.restore();
+      ctx.save();
+      //draw minutes
+      ctx.strokeStyle = 'green';
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+
+      let minutesDegree = degreePerSecond * (minutes + seconds / 60);
+      ctx.rotate(minutesDegree * (Math.PI / 180));
+
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, refCanvas.height / 2 * (-0.8));
+      ctx.stroke();
+
+      ctx.restore();
+      ctx.save();
+      //draw seconds
+      ctx.strokeStyle = 'blue';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+
+      let secondsDegree = degreePerSecond * totalTimeInSeconds;
+      ctx.rotate(secondsDegree * (Math.PI / 180));
+
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, refCanvas.height / 2 * (-1.0));
+      ctx.stroke();
+
+      ctx.restore();
+
+      //overdraw overlapping clock hands
+      ctx.fillStyle = '#333';
+      ctx.beginPath();
+      ctx.arc(0, 0, 8, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.restore();
+
+    }
+  }
+
+  $(function() {
+    init();
+  });
+</script>
+</body>
+</html>
