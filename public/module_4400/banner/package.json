@@ -1,0 +1,17 @@
+{
+  "name": "banner",
+  "version": "1.0.0",
+  "description": "Saber Banner Animation",
+  "main": "index.js",
+  "dependencies": {
+    "gsap": "^3.6.0",
+    "jquery": "^3.5.1",
+    "swiper": "^6.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tobia Prezioso",
+  "license": "MIT"
+}

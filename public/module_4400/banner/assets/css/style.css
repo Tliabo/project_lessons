@@ -1,6 +1,13 @@
 @import 'reset.css';
+@import "../../node_modules/swiper/swiper-bundle.min.css";
+
+@font-face {
+  font-family: STARWARS;
+  src: url("../font/STARWARS/STARWARS.woff");
+}
 
 body {
+  font-family: STARWARS, 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,73 +15,44 @@ body {
   height: 100vh;
 }
 
-.container {
+#banner-container {
   background: lightgrey;
-}
-
-.sliders {
-  display: flex;
-  flex-direction: column;
-}
-
-.slider {
   overflow: hidden;
-  display: flex;
-  margin-bottom: .5rem;
-  width: 150px;
-  position: relative;
 }
 
-.slider .slider-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
+.slider-list {
+
+}
+
+.swiper-container {
+  max-width: 250px;
+  max-height: 200px;
+  transform: translateX(250px);
+}
+
+.swiper-wrapper .saber_part {
   align-self: center;
-  background: white;
-  border-radius: 50% 50%;
+}
+
+#btn-assemble {
+  font-family: STARWARS, 'Roboto', sans-serif;
   border: none;
-}
-.slider .slider-control.prev {
-  left: 0.5rem;
-}
-.slider .slider-control.next {
-  right: 0.5rem;
-}
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
 
-.saber_parts {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 0.5rem;
+  background: #fff;
+  color: #fff;
+  text-shadow: 0 0 2px #fff,
+  0 0 4px #fff,
+  0 0 6px #0073e6,
+  0 0 8px #0073e6,
+  0 0 10px #0073e6,
+  0 0 12px #0073e6,
+  0 0 14px #0073e6;
+
+  font-size: 1.3rem;
+  padding: 1rem 0;
+  opacity: 0;
+  visibility: hidden;
 }
-
-.saber_part {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(23, 153, 79, 0.5);
-}
-
-.saber_part img {
-  /*width: 50px;*/
-  /*height: auto;*/
-}
-
-#slider-emitters .saber_part {
-  justify-content: flex-end;
-}
-
-#slider-switches .saber_part {
-  /*justify-content: flex-start;*/
-}
-
-#slider-bodies .saber_part {
-  /*justify-content: flex-start;*/
-}
-
-#slider-pommels .saber_part {
-  justify-content: flex-start;
-}
-
