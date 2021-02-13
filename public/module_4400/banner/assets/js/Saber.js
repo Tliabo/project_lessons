@@ -175,8 +175,4 @@ const Saber = function() {
     return encodeURI(`${this.srcBaseUrl}${name}.png?media=${size}`);
   }.bind(this);
 
-  this.init = function() {
-
-  };
-
 };

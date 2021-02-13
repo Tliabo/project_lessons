@@ -107,7 +107,7 @@ function sliderAnimation() {
       opacity: 1,
       y: 0,
       onComplete: function() {
-        btnAssemble.addEventListener('click', assembleAnimation)
+        btnAssemble.addEventListener('click', assembleAnimation);
       }
     });
 
@@ -117,6 +117,19 @@ function sliderAnimation() {
 function assembleAnimation() {
   // console.log('assembling');
 
+  // freeze all parts and separate active parts
+  let activeParts = document.querySelectorAll('.swiper-slide-active');
+  console.log(activeParts);
+
+  activeParts.forEach(part => {
+    tl
+  })
+
+
+  // move out the other parts, left and right side
+  // move the assembly parts close together
+  // start welding animation
+  // open the website (preferred with the parts)
 }
 
 window.onload = function() {
