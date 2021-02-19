@@ -27,7 +27,6 @@ const AnimSpark = function(canvas) {
   this.delta = null;
   this.buffer = document.createElement('canvas');
   this.startPos = { x: 0, y: 0 };
-  // this.direction = 'direction' in canvas.dataset ? canvas.dataset.direction : 'start-end';
 
   this.tsAnimtStart = 0;
   this.tsLastRender = 0;
@@ -62,7 +61,6 @@ const AnimSpark = function(canvas) {
       temp.arc(ct, ct, ct, 0, Math.PI * 2);
       temp.fill();
 
-      // TEST ONLY
       this.checkAnimationStart();
     }
   };
@@ -108,7 +106,6 @@ const AnimSpark = function(canvas) {
   };
 
   this.update = function(delta) {
-    // console.log(this.pointer);
     if (this.pointer.hold || this.autoPlay) {
       this.config.speed.current = Math.min(this.config.speed.max, this.config.speed.current + this.config.speed.increment * delta);
     } else if (this.config.speed.current > 0) {
@@ -141,14 +138,12 @@ const AnimSpark = function(canvas) {
     //check endanimation
 
     let tsDelta = Date.now() - this.tsLastRender;
-    // let tsAnimationTime = Date.now() - this.tsGameStart;
     this.tsLastRender = Date.now();
     // console.log('DeltaTime: ' + tsDelta);
 
     this.update(tsDelta / this.config.hz);
 
     //clear canvas
-
     // with color
     this.ctx.globalAlpha = 0.65 * !this.config.isExposure ? 1 : 0.02;
     this.ctx.globalCompositeOperation = 'source-over';
@@ -163,7 +158,6 @@ const AnimSpark = function(canvas) {
     this.ctx.globalCompositeOperation = 'screen';
     this.particles.forEach(p => p.render(tsDelta / this.config.hz, this));
 
-    //render total score & time
     this.refRAF = window.requestAnimationFrame(this.render);
     // console.log('Timestamp: ' + Date.now());
   }.bind(this);
@@ -171,8 +165,4 @@ const AnimSpark = function(canvas) {
   // Constructor
   this.init(canvas);
 };
-
-
-// x: 'startposx' in canvas.dataset ? parseInt(canvas.dataset.startposx)
-// y: 'startposy' in canvas.dataset ? parseInt(canvas.dataset.startposy)
 

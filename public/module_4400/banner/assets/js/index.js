@@ -187,4 +187,3 @@ window.onload = function() {
   // timeout because images ned to be loaded first (not best solution)
   setTimeout(sliderAnimation, 5000);
 };
-
