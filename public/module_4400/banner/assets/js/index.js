@@ -1,6 +1,5 @@
 const sliders = [];
 let tl = null;
-let tween = null;
 let sliderList = null;
 let btnAssemble = null;
 let sparkArr = null;
@@ -118,7 +117,6 @@ function sliderAnimation() {
 }
 
 function assembleAnimation() {
-  // console.log('assembling');
 
   sparkArr.forEach(canvas => {
     canvas.style.visibility = 'visible';
@@ -141,7 +139,6 @@ function assembleAnimation() {
     }
   });
 
-  // move the assembly parts close together
   // start welding animation
   sparkArr.forEach(canvas => {
     let anim = new AnimSpark(canvas);
@@ -156,7 +153,7 @@ function assembleAnimation() {
       }
     })
       .to(canvas, {
-        delay: 1, onComplete: function() {
+        delay: 2, onComplete: function() {
           canvas.remove();
           sliderList.style.display = 'flex';
           sliderList.style.flexDirection = 'column';
@@ -164,14 +161,21 @@ function assembleAnimation() {
         }
       });
     anim.autoPlay = true;
+    tl.resume();
   });
-  tl.resume();
+
+  // move the assembly parts close together
+  sliders.forEach(slider => {
+    gsap.to(slider.$el, {
+      marginTop: -10
+    });
+  });
 
   // open the website (preferred with the parts)
   tl.to(window, {
     delay: 2,
     onComplete: function() {
-      window.open('https://saberforge.com/');
+      window.open('https://saberforge.com/', '_blank');
     }
   });
 }
