@@ -8,6 +8,7 @@ const Particle = function(options, animSpark) {
     direction: options.direction,
     length: options.length * Math.max(animSpark.config.speed.current / animSpark.config.speed.max, 0.2)
   };
+  // console.log(this.velocity.length);
   this.accelerate = { max: 0, min: -Math.PI * 0.5, change: Math.random() * 0.2 - 0.1 };
   this.gravity = { direction: Math.PI * 0.5, force: 0.04 + Math.random() * 0.02 };
   this.friction = 0.725 + Math.random() * 0.12;

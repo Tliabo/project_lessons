@@ -4,13 +4,15 @@ const AnimSpark = function(canvas) {
   this.ctx = null;
   this.refRAF = null;
   this.pointer = { x: 0, y: 0, hold: false };
+  this.autoPlay = false;
   this.particles = [];
   this.config = {
     debug: false,
     clearColor: '#333333',
     radius: 150,
-    sparkColor: ['rgba(215, 124, 24, 0.9)', 'rgba(220, 122, 24, 0.35)', 'rgba(225, 116, 48, 0.2)', 'rgba(235, 112, 64, 0.1)', 'rgba(255, 96, 96, 0)'],
+    sparkColor: ['rgba(215,124,24,0.9)', 'rgba(220,122,24,0.35)', 'rgba(225,116,48,0.2)', 'rgba(235,112,64,0.1)', 'rgba(255,96,96,0)'],
     sparkWidth: 6,
+    sparkLength: 100,
     maxParticles: 1000,
     perParticles: 12,
     hz: 1000 / 30,
@@ -25,7 +27,7 @@ const AnimSpark = function(canvas) {
   this.delta = null;
   this.buffer = document.createElement('canvas');
   this.startPos = { x: 0, y: 0 };
-  this.direction = 'direction' in canvas.dataset ? canvas.dataset.direction : 'start-end';
+  // this.direction = 'direction' in canvas.dataset ? canvas.dataset.direction : 'start-end';
 
   this.tsAnimtStart = 0;
   this.tsLastRender = 0;
@@ -39,7 +41,7 @@ const AnimSpark = function(canvas) {
       this.initListeners();
 
       this.startPos.x = 'startposx' in this.canvas.dataset ? parseInt(this.canvas.dataset.startposx) : 0;
-      this.startPos.y = 'startposy' in this.canvas.dataset ? parseInt(this.canvas.dataset.startposy) : 0;
+      this.startPos.y = 'startposy' in this.canvas.dataset ? parseInt(this.canvas.dataset.startposy) : this.canvas.height / 2;
 
       //
       let temp = this.buffer.getContext('2d');
@@ -107,7 +109,7 @@ const AnimSpark = function(canvas) {
 
   this.update = function(delta) {
     // console.log(this.pointer);
-    if (this.pointer.hold) {
+    if (this.pointer.hold || this.autoPlay) {
       this.config.speed.current = Math.min(this.config.speed.max, this.config.speed.current + this.config.speed.increment * delta);
     } else if (this.config.speed.current > 0) {
       this.config.speed.current = Math.max(0, this.config.speed.current - this.config.speed.increment * delta);
@@ -115,7 +117,7 @@ const AnimSpark = function(canvas) {
     this.config.speed.max = Math.PI * 0.12 * delta;
 
     this.particles.forEach(p => p.update(delta, this));
-    console.log(this.particles);
+    // console.log(this.particles);
 
     //
     if (this.config.speed.current > 0) {
@@ -124,11 +126,11 @@ const AnimSpark = function(canvas) {
         [...new Array(count)].forEach(() => {
           this.particles.push(
             new Particle({
-            x: this.startPos.x,
-            y: this.startPos.y,
-            direction: -Math.random() - 0.1,
-            length: 100
-          }, this)
+              x: this.startPos.x,
+              y: this.startPos.y,
+              direction: -Math.random() - 0.1,
+              length: this.config.sparkLength
+            }, this)
           );
         });
       }
@@ -154,7 +156,7 @@ const AnimSpark = function(canvas) {
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
     // transparent
-    // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     //move/render all particles
     this.ctx.globalAlpha = 1;

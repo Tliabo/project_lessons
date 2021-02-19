@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spark</title>
+  <link rel="stylesheet" href="../assets/js/animation/assets/css/style.css">
+</head>
+<body>
+
+<canvas class="spark" height="200" width="200" data-startposx="0" data-startposy="125"></canvas>
+<canvas class="spark" height="250" width="250" style="transform: scale(-1, 1)"></canvas>
+
+<script src="../assets/js/animation/spark.js"></script>
+<script src="../assets/js/animation/spark.Particle.js"></script>
+<script>
+  let canvasArray = document.querySelectorAll('.spark');
+
+  canvasArray.forEach(canvas => {
+    let anim = new AnimSpark(canvas);
+    const LENGTHCONST = 500 / canvas.clientWidth;
+    anim.config.sparkLength = 50 / LENGTHCONST;
+  });
+
+</script>
+</body>
+</html>

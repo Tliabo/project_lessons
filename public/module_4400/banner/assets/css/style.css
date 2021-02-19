@@ -6,6 +6,13 @@
   src: url("../font/STARWARS/STARWARS.woff");
 }
 
+:root {
+  --banner-width: 300px;
+  /*--font-color: #DC143C;*/
+  --font-color: #0073e6;
+  --swiper-theme-color: var(--font-color);
+}
+
 body {
   font-family: STARWARS, 'Roboto', sans-serif;
   display: flex;
@@ -17,7 +24,9 @@ body {
 
 #banner-container {
   background: lightgrey;
+  width: var(--banner-width);
   overflow: hidden;
+  position: relative;
 }
 
 .slider-list {
@@ -25,34 +34,53 @@ body {
 }
 
 .swiper-container {
-  max-width: 250px;
-  max-height: 200px;
-  transform: translateX(250px);
+  transform: translateX(var(--banner-width));
 }
 
 .swiper-wrapper .saber_part {
   align-self: center;
 }
 
+canvas.spark {
+  position: absolute;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.spark.left {
+  left: 0;
+  top: 25%;
+  transform: translateY(-50%);
+}
+
+.spark.right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scale(-1, 1);
+}
+
 #btn-assemble {
   font-family: STARWARS, 'Roboto', sans-serif;
+  text-transform: uppercase;
   border: none;
-  width: 100%;
   cursor: pointer;
   text-align: center;
+  width: 100%;
+  background: transparent;
 
-  background: #fff;
-  color: #fff;
+  /*background: #fff;*/
+  border-top: 2px solid #333333;
+  color: var(--font-color);
   text-shadow: 0 0 2px #fff,
   0 0 4px #fff,
-  0 0 6px #0073e6,
-  0 0 8px #0073e6,
-  0 0 10px #0073e6,
-  0 0 12px #0073e6,
-  0 0 14px #0073e6;
+  0 0 6px var(--font-color),
+  0 0 8px var(--font-color),
+  0 0 10px var(--font-color),
+  0 0 12px var(--font-color),
+  0 0 14px var(--font-color);
 
   font-size: 1.3rem;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
   opacity: 0;
   visibility: hidden;
 }
