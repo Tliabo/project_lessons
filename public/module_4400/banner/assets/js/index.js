@@ -23,7 +23,6 @@ function createSliders(saber) {
     const hSliderWrapper = document.createElement('div');
     hSliderWrapper.className = 'swiper-wrapper';
 
-
     const hControls = {
       prev: document.createElement('div'),
       next: document.createElement('div')
@@ -77,15 +76,15 @@ function sliderAnimation() {
 
   let sliderListHeight = 0;
 
+  // calculate container height (different parts has different sizes)
   for (const child of sliderList.children) {
     sliderListHeight += child.clientHeight;
   }
   // console.log(sliderListHeight);
 
-  tl
-    .to(sliderList, {
-      height: sliderListHeight
-    });
+  tl.to(sliderList, {
+    height: sliderListHeight
+  });
 
   for (const child of sliderList.children) {
     tl.to(child, {
@@ -122,6 +121,7 @@ function assembleAnimation() {
     canvas.style.visibility = 'visible';
   });
 
+  // prevent sliders to be abel to slide
   sliders.forEach(slider => {
     slider.allowTouchMove = false;
   });
@@ -147,11 +147,12 @@ function assembleAnimation() {
     anim.config.speed.increment = 0.01;
     canvas.visibility = true;
 
-    tl.to(canvas, {
-      onComplete: function() {
-        anim.autoPlay = false;
-      }
-    })
+    tl
+      .to(canvas, {
+        onComplete: function() {
+          anim.autoPlay = false;
+        }
+      })
       .to(canvas, {
         delay: 2, onComplete: function() {
           canvas.remove();
@@ -171,7 +172,7 @@ function assembleAnimation() {
     });
   });
 
-  // open the website (preferred with the parts)
+  // open the website (preferred with the parts but its too much for now)
   tl.to(window, {
     delay: 2,
     onComplete: function() {
@@ -183,7 +184,7 @@ function assembleAnimation() {
 window.onload = function() {
   init();
 
-  // timeout because images ned to be loaded
+  // timeout because images ned to be loaded first (not best solution)
   setTimeout(sliderAnimation, 5000);
 };
 
