@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by Pascal Stoop
+-->
+<html>
+<head>
+  <title>Exercise 5</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+  <style>
+    .aspect-container {
+      position: relative;
+      padding: 0 0 50% 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    #webglOutput {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+
+</head>
+<body>
+<div class="ui raised padded container segment">
+  <div class="ui segments">
+    <div class="ui segment">
+      <h3>WebGL - Exercise 5</h3>
+    </div>
+    <div class="ui segment">
+      <div class="aspect-container">
+        <div id="webglOutput"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="core/lib/jquery-3.2.1.js"></script>
+<script src="core/lib/semantic-ui/semantic.min.js"></script>
+<script src="core/lib/three.js"></script>
+<script src="core/lib/OrbitControls.js"></script>
+
+<script>
+  let refDiv = undefined;
+  let gl = null;
+  let scene, camera, renderer, cube, orbitControls;
+
+  function init() {
+    refDiv = document.getElementById('webglOutput');
+    console.log(refDiv.clientWidth + ', ' + refDiv.clientHeight);
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(
+      45,
+      refDiv.clientWidth / refDiv.clientHeight,
+      0.1,
+      1000);
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setClearColor(new THREE.Color('rgb(235, 235, 235)'));
+    renderer.setSize(refDiv.clientWidth, refDiv.clientHeight);
+
+    //init orbitControls
+    orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    //star field
+    let geometry = new THREE.SphereGeometry(300, 32, 32);
+    let material = new THREE.MeshBasicMaterial();
+    material.map = THREE.ImageUtils.loadTexture('media/galaxy_starfield.png');
+    material.side = THREE.BackSide;
+    let galaxyMesh = new THREE.Mesh(geometry, material);
+    scene.add(galaxyMesh);
+
+    let textureFlare0 = THREE.ImageUtils.loadTexture('media/lensflare0.png');
+    let flareColor = new THREE.Color(0xffffff);
+    let lensFlare = new THREE.LensFlare(textureFlare0, 350, 0.0, THREE.AdditiveBlending, flareColor);
+    lensFlare.position = new THREE.Vector3(5, 5, 0);
+    scene.add(lensFlare);
+
+
+    //creat earth
+
+    let earthMat = new THREE.MeshPhongMaterial({ color: 0xffffff });
+    earthMat.map = THREE.ImageUtils.loadTexture('media/earthmap1k.jpg');
+
+    earthMat.bumpMap = THREE.ImageUtils.loadTexture('media/earthbump1k.jpg');
+    earthMat.bumpScale = 0.05;
+    earthMat.specularMap = THREE.ImageUtils.loadTexture('media/earthspec1k.jpg');
+    earthMat.specular = new THREE.Color('grey');
+    earthMat.reflectivity = 0.5;
+    earthMat.shininess = 10;
+
+
+    cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    const sphereGeometry = new THREE.SphereGeometry(5, 32, 32);
+    const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    scene.add(sphere);
+
+    sphere.position.set(-10, 10, 0);
+    cube.position.set(0, 0, 0);
+    camera.position.set(-30, 40, 30);
+    camera.lookAt(cube.position);
+
+    refDiv.appendChild(renderer.domElement);
+
+    animate();
+  }
+
+
+  function animate() {
+    //render the scene
+    cube.rotation.x += 0.01;
+    orbitControls.update();
+
+    renderer.render(scene, camera);
+
+    window.requestAnimationFrame(animate);
+  }
+
+  $(function() {
+    init();
+  });
+</script>
+</body>
+</html>

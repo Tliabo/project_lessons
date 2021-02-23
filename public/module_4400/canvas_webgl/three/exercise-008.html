@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by Pascal Stoop
+-->
+<html>
+  <head>
+      <title>Exercise 8</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+      <style> 
+        .aspect-container {
+          position: relative;
+          padding: 0 0 50% 0;
+          height: 0;
+          overflow: hidden;
+        }
+        #webglOutput {
+          width: 100%; 
+          height: 100%; 
+          position:absolute;
+          top:0;
+          left:0;
+        }
+      </style>
+
+      <script src="core/lib/jquery-3.2.1.js"></script>
+      <script src="core/lib/semantic-ui/semantic.min.js"></script>
+      <script src="core/lib/three.js"></script>
+      <script src="core/lib/OrbitControls.js"></script>
+
+      <script>
+        var refDiv = undefined;
+        var gl = null;
+        var scene, camera, renderer, moon, earth, sun, orbitControl, spotLight;
+        
+        function init() {
+          refDiv = document.getElementById("webglOutput");
+          console.log(refDiv.clientWidth + ", " + refDiv.clientHeight);
+          
+          // create a scene, that will hold all our elements such as objects, cameras and lights.
+          scene = new THREE.Scene();
+
+          // create a camera, which defines where we're looking at.
+          camera = new THREE.PerspectiveCamera(45, refDiv.clientWidth / refDiv.clientHeight, 0.1, 1000);
+
+          // create a render and set the size
+          renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+          renderer.setClearColor(new THREE.Color(0xeeeeee));
+          renderer.shadowMapEnabled = true;
+          renderer.setSize(refDiv.clientWidth , refDiv.clientHeight);
+          
+          //orbit control
+          orbitControl = new THREE.OrbitControls( camera, renderer.domElement );
+          
+          // add light (sunlight)
+          
+          
+          //create sun
+          sun = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), new THREE.MeshPhongMaterial({color: 0xffffff}));
+          scene.add(sun);
+          
+          //sunFlare
+          
+          
+          
+          //create earth
+          
+          
+          //create moon
+          
+
+          
+          //star field
+          
+
+          // position and point the camera to the center of the scene
+          
+
+          // add the output of the renderer to the html element
+          document.getElementById("webglOutput").appendChild(renderer.domElement);
+
+          
+          
+          // render the scene
+          render();
+          
+          window.addEventListener('resize', onWindowResize, false);
+
+        };
+        
+        function onWindowResize() {
+          camera.aspect = refDiv.clientWidth / refDiv.clientHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(refDiv.clientWidth, refDiv.clientHeight);
+        }
+        
+        function render() {
+          //rotate earth around sun, moon around earth
+          
+          
+          orbitControl.update();
+          renderer.render(scene, camera);
+          window.requestAnimationFrame(render);
+        }
+        
+        $(function() {
+            init();
+        });
+      </script>
+  </head>
+  <body>
+    <div class="ui raised padded container segment">
+      <div class="ui segments">
+        <div class="ui segment">
+          <h3>WebGL - Exercise 8</h3>
+        </div>
+        <div class="ui segment" >
+          <div class="aspect-container">
+            <div id="webglOutput"></div >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

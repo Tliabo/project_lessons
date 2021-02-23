@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Copyright 2017 by Pascal Stoop
+-->
+<html>
+  <head>
+      <title>Exercise 1</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="core/lib/semantic-ui/semantic.min.css">
+
+      <style> 
+
+      </style>
+
+      <script src="core/lib/jquery-3.2.1.js"></script>
+      <script src="core/lib/semantic-ui/semantic.min.js"></script>
+
+      <script>
+        var refCanvas = undefined;
+        var gl = null;
+        
+        function init() {
+          refCanvas = document.getElementById("myCanvas");
+          if (refCanvas.getContext) {
+            gl = refCanvas.getContext("webgl");
+            
+            if (gl && gl instanceof WebGLRenderingContext) {
+              console.log(gl.getSupportedExtensions());
+              
+              gl.viewportWidth = refCanvas.width;
+              gl.viewportHeight = refCanvas.height;
+              
+              gl.clearColor(1.0, 0.0, 0.0, 1.0);
+              gl.clear(gl.COLOR_BUFFER_BIT);
+            }
+            else {
+              console.log("WebGL not supported.");
+            }
+          }
+        };
+        
+        
+        $(function() {
+            init();
+        });
+      </script>
+  </head>
+  <body>
+    <div class="ui raised padded container segment">
+      <div class="ui segments">
+        <div class="ui segment">
+          <h3>WebGL - Exercise 1</h3>
+        </div>
+        <div class="ui segment">
+          <!-- area for canvas-element -->
+          <canvas id="myCanvas" width="400" height="400"></canvas >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
