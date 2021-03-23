@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.4mm" height="17.4mm" viewBox="0 0 49.2 49.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #764897;
+        stroke: #764897;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>web</title>
+  <g id="Ebene_2" data-name="Ebene 2">
+    <g id="Ebene_1-2" data-name="Ebene 1">
+      <path id="web" class="cls-1" d="M24.6.5A24.1,24.1,0,1,0,48.7,24.6,24.1,24.1,0,0,0,24.6.5ZM17.5,13.9h4.9v4.9H17.5ZM37,33.4H32.2v4.9H27.3V33.4H22.4v4.9H17.5V33.4H12.6V23.7H7.7V18.8h4.9v4.9h4.9v9.7h4.9V23.7h4.9v9.7h4.9V13.9H37Z"/>
+    </g>
+  </g>
+</svg>

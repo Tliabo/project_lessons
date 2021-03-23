@@ -1,0 +1,73 @@
+@import 'reset.css';
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url(../fonts/SourceCodePro-Regular.ttf);
+  font-weight: normal;
+}
+
+body {
+  font-family: "Source Code Pro", serif;
+  color: white;
+  background: #333333;
+}
+
+.banner {
+  background: black;
+  position: relative;
+  width: 70vw;
+  height: 30vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.text-start, .text-middle, .tagline, .saelogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-start {
+  font-size: 2em;
+}
+
+.text-middle {
+  font-size: 1.5em;
+}
+
+.text-orange {
+  color: orange;
+}
+
+.saelogo {
+  position: absolute;
+  height: 60%;
+}
+
+.cta {
+  font-family: "Source Code Pro";
+  font-size: 1em;
+  background: orange;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cta-arrow {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+#vfx_logo, #audio_logo,
+#film_logo, #games_logo,
+#web_logo, #vfx_text,
+#audio_text, #film_text,
+#games_text, #web_text {
+  position: absolute;
+}
