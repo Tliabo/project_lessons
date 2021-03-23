@@ -1,0 +1,19 @@
+gleichgewicht auf startseite
+	die symetrie fehlt
+	
+space bei den buttons
+
+bei galerie unklar was passiert wenn geklickt
+	auf kleines bild soll grosses bild öffnen, nicht noch mehr bilder
+	
+whitespace ist grösser oben wenn bild auf detail
+
+personen würder mehr auf das aussehen der seite schauen, da sie künsterlin ist.
+
+Portfolio seite spiegeln wieder wie die person ist.
+es soll mehr auffallen.
+
+zu simpel
+es fängt dich nicht auf, wenn es eine person ist wo neu ist, die person nicht kennt, dann fehlt etwas.
+Navigation oder so, dass man auf der seite weiter schauen möchte.
+
