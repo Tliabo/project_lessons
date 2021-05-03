@@ -32,8 +32,7 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    return htmlspecialchars($data);
 }
 
 //mail($sendTo, $subject, $message, $header);

@@ -1,13 +1,16 @@
 <?php
 
+$root_dir = getcwd() . '/images/content/';
+
+var_dump(scandir($root_dir));
+
 if (!empty($_GET['ordnername'])) {
     $folder_name = $_GET['ordnername'];
-    $output_dir = getcwd() . '/images/home/';
 
-    var_dump(scandir($output_dir));
-
-    if (!file_exists($output_dir . $folder_name))/* Check folder exists or not */ {
-        @mkdir($output_dir . $folder_name, 0777);/* Create folder by using mkdir function */
+    /* Check folder exists or not */
+    if (!file_exists($root_dir . $folder_name)) {
+        /* Create folder */
+        @mkdir($root_dir . $folder_name, 0777);
         echo "Folder Created";/* Success Message */
     }
 }
@@ -111,30 +114,39 @@ if (!empty($_GET['ordnername'])) {
           <nav class="uk-navbar-container uk-margin" uk-navbar>
             <ul class="uk-nav">
               <li><a href="imagemanager_ordner.php"><span class="icon-folder-plus"></span> Neuer Ordner</a></li>
-              <ul>
+            </ul>
           </nav>
           <ul class="uk-list">
-            <li><span class="icon-folder"></span>&nbsp;Home</li>
+              <?php
+              foreach (scandir($root_dir) as $item) {
+                  $dir_path = $root_dir . $item;
+                  if (is_dir($dir_path) && !str_starts_with($item, '_') && !str_starts_with($item, '.')) {
+                      echo '<li><a href="?folder=' . $item . '"><span class="icon-folder"></span>' . $item . '</a></li>';
+                  }
+              } ?>
           </ul>
         </div>
       </div>
       <div class="">
         <div class="uk-card-default uk-card-body uk-card-small">
           <form>
-            <nav class="uk-navbar-container uk-margin" uk-navbar>
+            <nav class="uk-navbar-container uk-margin uk-navbar">
               <ul class="uk-subnav">
-                <li><a class="uk-button uk-button-muted uk-button-small" href="imagemanager.php"><span
-                            class="icon-folder-plus"></span> Abbrechen</a></li>
                 <li>
-                  <button type="submit" class="uk-button uk-button-default uk-button-small"><span
-                            class="icon-folder-plus"></span> Speichern
+                  <a class="uk-button uk-button-muted uk-button-small" href="imagemanager.php">
+                    <span class="icon-folder-plus"></span> Abbrechen</a>
+                </li>
+                <li>
+                  <button type="submit" class="uk-button uk-button-default uk-button-small">
+                    <span class="icon-folder-plus"></span> Speichern
                   </button>
                 </li>
-                <ul>
+              </ul>
             </nav>
             <div>
-              <label>Ordnername: </label>
-              <input type="text" name="ordnername" />
+              <label>Ordnername:
+                <input type="text" name="ordnername" />
+              </label>
             </div>
           </form>
 
