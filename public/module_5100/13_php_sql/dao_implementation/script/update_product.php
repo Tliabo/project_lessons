@@ -2,7 +2,7 @@
 
 use Doctrine\ORM\EntityManager;
 
-require_once "bootstrap.php";
+require_once "../bootstrap.php";
 
 $id = $argv[1];
 $newName = $argv[2];

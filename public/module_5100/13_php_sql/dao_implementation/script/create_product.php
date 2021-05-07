@@ -2,7 +2,7 @@
 
 use Doctrine\ORM\EntityManager;
 
-require_once "bootstrap.php";
+require_once "../bootstrap.php";
 
 $newProductName = $argv[1];
 
