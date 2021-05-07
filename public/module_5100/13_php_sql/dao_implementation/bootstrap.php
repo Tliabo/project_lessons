@@ -8,6 +8,7 @@ require_once "vendor/autoload.php";
 $isDevMode = true;
 $entityPaths = array(__DIR__."/src");
 
+
 // database connection configuration
 $conn = array(
   'driver' => 'pdo_sqlite',
@@ -15,5 +16,8 @@ $conn = array(
 );
 
 $config = Setup::createAnnotationMetadataConfiguration($entityPaths, $isDevMode);
-// obtaining the entity manager
+/**
+ *
+ * obtaining the entity manager
+ */
 $entityManager = EntityManager::create($conn, $config);
