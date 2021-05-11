@@ -1,6 +1,6 @@
 <?php
 
-require_once('includes/config.php'); // alle Konstanten für das Projekt
+require_once('includes/config.php');    // alle Konstanten für das Projekt
 require_once('includes/functions.php'); // funktionen für das Projekt
 
 session_name(CUSTOM_SESSIONNAME); // key meinEigenerSessionCookieKey statt PHPSESSID - vor session_start() und in einer App immer gleich (da sonst die Session nicht mehr gefunden wird)

@@ -1,7 +1,7 @@
 <?php
 
-require_once('includes/config.php'); // alle Konstanten für das Projekt
-require_once('includes/functions.php'); // funktionen für das Projekt
+require_once('includes/config.php');       // alle Konstanten für das Projekt
+require_once('includes/functions.php');    // funktionen für das Projekt
 require_once('includes/sessioncheck.php'); // Sessioncheck zum schutz des Admintools vor unerlaubtem Zugriff
 
 ?>
