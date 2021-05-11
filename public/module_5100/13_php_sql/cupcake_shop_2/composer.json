@@ -3,7 +3,8 @@
         "php": ">=5.4",
         "ext-pdo_sqlite": "*",
         "doctrine/orm": "2.*",
-        "symfony/yaml": "2.*"
+        "laravel-doctrine/orm": "^1.4",
+        "doctrine/inflector": "^2.0"
     },
     "autoload": {
         "psr-0": {

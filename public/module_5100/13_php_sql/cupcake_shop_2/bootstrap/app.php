@@ -5,10 +5,8 @@ namespace bootstrap;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 
-require_once "../vendor/autoload.php";
-
 $isDevMode = true;
-$entityPaths = [__DIR__ . "../app/models"];
+$entityPaths = [__DIR__ . "/../app/models"];
 
 // database connection configuration
 $conn = [

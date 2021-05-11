@@ -11,4 +11,3 @@ const SESSION_EXPIRY = 5;
 const CUSTOM_SESSIONNAME = 'meinEigenerSessionCookieKey';
 
 const IMAGEFOLDER = '/assets/images/';
-?>

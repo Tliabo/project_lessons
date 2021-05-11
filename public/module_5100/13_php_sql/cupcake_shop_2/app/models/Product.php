@@ -1,5 +1,7 @@
 <?php
 
+namespace APP\Models;
+
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
