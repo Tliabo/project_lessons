@@ -1,3 +1,7 @@
+<?php
+// soll immer vor html gesetzt sein
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,7 +10,8 @@
 </head>
 <body>
 <?php
-session_start();
+// fehler
+//session_start();
 ?>
 </body>
 </html>
