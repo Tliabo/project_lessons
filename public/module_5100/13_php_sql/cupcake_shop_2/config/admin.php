@@ -1,9 +1,9 @@
 <?php
 // SQL Konfiguration
-const DBSERVER = 'localhost'; // in der Regel localhost, ausser der Server liegt nicht da wo das PHP SCript liegt
-const DBUSER = 'root';
-const DBPASSWORT = ''; // root für MAMP
-const DBNAME = 'wdd320_shop';
+const DB_SERVER = 'localhost'; // in der Regel localhost, ausser der Server liegt nicht da wo das PHP SCript liegt
+const DB_USER = 'root';
+const DB_PASSWORT = ''; // root für MAMP
+const DB_NAME = 'wdd320_shop';
 
 const SQLDEBUG = true;
 

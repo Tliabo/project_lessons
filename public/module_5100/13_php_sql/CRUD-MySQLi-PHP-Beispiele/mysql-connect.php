@@ -2,7 +2,7 @@
 
 // SQL Verbindung
 if( defined('DBSERVER') && defined('DBUSER') && defined('DBPASSWORT') && defined('DBNAME') ){
-	$connection = mysqli_connect(DBSERVER, DBUSER, DBPASSWORT, DBNAME);
+	$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORT, DB_NAME);
 	
 	if ($connection == false){
 		$dbgmsg = '';
