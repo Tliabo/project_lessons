@@ -2,8 +2,6 @@
 
 namespace src;
 
-
-use App\Controllers\HomeController;
 use App\Controllers\SiteController;
 
 class Router
@@ -37,14 +35,14 @@ class Router
 
         $callback = self::$routes[$method][$path] ?? false;
 
+        /**
+         * If no site is found return 404 error view
+         */
         if (!$callback) {
             Response::setStatusCode(404);
             $controller = new SiteController();
             return $controller->errorCode(404);
         }
-
-        $action = self::$request->action;
-        $params = self::$request->params;
 
         return call_user_func($callback);
     }

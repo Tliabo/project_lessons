@@ -37,7 +37,10 @@ class SiteController
 
     public function errorCode($code)
     {
-        return $code;
+        ob_start();
+        include_once RESOURCE_DIR . "/views/_$code.php";
+        $viewContend = ob_get_clean();
+        return $this->render(['contend' => $viewContend]);
     }
 
     private function render($params = []) {

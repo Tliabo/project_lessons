@@ -1,9 +1,6 @@
 <?php
 
-use App\Controllers\HomeController;
 use App\Controllers\SiteController;
-use Database\BaseModel;
-use src\Controller;
 use src\Router;
 
 $siteController = new SiteController();
