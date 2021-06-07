@@ -7,7 +7,7 @@ return [
    *
    * Here you may specify which database connection below you wanna use
    */
-  'default' => 'mysql',
+  'default' => 'sqlite',
 
   /*
    * Database Connections

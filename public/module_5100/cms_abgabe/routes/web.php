@@ -1,9 +1,13 @@
 <?php
 
-use App\Controllers\BaseController;
+use App\Controllers\HomeController;
+use App\Controllers\SiteController;
 use Database\BaseModel;
-use App\Views\BaseView;
+use src\Controller;
+use src\Router;
 
-new Route('', function () {
+$siteController = new SiteController();
 
-});
+Router::get('/', [$siteController, 'home']);
+Router::get('contact', [$siteController, 'contact']);
+Router::post('contact', [$siteController, 'handleContact']);

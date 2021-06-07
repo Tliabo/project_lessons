@@ -1,12 +1,12 @@
 <?php
 /*
- * Each model can represent a entity from the database.
- * But sometimes you need a model that is not in the saved in the DB.
+ * Each model can represent a entity in the database.
+ * But sometimes you also have a model that doesnt need to be saved in the DB.
  */
 
 namespace Database;
 
-use Model;
+use src\Model;
 
 class BaseModel extends Model
 {

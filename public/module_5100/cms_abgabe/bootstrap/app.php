@@ -7,6 +7,7 @@ const APP_DIR = BASE_DIR . '/app';
 const CONF_DIR = BASE_DIR . '/config';
 const ROUTES_DIR = BASE_DIR . '/routes';
 const DATABASE_DIR = BASE_DIR . '/database';
+const SRC_DIR = BASE_DIR . '/src';
 
 $app = function () {
     initApp();
@@ -15,14 +16,13 @@ $app = function () {
 /**
  * Automatically require PHP files in given directory.
  * For autoloading classes
- * @param $directory
+ *
  */
 function initApp()
 {
-    $directories[] = APP_DIR . '/classes';
+    $directories[] = SRC_DIR;
     $directories[] = APP_DIR . '/controllers';
     $directories[] = DATABASE_DIR;
-    $directories[] = RESOURCE_DIR . '/views';
 
     foreach ($directories as $directory) {
         $files = glob("$directory/*.php");

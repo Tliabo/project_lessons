@@ -1,5 +1,6 @@
 <?php
 
+namespace src;
 
 if (!function_exists('sanitize')) {
     /**
