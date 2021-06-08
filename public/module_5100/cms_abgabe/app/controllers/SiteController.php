@@ -3,51 +3,79 @@
 
 namespace App\Controllers;
 
-class SiteController
+use Database\AktuellModel;
+use Database\BiografieModel;
+use Database\ErrorCodeModel;
+use Database\GalerieModel;
+use Database\HomeModel;
+use src\Controller;
+
+/**
+ * Handles the public sites
+ * Class SiteController
+ * @package App\Controllers
+ */
+class SiteController extends Controller
 {
-    public array $viewParams = [
-        'head' => [
-            'lang' => 'de',
-            'charset' => 'UTF-8',
-            'title' => '',
-            'links' => ''
-        ]
-    ];
-
-    public function contact()
-    {
-        ob_start();
-        include_once RESOURCE_DIR . "/views/contact.php";
-        $viewContend = ob_get_clean();
-        return $this->render(['contend' => $viewContend]);
-    }
-
-    public function handleContact()
-    {
-        return 'Handling submitted contact data';
-    }
-
-    public function home()
-    {
-        ob_start();
-        include_once RESOURCE_DIR . "/views/home.php";
-        $viewContend = ob_get_clean();
-        return $this->render(['contend' => $viewContend]);
-    }
-
+    /**
+     * Loads the errorview with the specified error code
+     * @param $code
+     * @return false|string
+     */
     public function errorCode($code)
     {
-        ob_start();
-        include_once RESOURCE_DIR . "/views/_$code.php";
-        $viewContend = ob_get_clean();
-        return $this->render(['contend' => $viewContend]);
+        $errorCodeModel = new ErrorCodeModel($code);
+        $this->viewParams['head']['title'] = $errorCodeModel->getTitle();
+        $this->viewParams['contend'] = $errorCodeModel->getContend();
+        return $this->render();
     }
 
-    private function render($params = []) {
-        $params = array_merge($this->viewParams, $params);
-        ob_start();
-        extract($params);
-        include_once RESOURCE_DIR . "/templates/base.tpl.php";
-        return ob_get_clean();
+    /**
+     * Loads the home view
+     * @return false|string
+     */
+    public function home()
+    {
+        $homeModel = new HomeModel();
+        $this->viewParams['head']['title'] = $homeModel->getTitle();
+        $this->viewParams['contend'] = $homeModel->getContend();
+        $this->viewParams['afterFooter'] = $homeModel->getJS();
+        return $this->render();
+    }
+
+    /**
+     * Loads the aktuell view
+     * @return false|string
+     */
+    public function aktuell()
+    {
+        $aktuellModel = new AktuellModel();
+        $this->viewParams['head']['title'] = $aktuellModel->getTitle();
+        $this->viewParams['contend'] = $aktuellModel->getContend();
+        return $this->render();
+    }
+
+    /**
+     * Loads the galerie view and sub views
+     * @return false|string
+     */
+    public function galerie()
+    {
+        $galerieModel = new GalerieModel();
+        $this->viewParams['head']['title'] = $galerieModel->getTitle();
+        $this->viewParams['contend'] = $galerieModel->getContend();
+        return $this->render();
+    }
+
+    /**
+     * Loads the biografie view
+     * @return false|string
+     */
+    public function biografie()
+    {
+        $biografieModel = new BiografieModel();
+        $this->viewParams['head']['title'] = $biografieModel->getTitle();
+        $this->viewParams['contend'] = $biografieModel->getContend();
+        return $this->render();
     }
 }

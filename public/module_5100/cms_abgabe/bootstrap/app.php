@@ -15,7 +15,7 @@ $app = function () {
 
 /**
  * Automatically require PHP files in given directory.
- * For autoloading classes
+ * autoloading classes
  *
  */
 function initApp()

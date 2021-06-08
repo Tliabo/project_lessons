@@ -1,0 +1,13 @@
+/* Core Css for pages */
+
+@import "reset";
+@import "variables";
+@import "helper";
+@import "components";
+@import "style";
+
+
+// TODO: comment out after debug
+.xdebug-var-dump {
+    background: white;
+}
