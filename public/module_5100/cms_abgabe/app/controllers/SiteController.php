@@ -38,8 +38,9 @@ class SiteController extends Controller
     {
         $homeModel = new HomeModel();
         $this->viewParams['head']['title'] = $homeModel->getTitle();
+        $this->viewParams['head']['links'] = array_merge($this->viewParams['head']['links'] , $homeModel->getStyleSheets());
         $this->viewParams['contend'] = $homeModel->getContend();
-        $this->viewParams['afterFooter'] = $homeModel->getJS();
+        $this->viewParams['afterFooter']['js'] = array_merge($this->viewParams['afterFooter']['js'], $homeModel->getJS());
         return $this->render();
     }
 

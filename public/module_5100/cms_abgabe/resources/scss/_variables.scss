@@ -1,34 +1,15 @@
-/* Basic Color scheme */
-:root {
-    --color-light: #FFE3E3;
-    --bg-pink: #E1A6AD;
-    --bg-dark: #946E72;
-    --bg-dark-lighten: lighten(#946E72, 10%);
-    --bg-dark-opac: #946E7280;
-    --bg-gray: #E1E1E1;
-    --color-dark: #333333;
-}
+
+@import "fonts";
 
 /* Colors */
-$color-light: var(--color-light);
-$bg-pink: var(--bg-pink);
-$bg-dark: var(--bg-dark);
-$bg-dark-lighten: var(--bg-dark-lighten);
-$bg-dark-opac: var(--bg-dark-opac);
-$bg-gray: var(--bg-gray);
-$color-dark: var(--color-dark);
+$bg-pink: #E1A6AD;
+$bg-dark: #946E72;
+$bg-dark-lighten: lighten($bg-dark, 10%);
+$bg-dark-opac: #946E7280;
+$bg-gray: #E1E1E1;
 
-/* Box-shadows */
-$box-shadow-default: 0 1.9px 2.2px rgba(0, 0, 0, 0.026),
-0 4.4px 5.3px rgba(0, 0, 0, 0.036),
-0 7.9px 10px rgba(0, 0, 0, 0.041),
-0 13.4px 17.9px rgba(0, 0, 0, 0.046),
-0 23.9px 33.4px rgba(0, 0, 0, 0.052),
-0 55px 80px rgba(0, 0, 0, 0.07);
-$box-shadow-xl: 0 0 1px rgba(0, 0, 0, 0.04),
-0 4px 8px rgba(0, 0, 0, 0.04),
-0 16px 24px rgba(0, 0, 0, 0.04),
-0 24px 32px rgba(0, 0, 0, 0.04);
+$light:         #FFE3E3;
+$dark:          #333333;
 
-@import "breakpoints";
-@import "fonts";
+$primary:       $light;
+$link-decoration:   none;

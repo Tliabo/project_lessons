@@ -3,8 +3,9 @@
 
 namespace Database;
 
+use src\SiteModel;
 
-class GalerieModel
+class GalerieModel extends SiteModel
 {
     public function getContend()
     {
@@ -13,7 +14,7 @@ class GalerieModel
         return ob_get_clean();
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return 'VP - Galerie';
     }

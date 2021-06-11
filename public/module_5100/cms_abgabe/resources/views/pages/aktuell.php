@@ -3,8 +3,8 @@
 
 <article class="event">
     <img src="https://source.unsplash.com/QksrZ5RfE2w"
-         alt="Placeholder Bild von Unsplashed, Personen mit ungewöhnlicher Kleidung">
-    <div class="event-details-wrapper">
+         alt="Placeholder Bild von Unsplashed, Personen mit ungewöhnlicher Kleidung" class="shadow">
+    <div class="event-details-wrapper shadow">
         <!-- Titel Veranstaltung-->
         <h3 class="event-title">Titel Veranstaltung</h3>
         <p class="event-description">Nunquam convertam adiurator.</p>
@@ -15,8 +15,8 @@
 </article>
 <article class="event">
     <img src="https://source.unsplash.com/5EUh-tq31eA"
-         alt="Placeholder Bild von Unsplashed, Gemälde von einer Schlacht mit Ritter">
-    <div class="event-details-wrapper">
+         alt="Placeholder Bild von Unsplashed, Gemälde von einer Schlacht mit Ritter" class="shadow">
+    <div class="event-details-wrapper shadow">
         <!-- Titel Veranstaltung-->
         <h3 class="event-title">Cliniass nocere!</h3>
         <p class="event-description">Remember: peeled blood oranges taste best when cooked in a bottle soaked with

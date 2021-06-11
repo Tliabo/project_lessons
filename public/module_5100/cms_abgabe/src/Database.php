@@ -16,7 +16,7 @@ class Database
     public static function getDb()
     {
         if (is_null(self::$db)) {
-            $db_conf = CONF_DIR . '/database.php';
+            $db_conf = include_once CONF_DIR . '/database.php';
             switch ($db_conf['default']) {
                 case 'mysql':
                     $mysql = $db_conf['connections']['mysql'];

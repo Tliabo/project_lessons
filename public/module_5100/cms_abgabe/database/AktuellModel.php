@@ -3,8 +3,9 @@
 
 namespace Database;
 
+use src\SiteModel;
 
-class AktuellModel
+class AktuellModel extends SiteModel
 {
     public function getContend()
     {
@@ -13,7 +14,7 @@ class AktuellModel
         return ob_get_clean();
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return 'VP - Aktuell';
     }

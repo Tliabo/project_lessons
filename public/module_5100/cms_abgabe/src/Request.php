@@ -52,7 +52,7 @@ class Request
      * returns the sanitized request body
      * @return array|null
      */
-    public function getBody()
+    public function getBody(): ?array
     {
         if ($this->isGet()) {
             return $this->sanitizeMethod($_GET);

@@ -3,8 +3,9 @@
 
 namespace Database;
 
+use src\SiteModel;
 
-class ErrorCodeModel
+class ErrorCodeModel extends SiteModel
 {
     private $code;
 
@@ -16,11 +17,11 @@ class ErrorCodeModel
     public function getContend()
     {
         ob_start();
-        include_once RESOURCE_DIR . "/views/_$this->code.php";
+        include_once RESOURCE_DIR . "/views/$this->code.php";
         return ob_get_clean();
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return "Error $this->code";
     }
