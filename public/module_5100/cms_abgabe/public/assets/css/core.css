@@ -10778,7 +10778,7 @@ main {
 #button-toTop {
   position: absolute;
   right: 5vw;
-  bottom: 5vh;
+  bottom: 3rem;
   color: #E1A6AD;
 }
 
@@ -10790,6 +10790,10 @@ main {
 
 #copyright, #contact {
   color: #FFE3E3;
+}
+
+.vp-border {
+  border: 1rem double #946E72;
 }
 
 /*# sourceMappingURL=core.css.map */

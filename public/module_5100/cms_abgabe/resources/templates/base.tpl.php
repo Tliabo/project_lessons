@@ -18,7 +18,7 @@ include_once RESOURCE_DIR . '/templates/header.tpl.php';
 ?>
 <body>
 
-<main>
+<main class="container-fluid">
     <?= $contend ?>
 </main>
 <?php
