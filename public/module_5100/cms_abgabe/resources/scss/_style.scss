@@ -1,17 +1,40 @@
+
 body {
     font-family: 'Roboto', sans-serif;
 }
 
 h1, .h1 {
     font-family: 'Neucha', cursive;
+    font-size: 1.5em;
 }
 
 h2, .h2 {
     font-family: 'Kaushan Script', cursive;
 }
 
+#header-main {
+    .nav-item {
+        margin-right: 1rem;
+    }
+}
+
+main {
+    min-height: 80vh;
+}
+
 #button-toTop {
     position: absolute;
-    right: 3rem;
-    bottom: 3rem;
+    right: 5vw;
+    bottom: 5vh;
+    color: $rose-500;
+}
+
+#footer-main {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: $rose-dark;
+}
+
+#copyright, #contact {
+    color: $link-color;
 }

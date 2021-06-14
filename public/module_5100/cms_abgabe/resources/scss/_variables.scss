@@ -1,15 +1,45 @@
-
 @import "fonts";
 
 /* Colors */
-$bg-pink: #E1A6AD;
-$bg-dark: #946E72;
-$bg-dark-lighten: lighten($bg-dark, 10%);
-$bg-dark-opac: #946E7280;
+$rose: #E1A6AD;
+
+$rose-100: tint-color($rose, 80%);
+$rose-200: tint-color($rose, 60%);
+$rose-300: tint-color($rose, 40%);
+$rose-400: tint-color($rose, 20%);
+$rose-500: $rose;
+$rose-600: shade-color($rose, 20%);
+$rose-700: shade-color($rose, 40%);
+$rose-800: shade-color($rose, 60%);
+$rose-900: shade-color($rose, 80%);
+
+$rose-dark: #946E72;
+$rose-dark-opac: #946E7280;
 $bg-gray: #E1E1E1;
 
-$light:         #FFE3E3;
-$dark:          #333333;
+$light: #FFE3E3;
+$dark: #333333;
 
-$primary:       $light;
-$link-decoration:   none;
+$primary: $light;
+$secondary: $rose-dark;
+
+/* Box-Shadows */
+$box-shadow: 0 1.9px 2.2px rgba(0, 0, 0, 0.026),
+0 4.4px 5.3px rgba(0, 0, 0, 0.036),
+0 7.9px 10px rgba(0, 0, 0, 0.041),
+0 13.4px 17.9px rgba(0, 0, 0, 0.046),
+0 23.9px 33.4px rgba(0, 0, 0, 0.052),
+0 55px 80px rgba(0, 0, 0, 0.07);
+$box-shadow-lg: 0 0 1px rgba(0, 0, 0, 0.04),
+0 4px 8px rgba(0, 0, 0, 0.04),
+0 16px 24px rgba(0, 0, 0, 0.04),
+0 24px 32px rgba(0, 0, 0, 0.04);
+
+/* Link */
+$link-decoration: none;
+
+/* Dropdown */
+$dropdown-bg: $light;
+
+$dropdown-link-hover-color: $light;
+$dropdown-link-hover-bg: $rose-dark;
