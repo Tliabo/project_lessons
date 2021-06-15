@@ -13,12 +13,13 @@ $app = require __DIR__ . '/../bootstrap/app.php';
  * Handle requests
  */
 $request = new Request();
-Router::set($request);
 
 /**
  * Handle Session
  */
 $session = new Session();
+
+Router::set($request, $session);
 
 /**
  * Specify the routs

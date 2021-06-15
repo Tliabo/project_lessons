@@ -74,4 +74,21 @@ abstract class Model
     {
         return $this->errors[$attribute][0] ?? false;
     }
+
+    public function save()
+    {
+    }
+
+    public function update()
+    {
+    }
+
+    public function delete()
+    {
+    }
+
+    public function prepare(string $query)
+    {
+        return $this->db->prepare($query);
+    }
 }

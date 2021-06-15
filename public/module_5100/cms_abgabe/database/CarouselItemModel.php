@@ -4,7 +4,7 @@ namespace Database;
 
 use src\Model;
 
-class CarouselItem extends Model
+class CarouselItemModel extends Model
 {
     protected int $id;
     public bool $isDefault = false;

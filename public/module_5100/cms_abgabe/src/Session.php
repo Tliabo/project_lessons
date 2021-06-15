@@ -18,8 +18,6 @@ class Session
             $flashMessage['remove'] = true;
         }
         $_SESSION[self::FLASH_KEY] = $flashMessages;
-
-        var_dump($flashMessages);
     }
 
     public function setFlash($key, $message)
@@ -43,7 +41,6 @@ class Session
                 unset($flashMessages[$key]);
             }
         }
-        var_dump($_SESSION[self::FLASH_KEY]);
         $_SESSION[self::FLASH_KEY] = $flashMessages;
     }
 }

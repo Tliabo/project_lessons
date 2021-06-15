@@ -14,6 +14,7 @@ use App\Controllers\SiteController;
 class Router
 {
     public static Request $request;
+    public static Session $session;
     protected static array $routes = [];
 
     /**
@@ -25,12 +26,14 @@ class Router
     }
 
     /**
-     * Connects the router with the request
+     * Connects the router with the request and session
      * @param Request $request
+     * @param Session $session
      */
-    public static function set(Request $request)
+    public static function set(Request $request, Session $session)
     {
         self::$request = $request;
+        self::$session = $session;
     }
 
     /**

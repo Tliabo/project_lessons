@@ -43,21 +43,4 @@ class Database
         return self::$db;
     }
 
-    public function insert()
-    {
-    }
-
-    public function update()
-    {
-    }
-
-    public function delete()
-    {
-    }
-
-    public static function prepare(string $query)
-    {
-        return self::$db->prepare($query);
-    }
-
 }

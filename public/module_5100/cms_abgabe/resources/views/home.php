@@ -1,11 +1,11 @@
 <?php
 
 
-use Database\CarouselItem;
+use Database\CarouselItemModel;
 
 $carouselItems = [];
 
-$item = new CarouselItem();
+$item = new CarouselItemModel();
 
 $item->isDefault = true;
 $carouselItems[] = $item->render();

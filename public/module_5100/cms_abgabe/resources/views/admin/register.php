@@ -1,9 +1,17 @@
 <?php
 
-use Database\AdminNewUserModel;
 use src\Form;
+use src\Router;
 
 ?>
+
+<?php
+if (Router::$session->getFlash('success')): ?>
+    <div class="alert alert-success">
+        <?= Router::$session->getFlash('success') ?>
+    </div>
+<?php
+endif; ?>
 
 <h2>Registrieren</h2>
 

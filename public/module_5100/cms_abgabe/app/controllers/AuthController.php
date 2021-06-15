@@ -4,9 +4,12 @@ namespace App\Controllers;
 
 use Database\AdminNewUserModel;
 use Database\LoginModel;
+use Database\User;
 use src\Controller;
 use src\Request;
 use src\Response;
+use src\Router;
+use src\Session;
 
 class AuthController extends Controller
 {
@@ -25,11 +28,25 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        $user = new User();
+        if ($request->isPost()) {
+            $user->loadData($request->getBody());
+
+            if ($user->validate() && $user->save()) {
+                Router::$session->setFlash('success', 'Erfolgreich Registriert');
+                Response::redirect('/register');
+                exit;
+            }
+        }
+
         $registerModel = new AdminNewUserModel();
         if ($request->isPost()) {
             $registerModel->loadData($request->getBody());
+
             if ($registerModel->validate() && $registerModel->register()) {
-                return 'Success';
+                Router::$session->setFlash('success', 'Erfolgreich Registriert');
+                Response::redirect('/register');
+                exit;
             }
         }
 

@@ -15,7 +15,7 @@ class AdminNewUserModel extends Model
 
     public function register()
     {
-        echo "Creating new User";
+        return true;
     }
 
     public function rules(): array
