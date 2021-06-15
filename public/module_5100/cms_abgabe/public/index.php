@@ -2,6 +2,7 @@
 
 use src\Request;
 use src\Router;
+use src\Session;
 
 /**
  * Autoloads classes and needed files
@@ -15,9 +16,15 @@ $request = new Request();
 Router::set($request);
 
 /**
+ * Handle Session
+ */
+$session = new Session();
+
+/**
  * Specify the routs
  */
 require ROUTES_DIR . "/web.php";
+
 
 /**
  * Resolve request

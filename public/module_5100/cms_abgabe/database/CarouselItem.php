@@ -6,12 +6,13 @@ use src\Model;
 
 class CarouselItem extends Model
 {
-    public $isDefault = false;
-    public $imgSrc = 'https://source.unsplash.com/random/502?art';
-    public $imgAlt = 'Random image in a slider';
-    public $hasCaption = false;
-    public $captionTitle = '<h5>Third slide label</h5>';
-    public $captionContend = '<p>Some representative placeholder content for the third slide.</p>';
+    protected int $id;
+    public bool $isDefault = false;
+    public string $imgSrc = 'https://source.unsplash.com/random/502?art';
+    public string $imgAlt = 'Random image in a slider';
+    public bool $hasCaption = false;
+    public string $captionTitle = '<h5>Third slide label</h5>';
+    public string $captionContend = '<p>Some representative placeholder content for the third slide.</p>';
 
     public function render()
     {

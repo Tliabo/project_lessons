@@ -21,13 +21,14 @@ $app = function () {
 function initApp()
 {
     $directories[] = SRC_DIR;
+    $directories[] = SRC_DIR . '/form';
     $directories[] = APP_DIR . '/controllers';
     $directories[] = DATABASE_DIR;
 
     foreach ($directories as $directory) {
         $files = glob("$directory/*.php");
         foreach ($files as $file) {
-            require_once $file;
+            require $file;
         }
     }
 }

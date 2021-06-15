@@ -60,6 +60,7 @@ class Router
     public static function resolve()
     {
         $path = self::$request->controller;
+
         $method = self::$request->method();
 
         $callback = self::$routes[$method][$path] ?? false;

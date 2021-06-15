@@ -10,7 +10,7 @@ class GalerieModel extends SiteModel
     public function getContend()
     {
         ob_start();
-        include_once RESOURCE_DIR . "/views/pages/galerie.php";
+        include_once RESOURCE_DIR . "/views/galerie.php";
         return ob_get_clean();
     }
 

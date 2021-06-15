@@ -10,6 +10,7 @@
  */
 
 use App\Controllers\AdminController;
+use App\Controllers\AuthController;
 use App\Controllers\SiteController;
 use src\Router;
 
@@ -30,5 +31,7 @@ Router::get('biografie', [SiteController::class, 'biografie']);
  * Admin sites
  */
 
-Router::get('admin', [AdminController::class, 'login']);
-Router::post('admin', [AdminController::class, 'login']);
+Router::get('register', [AuthController::class, 'register']);
+Router::post('register', [AuthController::class, 'register']);
+Router::get('login', [AuthController::class, 'login']);
+Router::post('login', [AuthController::class, 'login']);

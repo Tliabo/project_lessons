@@ -27,6 +27,7 @@ class Request
     private function dispatch()
     {
         $explode_url = explode('/', $this->url);
+
         $explode_url = array_slice($explode_url, 1);
 
         // The first element will be the controller
@@ -66,7 +67,7 @@ class Request
     {
         $body = [];
         foreach ($method as $key => $value) {
-            $body[$key] = sanitize($key);
+            $body[$key] = sanitize($value);
         }
         return $body;
     }

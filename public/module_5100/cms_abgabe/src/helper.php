@@ -74,3 +74,22 @@ if (!function_exists('renderLinks')) {
     }
 }
 
+if (!function_exists('errorMessages')) {
+    /**
+     * For each rule there is a error message
+     * @return string[]
+     */
+    function errorMessages(): array
+    {
+        /**
+         * {placeholder}
+         */
+        return [
+            RULE_REQUIRED => 'Dieses Feld wird benötigt',
+            RULE_EMAIL => 'Dieses Feld benötigt eine gültige Email Adresse',
+            RULE_MIN => 'Die minimal Länge ist {min}',
+            RULE_MAX => 'Die maximale Länge ist {max}',
+            RULE_MATCH => 'Dieses Feld muss gleich sein wie {match}'
+        ];
+    }
+}
