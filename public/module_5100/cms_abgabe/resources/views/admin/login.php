@@ -11,7 +11,7 @@ use src\Form;
 
 $form = Form::begin('', 'post') ?>
 
-<?= $form->field($this, 'username') ?>
+<?= $form->field($this, 'email') ?>
 <?= $form->field($this, 'password')->passwordField() ?>
 <button class="btn btn-primary" type="submit">Einloggen</button>
 

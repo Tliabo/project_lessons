@@ -18,6 +18,13 @@ class AdminNewUserModel extends Model
         return true;
     }
 
+    public function getContend()
+    {
+        ob_start();
+        include_once RESOURCE_DIR . "/views/admin/register.php";
+        return ob_get_clean();
+    }
+
     public function rules(): array
     {
         return [
@@ -29,10 +36,14 @@ class AdminNewUserModel extends Model
         ];
     }
 
-    public function getContend()
+    public function labels(): array
     {
-        ob_start();
-        include_once RESOURCE_DIR . "/views/admin/register.php";
-        return ob_get_clean();
+        return [
+            'firstname' => 'Vorname',
+            'lastname' => 'Nachname',
+            'email' => 'E-Mail',
+            'password' => 'Passwort',
+            'passwordConfirm' => 'Passwort bestätigen'
+        ];
     }
 }

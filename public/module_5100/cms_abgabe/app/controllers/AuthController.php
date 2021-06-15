@@ -9,7 +9,6 @@ use src\Controller;
 use src\Request;
 use src\Response;
 use src\Router;
-use src\Session;
 
 class AuthController extends Controller
 {
