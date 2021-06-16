@@ -17,12 +17,11 @@ class AdminController extends Controller
 {
     public function admin(Request $request)
     {
-        var_dump($request);
         $action = $request->action;
         if ($action && method_exists($this, $action)) {
             // execute action
             return $this->{$action}($request);
-        } elseif($action) {
+        } elseif ($action) {
             Response::redirect('/admin');
         }
         return $this->render();
@@ -41,9 +40,15 @@ class AdminController extends Controller
         return $this->render();
     }
 
+    /**
+     * Admin space:
+     * pages[site manager, image manager, user manager]
+     *
+     */
     public function dashboard()
     {
-
+        $this->viewParams['contend'] = 'Dashboard';
+        return $this->render();
     }
 
     public function render(array $params = [])

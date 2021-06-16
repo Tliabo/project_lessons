@@ -13,16 +13,16 @@ use function src\renderLinks;
     <?= renderLinks($head['links']); ?>
     <?= renderScripts($head['scripts']); ?>
 </head>
+<body>
 <?php
 include_once RESOURCE_DIR . '/templates/admin/header.tpl.php';
 ?>
-<body>
 
 <main class="container-fluid">
     <?= $contend ?>
 </main>
 <?php
-include_once RESOURCE_DIR . '/templates/footer.tpl.php';
+include_once RESOURCE_DIR . '/templates/admin/footer.tpl.php';
 ?>
 
 <?= renderScripts($afterFooter['js']); ?>

@@ -13,10 +13,10 @@ use function src\renderLinks;
     <?= renderLinks($head['links']); ?>
     <?= renderScripts($head['scripts']); ?>
 </head>
+<body>
 <?php
 include_once RESOURCE_DIR . '/templates/header.tpl.php';
 ?>
-<body>
 
 <main class="container-fluid">
     <?= $contend ?>
