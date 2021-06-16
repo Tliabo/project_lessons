@@ -1,3 +1,5 @@
+/* Create Mysql DB */
+
 CREATE TABLE `adminUser` (
   `id` int UNIQUE PRIMARY KEY NOT NULL,
   `firstname` varchar(255) NOT NULL,

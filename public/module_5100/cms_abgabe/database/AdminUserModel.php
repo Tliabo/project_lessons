@@ -3,19 +3,42 @@
 
 namespace Database;
 
+
 use src\Model;
 
-class AdminNewUserModel extends Model
+/**
+ * Class AdminUser
+ * @package Database
+ */
+class AdminUserModel extends Model
 {
+    protected string $tableName = 'adminUser';
+    private int $id;
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
     public string $password = '';
     public string $passwordConfirm = '';
 
-    public function register()
+
+    /**
+     * @return string
+     */
+    public function tableName(): string
     {
-        return true;
+        return $this->tableName;
+    }
+
+    public function attributes(): array
+    {
+        return ['firstname', 'lastname', 'email', 'password'];
+    }
+
+    public function save(): bool
+    {
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+
+        return parent::save();
     }
 
     public function getContend()

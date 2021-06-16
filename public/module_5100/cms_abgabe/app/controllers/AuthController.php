@@ -2,9 +2,8 @@
 
 namespace App\Controllers;
 
-use Database\AdminNewUserModel;
 use Database\LoginModel;
-use Database\User;
+use Database\AdminUserModel;
 use src\Controller;
 use src\Request;
 use src\Response;
@@ -27,7 +26,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $user = new User();
+        $user = new AdminUserModel();
         if ($request->isPost()) {
             $user->loadData($request->getBody());
 
@@ -38,20 +37,9 @@ class AuthController extends Controller
             }
         }
 
-        $registerModel = new AdminNewUserModel();
-        if ($request->isPost()) {
-            $registerModel->loadData($request->getBody());
-
-            if ($registerModel->validate() && $registerModel->register()) {
-                Router::$session->setFlash('success', 'Erfolgreich Registriert');
-                Response::redirect('/register');
-                exit;
-            }
-        }
-
-        $this->viewParams['contend'] = $registerModel->getContend();
+        $this->viewParams['contend'] = $user->getContend();
         return $this->render([
-            'errors' => $registerModel->errors
+            'errors' => $user->errors
         ]);
     }
 
