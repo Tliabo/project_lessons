@@ -1,6 +1,7 @@
 <?php
 
-use src\Form;
+use src\From\Form;
+use src\Form\InputField;
 use src\Router;
 
 ?>
@@ -20,12 +21,12 @@ endif; ?>
 $form = Form::begin('', 'post') ?>
 
 <div class="row">
-    <div class="col"><?= $form->field($this, 'firstname') ?></div>
-    <div class="col"><?= $form->field($this, 'lastname') ?></div>
+    <div class="col"><?= new InputField($this, 'firstname') ?></div>
+    <div class="col"><?= new InputField($this, 'lastname') ?></div>
 </div>
-<?= $form->field($this, 'email') ?>
-<?= $form->field($this, 'password')->passwordField() ?>
-<?= $form->field($this, 'passwordConfirm')->passwordField() ?>
+<?= new InputField($this, 'email') ?>
+<?= new InputField($this, 'password', InputField::TYPE_PASSWORD) ?>
+<?= new InputField($this, 'passwordConfirm', InputField::TYPE_PASSWORD) ?>
 <button class="btn btn-primary" type="submit">Registrieren</button>
 
 <?php

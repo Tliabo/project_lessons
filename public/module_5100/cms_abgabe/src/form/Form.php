@@ -1,7 +1,7 @@
 <?php
 
 
-namespace src;
+namespace src\From;
 
 
 class Form
@@ -15,10 +15,5 @@ class Form
     public static function end()
     {
         echo '</form>';
-    }
-
-    public function field(Model $model, $attribute): Field
-    {
-        return new Field($model, $attribute);
     }
 }

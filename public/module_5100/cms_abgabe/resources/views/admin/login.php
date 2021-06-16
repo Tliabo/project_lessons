@@ -1,7 +1,8 @@
 <?php
 
 
-use src\Form;
+use src\From\Form;
+use src\Form\InputField;
 
 ?>
 
@@ -11,8 +12,8 @@ use src\Form;
 
 $form = Form::begin('', 'post') ?>
 
-<?= $form->field($this, 'email') ?>
-<?= $form->field($this, 'password')->passwordField() ?>
+<?= new InputField($this, 'email') ?>
+<?= new InputField($this, 'password', InputField::TYPE_PASSWORD) ?>
 <button class="btn btn-primary" type="submit">Einloggen</button>
 
 <?php
