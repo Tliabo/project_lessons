@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Database\LoginModel;
-use Database\AdminUserModel;
+use Database\AdminUser;
 use src\Controller;
 use src\Request;
 use src\Response;
@@ -11,22 +11,10 @@ use src\Router;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
-    {
-        $loginModel = new LoginModel();
-        if ($request->isPost()) {
-            $loginModel->loadData($request->getBody());
-            if ($loginModel->validate() && $loginModel->login()) {
-                Response::redirect('/');
-            }
-        }
-        $this->viewParams['contend'] = $loginModel->getContend();
-        return $this->render();
-    }
 
     public function register(Request $request)
     {
-        $user = new AdminUserModel();
+        $user = new AdminUser();
         if ($request->isPost()) {
             $user->loadData($request->getBody());
 

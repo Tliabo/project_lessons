@@ -31,7 +31,10 @@ Router::get('biografie', [SiteController::class, 'biografie']);
  * Admin sites
  */
 
-Router::get('register', [AuthController::class, 'register']);
-Router::post('register', [AuthController::class, 'register']);
-Router::get('login', [AuthController::class, 'login']);
-Router::post('login', [AuthController::class, 'login']);
+//Router::get('register', [AuthController::class, 'register']);
+//Router::post('register', [AuthController::class, 'register']);
+//Router::get('login', [AuthController::class, 'login']);
+//Router::post('login', [AuthController::class, 'login']);
+
+Router::get('admin', [AdminController::class, 'admin']);
+Router::post('admin', [AdminController::class, 'admin']);

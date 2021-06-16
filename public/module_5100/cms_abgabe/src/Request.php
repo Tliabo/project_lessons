@@ -26,6 +26,7 @@ class Request
      */
     private function dispatch()
     {
+
         $explode_url = explode('/', $this->url);
 
         $explode_url = array_slice($explode_url, 1);

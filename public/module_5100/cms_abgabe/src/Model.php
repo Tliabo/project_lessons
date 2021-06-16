@@ -1,16 +1,12 @@
 <?php
 
+
 namespace src;
+
 
 abstract class Model
 {
-    protected $db;
     public array $errors = [];
-
-    public function __construct()
-    {
-        $this->db = Database::getDb();
-    }
 
     public function loadData($data)
     {
@@ -78,61 +74,6 @@ abstract class Model
     public function getFirstError($attribute)
     {
         return $this->errors[$attribute][0] ?? false;
-    }
-
-    public function attributes(): array
-    {
-        return [];
-    }
-
-    public function tableName(): string
-    {
-        return '';
-    }
-
-    public function save()
-    {
-        $tableName = $this->tableName();
-        $attributes = $this->attributes();
-        $params = array_map(fn($attr) => ":$attr", $attributes);
-        $query = "INSERT INTO $tableName (" . implode(',', $attributes) . ") VALUES(" . implode(',', $params) . ")";
-        $statement = self::prepare($query);
-
-        foreach ($attributes as $attribute) {
-            $statement->bindValue(":$attribute", $this->{$attribute});
-            var_dump($statement);
-        }
-
-        $statement->execute();
-        return true;
-    }
-
-    public function update()
-    {
-    }
-
-    public function delete()
-    {
-    }
-
-    public function findOne($where)
-    {
-        $tableName = static::tableName();
-        $attributes = array_keys($where);
-        $sql = implode("AND", array_map(fn($attr) => "$attr = :$attr", $attributes));
-        $query = "SELECT * FROM $tableName WHERE $sql";
-        $statement = self::prepare($query);
-        foreach ($where as $key => $value) {
-            $statement->bindValue(":$key", $value);
-        }
-
-        $statement->execute();
-        return $statement->fetch(static::class);
-    }
-
-    public function prepare(string $query)
-    {
-        return $this->db->prepare($query);
     }
 
     public function labels(): array

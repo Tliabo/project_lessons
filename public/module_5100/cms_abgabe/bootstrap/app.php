@@ -28,9 +28,10 @@ function initApp()
     foreach ($directories as $directory) {
         $files = glob("$directory/*.php");
         foreach ($files as $file) {
-            require $file;
+            require_once $file;
         }
     }
+
 }
 
 return $app();

@@ -4,15 +4,14 @@
 namespace Database;
 
 
-use src\Model;
+use src\ModelDb;
 
 /**
  * Class AdminUser
  * @package Database
  */
-class AdminUserModel extends Model
+class AdminUser extends ModelDb
 {
-    protected string $tableName = 'adminUser';
     private int $id;
     public string $firstname = '';
     public string $lastname = '';
@@ -24,9 +23,9 @@ class AdminUserModel extends Model
     /**
      * @return string
      */
-    public function tableName(): string
+    public static function tableName(): string
     {
-        return $this->tableName;
+        return 'adminUser';
     }
 
     public function attributes(): array

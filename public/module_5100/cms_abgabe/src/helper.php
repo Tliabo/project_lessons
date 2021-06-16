@@ -20,6 +20,7 @@ if (!function_exists('sanitize')) {
 
 if (!function_exists('renderScripts')) {
     /**
+     * Helper function to render script elements
      * @param array $scripts
      * @return string
      */
@@ -47,6 +48,7 @@ if (!function_exists('renderScripts')) {
 
 if (!function_exists('renderLinks')) {
     /**
+     * Helper function to render header link elements
      * @param array $links
      * @return string
      */
