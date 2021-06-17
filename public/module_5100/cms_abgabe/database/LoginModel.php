@@ -19,19 +19,18 @@ class LoginModel extends Model
         ];
     }
 
-    public function login(): bool
+    public function login()
     {
         $user = AdminUser::findOne(['email' => $this->email]);
-
         if (!$user) {
             $this->addError('email', 'Dieser Benutzer Existiert nicht');
             return false;
         }
-        if (!password_verify($this->password, $user['password'])) {
+        if (!password_verify($this->password, $user->password)) {
             $this->addError('password', 'Das Passwort ist ungültig');
             return false;
         }
-        return true;
+        return $user;
     }
 
     public function labels(): array

@@ -2,6 +2,7 @@
 
 namespace src;
 
+use Database\AdminUser;
 use mysqli;
 use PDOStatement;
 
@@ -42,11 +43,15 @@ abstract class ModelDb extends Model
         $tableName = static::tableName();
         $attributes = array_keys($where);
         $sql = implode("AND", array_map(fn($attr) => "$attr = :$attr", $attributes));
-        $statement = static::prepare("SELECT * FROM $tableName WHERE $sql");
+        $statement = static::prepare("SELECT rowid, * FROM $tableName WHERE $sql");
         foreach ($where as $key => $value) {
             $statement->bindValue(":$key", $value);
         }
-        return $statement->execute()->fetchArray();
+        $userData = $statement->execute()->fetchArray();
+        $returnUser = new AdminUser();
+        $returnUser->loadData($userData);
+
+        return $returnUser;
     }
 
     public static function prepare(string $query)

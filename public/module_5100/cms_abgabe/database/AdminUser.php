@@ -12,13 +12,19 @@ use src\ModelDb;
  */
 class AdminUser extends ModelDb
 {
-    private int $id;
+    public string $rowid = '';
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
     public string $password = '';
     public string $passwordConfirm = '';
 
+    public static ?AdminUser $user = null;
+
+    public function __construct()
+    {
+        static::$user = $this;
+    }
 
     /**
      * @return string
@@ -33,7 +39,7 @@ class AdminUser extends ModelDb
         return ['firstname', 'lastname', 'email', 'password'];
     }
 
-    public function save(): bool
+    public function save()
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
@@ -67,5 +73,20 @@ class AdminUser extends ModelDb
             'password' => 'Passwort',
             'passwordConfirm' => 'Passwort bestätigen'
         ];
+    }
+
+    public static function isGuest(): bool
+    {
+        return !(bool)self::$user;
+    }
+
+    public function getDisplayName(): string
+    {
+        return $this->firstname . $this->lastname;
+    }
+
+    public function primaryKey(): string
+    {
+        return 'rowid';
     }
 }

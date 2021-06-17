@@ -21,20 +21,7 @@ use src\Router;
 Router::get('/', [SiteController::class, 'home']);
 Router::get('aktuell', [SiteController::class, 'aktuell']);
 Router::get('galerie', [SiteController::class, 'galerie']);
-Router::get('galerie/Collagen', [SiteController::class, 'galerie']);
-Router::get('galerie/Aquarell', [SiteController::class, 'galerie']);
-Router::get('galerie/Absprengtechnik', [SiteController::class, 'galerie']);
-Router::get('galerie/Mischtechnik', [SiteController::class, 'galerie']);
 Router::get('biografie', [SiteController::class, 'biografie']);
-
-/**
- * Admin sites
- */
-
-//Router::get('register', [AuthController::class, 'register']);
-//Router::post('register', [AuthController::class, 'register']);
-//Router::get('login', [AuthController::class, 'login']);
-//Router::post('login', [AuthController::class, 'login']);
 
 Router::get('admin', [AdminController::class, 'admin']);
 Router::post('admin', [AdminController::class, 'admin']);

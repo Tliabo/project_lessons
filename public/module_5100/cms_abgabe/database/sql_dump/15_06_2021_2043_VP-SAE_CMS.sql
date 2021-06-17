@@ -1,7 +1,7 @@
 /* Create Mysql DB */
 
 CREATE TABLE `adminUser` (
-  `id` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `rowid` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `email` varchar(255) UNIQUE NOT NULL,
@@ -9,13 +9,13 @@ CREATE TABLE `adminUser` (
 );
 
 CREATE TABLE `page` (
-  `id` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `rowid` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `title` varchar(255),
   `contend` varchar(255)
 );
 
 CREATE TABLE `image` (
-  `id` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `rowid` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `src` varchar(255) NOT NULL,
   `alt` varchar(255),
   `name` varchar(255),
@@ -25,8 +25,8 @@ CREATE TABLE `image` (
 );
 
 CREATE TABLE `category` (
-  `id` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `rowid` int UNIQUE PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL
 );
 
-ALTER TABLE `image` ADD FOREIGN KEY (`category`) REFERENCES `category` (`id`);
+ALTER TABLE `image` ADD FOREIGN KEY (`category`) REFERENCES `category` (`rowid`);
