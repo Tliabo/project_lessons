@@ -17,7 +17,7 @@ use src\Response;
  * Class GalerieController
  * @package App\Controllers
  */
-class GalerieController extends Controller
+class Galerie extends Controller
 {
     public function galerie(Request $request)
     {

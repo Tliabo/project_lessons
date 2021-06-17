@@ -9,19 +9,19 @@
  * ControllerAction: function name in ControllerClass
  */
 
-use App\Controllers\AdminController;
-use App\Controllers\AuthController;
-use App\Controllers\SiteController;
+use App\Controllers\Admin;
+use App\Controllers\Auth;
+use App\Controllers\Site;
 use src\Router;
 
 /**
  * Public sites
  */
 
-Router::get('/', [SiteController::class, 'home']);
-Router::get('aktuell', [SiteController::class, 'aktuell']);
-Router::get('galerie', [SiteController::class, 'galerie']);
-Router::get('biografie', [SiteController::class, 'biografie']);
+Router::get('/', [Site::class, 'home']);
+Router::get('aktuell', [Site::class, 'aktuell']);
+Router::get('galerie', [Site::class, 'galerie']);
+Router::get('biografie', [Site::class, 'biografie']);
 
-Router::get('admin', [AdminController::class, 'admin']);
-Router::post('admin', [AdminController::class, 'admin']);
+Router::get('admin', [Admin::class, 'admin']);
+Router::post('admin', [Admin::class, 'admin']);

@@ -17,13 +17,19 @@ use src\Session;
  * Class AdminController
  * @package App\Controllers
  */
-class AdminController extends Controller
+class Admin extends Controller
 {
+    private AdminManager $manager;
+
     public function __construct()
     {
         if (Router::$session->get('user')) {
             AdminUser::$user = AdminUser::findOne(['rowid' => Router::$session->get('user')]);
         }
+        $this->manager = new AdminManager();
+        $this->viewParams['head']['links'] = [
+            ['href' => '/assets/css/admincore.css']
+        ];
     }
 
     public function admin(Request $request)
@@ -63,14 +69,27 @@ class AdminController extends Controller
         Response::redirect('/admin');
     }
 
-    /**
-     * Admin space:
-     * pages[site manager, image manager, user manager]
-     *
-     */
     public function dashboard(Request $request)
     {
-        $this->viewParams['contend'] = 'Dashboard';
+        $this->viewParams['contend'] = '<h2>Dashboard</h2>';
+        return $this->render();
+    }
+
+    public function sitemanager()
+    {
+        $this->viewParams['contend'] = $this->manager->sitemanager();
+        return $this->render();
+    }
+
+    public function imagemanager()
+    {
+        $this->viewParams['contend'] = $this->manager->imagemanager();
+        return $this->render();
+    }
+
+    public function usermanager()
+    {
+        $this->viewParams['contend'] = $this->manager->usermanager();
         return $this->render();
     }
 

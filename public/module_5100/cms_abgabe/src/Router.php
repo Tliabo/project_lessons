@@ -2,7 +2,7 @@
 
 namespace src;
 
-use App\Controllers\SiteController;
+use App\Controllers\Site;
 
 /**
  * Handles request.
@@ -73,7 +73,7 @@ class Router
          */
         if (!$callback) {
             Response::setStatusCode(404);
-            $controller = new SiteController();
+            $controller = new Site();
             return $controller->errorCode(404);
         }
 

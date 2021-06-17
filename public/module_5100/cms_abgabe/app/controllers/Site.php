@@ -15,7 +15,7 @@ use src\Controller;
  * Class SiteController
  * @package App\Controllers
  */
-class SiteController extends Controller
+class Site extends Controller
 {
     /**
      * Loads the errorview with the specified error code

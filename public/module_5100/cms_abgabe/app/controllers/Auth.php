@@ -9,7 +9,7 @@ use src\Request;
 use src\Response;
 use src\Router;
 
-class AuthController extends Controller
+class Auth extends Controller
 {
 
     public function register(Request $request)

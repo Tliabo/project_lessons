@@ -1,0 +1,14 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    min-height: calc(80vh - 1rem);
+}
+
+#footer-main {
+    background: $tp-white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 10vh;
+}

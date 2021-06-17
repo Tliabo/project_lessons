@@ -1,5 +1,7 @@
 <?php
 
+use Database\AdminUser;
+
 use function src\renderScripts;
 use function src\renderLinks;
 
@@ -15,7 +17,7 @@ use function src\renderLinks;
 </head>
 <body>
 <?php
-include_once RESOURCE_DIR . '/templates/admin/header.tpl.php';
+    include_once RESOURCE_DIR . '/templates/admin/header.tpl.php';
 ?>
 
 <main class="container-fluid">

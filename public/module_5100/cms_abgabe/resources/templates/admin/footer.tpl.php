@@ -3,7 +3,7 @@
         <div></div>
         <div id="copyright" class="text-end">
             <span>&copy;opyright</span><br>
-            <small>crafted by <a href="https://prezioso.ch" target="_blank" rel="noopener">Tobia Prezioso</a></small>
+            <small>crafted by <a href="https://prezioso.ch" target="_blank" class="bg-body" rel="noopener">Tobia Prezioso</a></small>
         </div>
     </div>
 </footer>
