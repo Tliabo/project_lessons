@@ -17,11 +17,10 @@ abstract class ModelDb extends Model
         $attributes = $this->attributes();
         $params = array_map(fn($attr) => ":$attr", $attributes);
         $query = "INSERT INTO $tableName (" . implode(',', $attributes) . ") VALUES(" . implode(',', $params) . ")";
-        $statement = self::prepare($query);
+        $statement = Database::prepare($query);
 
         foreach ($attributes as $attribute) {
             $statement->bindValue(":$attribute", $this->{$attribute});
-            var_dump($statement);
         }
 
         $statement->execute();

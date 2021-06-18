@@ -38,14 +38,15 @@ class AdminGalleryManager extends Admin
                 'content' => ''
             ]
         ],
-        [
-            'name' => 'Edit Image',
-            'target' => [
-                'id' => 'editImages',
-                'type' => 'modal',
-                'content' => ''
-            ]
-        ]
+        // commented out for future
+        //        [
+        //            'name' => 'Edit Image',
+        //            'target' => [
+        //                'id' => 'editImages',
+        //                'type' => 'modal',
+        //                'content' => ''
+        //            ]
+        //        ]
     ];
 
     private AdminCategoryModel $categoryModel;
@@ -57,7 +58,7 @@ class AdminGalleryManager extends Admin
         $this->imageModel = new AdminImageModel();
         $this->controls[0]['target']['content'] = $this->categoryModel->getCategoryForm();
         $this->controls[1]['target']['content'] = $this->imageModel->getUploadImageForm();
-        $this->controls[2]['target']['content'] = '';
+//        $this->controls[2]['target']['content'] = '';
 
         parent::__construct();
     }
@@ -81,18 +82,23 @@ class AdminGalleryManager extends Admin
         ]);
     }
 
-    public function uploadImage(Request $request) {
+    public function uploadImage(Request $request, $file)
+    {
+
         $imageModel = $this->imageModel;
+
         if ($request->isPost()) {
             $imageModel->loadData($request->getBody());
+            $imageModel->uploadFile = $file;
 
             if ($imageModel->validate() && $imageModel->save()) {
                 Router::$session->setFlash('success', 'Neues Bild hinzugefügt');
-                Response::redirect('/admin/gallerymanager/');
+
+                Response::redirect('/admin/gallerymanager');
                 exit;
             }
         }
-
+        var_dump($imageModel->validate());
         $this->viewParams['content'] = $imageModel->getUploadImageForm();
         return $this->render([
             'errors' => $imageModel->errors

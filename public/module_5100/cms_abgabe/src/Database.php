@@ -8,6 +8,7 @@ use mysqli;
 use SQLite3Stmt;
 
 /**
+ * TODO: handling of different db objects. prepare, execute, fetch
  * Singleton Database
  * Class Database
  * @package src

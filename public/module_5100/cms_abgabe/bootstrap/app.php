@@ -8,6 +8,7 @@ const CONF_DIR = BASE_DIR . '/config';
 const ROUTES_DIR = BASE_DIR . '/routes';
 const DATABASE_DIR = BASE_DIR . '/database';
 const SRC_DIR = BASE_DIR . '/src';
+const UPLOAD_DIR = PUBLIC_DIR . '/assets/images';
 
 $app = function () {
     initApp();

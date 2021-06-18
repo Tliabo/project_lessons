@@ -6,9 +6,9 @@ namespace src\From;
 
 class Form
 {
-    public static function begin($action, $method)
+    public static function begin($action, $method, $enctype = ''): Form
     {
-        echo sprintf('<form action="%s" method="%s">', $action, $method);
+        echo sprintf('<form action="%s" method="%s" %s>', $action, $method, $enctype);
         return new Form();
     }
 

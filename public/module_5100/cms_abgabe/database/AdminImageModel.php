@@ -6,6 +6,7 @@ namespace Database;
 
 use src\Database;
 use src\ModelDb;
+use src\Router;
 
 class AdminImageModel extends ModelDb
 {
@@ -19,9 +20,30 @@ class AdminImageModel extends ModelDb
 
     public array $images = [];
 
+    public ?array $uploadFile;
+
     public static function tableName(): string
     {
         return 'image';
+    }
+
+//    public function rules(): array
+//    {
+//        return [
+//            'name' => [RULE_REQUIRED]
+//        ];
+//    }
+
+    public function save()
+    {
+        var_dump($this->uploadFile);
+        $target_file = UPLOAD_DIR . "/" . basename($this->uploadFile['name']);
+        if (move_uploaded_file($this->uploadFile["tmp_name"], $target_file)) {
+            Router::$session->setFlash('success', 'Bild wurde hochgeladen');
+        } else {
+            Router::$session->setFlash('error', 'Hochladen fehlgeschlagen');
+        }
+        return parent::save();
     }
 
     public function attributes(): array

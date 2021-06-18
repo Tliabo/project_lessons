@@ -84,6 +84,10 @@ class Admin extends Controller
     {
         $manager = new AdminGalleryManager();
 
+        if ($request->params[0] ?? false == 'upload') {
+            return $manager->uploadImage($request, $_FILES['name'] ?? null);
+        }
+
         return $manager->render();
     }
 
