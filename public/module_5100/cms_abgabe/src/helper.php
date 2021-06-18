@@ -91,7 +91,8 @@ if (!function_exists('errorMessages')) {
             RULE_EMAIL => 'Dieses Feld benötigt eine gültige Email Adresse',
             RULE_MIN => 'Die minimal Länge ist {min}',
             RULE_MAX => 'Die maximale Länge ist {max}',
-            RULE_MATCH => 'Dieses Feld muss gleich sein wie {match}'
+            RULE_MATCH => 'Dieses Feld muss gleich sein wie {match}',
+            RULE_UNIQUE => '{field} existiert bereits'
         ];
     }
 }

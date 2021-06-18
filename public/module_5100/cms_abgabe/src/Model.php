@@ -8,7 +8,11 @@ abstract class Model
 {
     public array $errors = [];
 
-    public function loadData($data)
+    /**
+     *
+     * @param array $data
+     */
+    public function loadData(array $data)
     {
         foreach ($data as $key => $value) {
             if (property_exists($this, $key)) {
@@ -17,11 +21,18 @@ abstract class Model
         }
     }
 
+    /**
+     * @return array
+     */
     public function rules(): array
     {
         return [];
     }
 
+    /**
+     * handles the different validation rules
+     * @return bool
+     */
     public function validate(): bool
     {
         foreach ($this->rules() as $attribute => $rules) {
@@ -45,6 +56,18 @@ abstract class Model
                 }
                 if ($ruleName === RULE_MATCH && $value !== $this->{$rule['match']}) {
                     $this->addErrorForRule($attribute, RULE_MATCH, $rule);
+                }
+                if ($ruleName === RULE_UNIQUE) {
+                    $className = $rule['class'];
+                    $uniqueAttribute = $rule['attribute'] ?? $attribute;
+                    $tableName = $className::tableName();
+                    $statement = Database::prepare("SELECT * FROM $tableName WHERE $uniqueAttribute = :attr");
+                    $statement->bindValue(":attr", $value);
+                    $statement->execute();
+                    $record = $statement->execute()->fetchArray() ?? $statement->fetch() ?? false;
+                    if ($record) {
+                        $this->addErrorForRule($attribute, RULE_UNIQUE, ['field' => $attribute]);
+                    }
                 }
             }
         }

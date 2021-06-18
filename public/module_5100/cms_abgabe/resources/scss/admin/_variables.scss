@@ -10,8 +10,11 @@ $tp-white: #F1F1F1;
 
 
 $blue: $tp-blue;
+$orange: $tp-orange;
+$yellow: $tp-yellow;
 
 $primary: $tp-yellow;
+$secondary: $tp-blue;
 
 $light: $tp-light-blue;
 $dark: $blue;
@@ -59,3 +62,5 @@ $input-bg: transparent;
 $input-color: $tp-yellow;
 
 $input-border-color: $tp-orange;
+
+$input-group-addon-bg: $secondary;

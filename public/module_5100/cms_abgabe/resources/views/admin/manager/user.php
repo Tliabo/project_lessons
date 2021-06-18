@@ -1,1 +1,1 @@
-<h2>User Manager</h2>
+<h2 class="text-center mt-3">User Manager</h2>

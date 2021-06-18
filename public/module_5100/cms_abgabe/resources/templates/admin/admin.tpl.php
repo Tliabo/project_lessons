@@ -2,6 +2,8 @@
 
 use Database\AdminUser;
 
+use src\Router;
+
 use function src\renderScripts;
 use function src\renderLinks;
 
@@ -17,10 +19,18 @@ use function src\renderLinks;
 </head>
 <body>
 <?php
-    include_once RESOURCE_DIR . '/templates/admin/header.tpl.php';
+include_once RESOURCE_DIR . '/templates/admin/header.tpl.php';
 ?>
 
 <main class="container-fluid">
+    <?php
+    if (Router::$session->getFlash('success')): ?>
+    <div class="alert alert-success">
+        <?= Router::$session->getFlash('success') ?>
+    </div>
+    <?php
+    endif;
+    ?>
     <?= $contend ?>
 </main>
 <?php

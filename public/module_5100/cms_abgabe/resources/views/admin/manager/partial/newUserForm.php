@@ -6,15 +6,7 @@ use src\Router;
 
 ?>
 
-<?php
-if (Router::$session->getFlash('success')): ?>
-    <div class="alert alert-success">
-        <?= Router::$session->getFlash('success') ?>
-    </div>
-<?php
-endif; ?>
-
-<h2>Registrieren</h2>
+<h2 class="text-center mt-2">Neuer Benutzer hinzufügen</h2>
 
 <?php
 

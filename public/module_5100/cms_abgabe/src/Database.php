@@ -2,8 +2,10 @@
 
 namespace src;
 
+use mysqli_stmt;
 use SQLite3;
 use mysqli;
+use SQLite3Stmt;
 
 /**
  * Singleton Database
@@ -43,4 +45,12 @@ class Database
         return self::$db;
     }
 
+    /**
+     * @param string $query
+     * @return false|mysqli_stmt|SQLite3Stmt
+     */
+    public static function prepare(string $query)
+    {
+        return self::getDb()->prepare($query);
+    }
 }

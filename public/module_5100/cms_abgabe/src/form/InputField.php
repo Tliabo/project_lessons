@@ -11,6 +11,7 @@ class InputField extends Field
     public const TYPE_TEXT = 'text';
     public const TYPE_PASSWORD = 'password';
     public const TYPE_NUMBER = 'number';
+    public const TYPE_FILE = 'file';
 
     public string $type;
 

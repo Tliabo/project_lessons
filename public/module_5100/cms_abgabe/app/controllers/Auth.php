@@ -25,7 +25,7 @@ class Auth extends Controller
             }
         }
 
-        $this->viewParams['contend'] = $user->getContend();
+        $this->viewParams['contend'] = $user->getForm();
         return $this->render([
             'errors' => $user->errors
         ]);

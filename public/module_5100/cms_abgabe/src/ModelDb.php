@@ -3,8 +3,6 @@
 namespace src;
 
 use Database\AdminUser;
-use mysqli;
-use PDOStatement;
 
 abstract class ModelDb extends Model
 {
@@ -43,7 +41,7 @@ abstract class ModelDb extends Model
         $tableName = static::tableName();
         $attributes = array_keys($where);
         $sql = implode("AND", array_map(fn($attr) => "$attr = :$attr", $attributes));
-        $statement = static::prepare("SELECT rowid, * FROM $tableName WHERE $sql");
+        $statement = Database::prepare("SELECT rowid, * FROM $tableName WHERE $sql");
         foreach ($where as $key => $value) {
             $statement->bindValue(":$key", $value);
         }
@@ -54,8 +52,9 @@ abstract class ModelDb extends Model
         return $returnUser;
     }
 
-    public static function prepare(string $query)
+
+    public function primaryKey(): string
     {
-        return Database::getDb()->prepare($query);
+        return 'rowid';
     }
 }

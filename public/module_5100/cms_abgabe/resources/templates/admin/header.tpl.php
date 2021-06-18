@@ -15,7 +15,7 @@ use Database\AdminUser;
                             <a class="nav-link" href="/admin/sitemanager">Site-Manager</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/imagemanager">Image-Manager</a>
+                            <a class="nav-link" href="/admin/gallerymanager">Gallery-Manager</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin/usermanager">User-Manager</a>

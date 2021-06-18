@@ -19,14 +19,11 @@ use src\Session;
  */
 class Admin extends Controller
 {
-    private AdminManager $manager;
-
     public function __construct()
     {
         if (Router::$session->get('user')) {
             AdminUser::$user = AdminUser::findOne(['rowid' => Router::$session->get('user')]);
         }
-        $this->manager = new AdminManager();
         $this->viewParams['head']['links'] = [
             ['href' => '/assets/css/admincore.css']
         ];
@@ -71,26 +68,30 @@ class Admin extends Controller
 
     public function dashboard(Request $request)
     {
-        $this->viewParams['contend'] = '<h2>Dashboard</h2>';
+        ob_start();
+        include RESOURCE_DIR . '/views/admin/dashboard.php';
+        $this->viewParams['contend'] = ob_get_clean();
         return $this->render();
     }
 
-    public function sitemanager()
+    public function sitemanager(Request $request)
     {
-        $this->viewParams['contend'] = $this->manager->sitemanager();
-        return $this->render();
+        $manager = new AdminSiteManager();
+        return $manager->render();
     }
 
-    public function imagemanager()
+    public function gallerymanager(Request $request)
     {
-        $this->viewParams['contend'] = $this->manager->imagemanager();
-        return $this->render();
+        $manager = new AdminGalleryManager();
+
+        return $manager->render();
     }
 
-    public function usermanager()
+    public function usermanager(Request $request)
     {
-        $this->viewParams['contend'] = $this->manager->usermanager();
-        return $this->render();
+        $manager = new AdminUserManager();
+
+        return $manager->render();
     }
 
     public function render(array $params = [])

@@ -46,10 +46,10 @@ class AdminUser extends ModelDb
         return parent::save();
     }
 
-    public function getContend()
+    public static function getForm()
     {
         ob_start();
-        include_once RESOURCE_DIR . "/views/admin/register.php";
+        include_once RESOURCE_DIR . "/views/admin/manager/partial/newUserForm.php";
         return ob_get_clean();
     }
 
@@ -58,7 +58,7 @@ class AdminUser extends ModelDb
         return [
             'firstname' => [RULE_REQUIRED],
             'lastname' => [RULE_REQUIRED],
-            'email' => [RULE_REQUIRED, RULE_EMAIL],
+            'email' => [RULE_REQUIRED, RULE_EMAIL, [RULE_UNIQUE, 'class' => self::class]],
             'password' => [RULE_REQUIRED, [RULE_MIN, 'min' => 8], [RULE_MAX, 'max' => 32]],
             'passwordConfirm' => [RULE_REQUIRED, [RULE_MATCH, 'match' => 'password']]
         ];
@@ -83,10 +83,5 @@ class AdminUser extends ModelDb
     public function getDisplayName(): string
     {
         return $this->firstname . $this->lastname;
-    }
-
-    public function primaryKey(): string
-    {
-        return 'rowid';
     }
 }
