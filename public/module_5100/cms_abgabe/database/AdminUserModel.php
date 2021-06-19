@@ -10,7 +10,7 @@ use src\ModelDb;
  * Class AdminUser
  * @package Database
  */
-class AdminUser extends ModelDb
+class AdminUserModel extends ModelDb
 {
     public string $rowid = '';
     public string $firstname = '';
@@ -19,7 +19,7 @@ class AdminUser extends ModelDb
     public string $password = '';
     public string $passwordConfirm = '';
 
-    public static ?AdminUser $user = null;
+    public static ?AdminUserModel $user = null;
 
     public function __construct()
     {
@@ -46,7 +46,7 @@ class AdminUser extends ModelDb
         return parent::save();
     }
 
-    public static function getForm()
+    public function getForm()
     {
         ob_start();
         include_once RESOURCE_DIR . "/views/admin/manager/partial/newUserForm.php";

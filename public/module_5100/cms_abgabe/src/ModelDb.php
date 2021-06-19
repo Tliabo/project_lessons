@@ -2,7 +2,7 @@
 
 namespace src;
 
-use Database\AdminUser;
+use Database\AdminUserModel;
 
 abstract class ModelDb extends Model
 {
@@ -45,7 +45,7 @@ abstract class ModelDb extends Model
             $statement->bindValue(":$key", $value);
         }
         $userData = $statement->execute()->fetchArray();
-        $returnUser = new AdminUser();
+        $returnUser = new AdminUserModel();
         $returnUser->loadData($userData);
 
         return $returnUser;

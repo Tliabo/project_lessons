@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Database\LoginModel;
-use Database\AdminUser;
+use Database\AdminUserModel;
 use src\Controller;
 use src\Request;
 use src\Response;
@@ -14,7 +14,7 @@ class Auth extends Controller
 
     public function register(Request $request)
     {
-        $user = new AdminUser();
+        $user = new AdminUserModel();
         if ($request->isPost()) {
             $user->loadData($request->getBody());
 

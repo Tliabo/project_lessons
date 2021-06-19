@@ -2,14 +2,12 @@
 
 use src\From\Form;
 use src\Form\InputField;
-use src\Router;
 
 ?>
 
-<h2 class="text-center mt-2">Neuer Benutzer hinzufügen</h2>
+<h3 class="mt-2">Neuer Benutzer hinzufügen</h3>
 
 <?php
-
 $form = Form::begin('', 'post') ?>
 
 <div class="row">
@@ -22,5 +20,4 @@ $form = Form::begin('', 'post') ?>
 <button class="btn btn-primary" type="submit">Registrieren</button>
 
 <?php
-Form::end();
-?>
+Form::end(); ?>

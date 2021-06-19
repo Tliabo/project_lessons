@@ -3,7 +3,7 @@
 
 namespace App\Controllers;
 
-use Database\AdminUser;
+use Database\AdminUserModel;
 use Database\LoginModel;
 use http\Client\Curl\User;
 use src\Controller;
@@ -22,7 +22,7 @@ class Admin extends Controller
     public function __construct()
     {
         if (Router::$session->get('user')) {
-            AdminUser::$user = AdminUser::findOne(['rowid' => Router::$session->get('user')]);
+            AdminUserModel::$user = AdminUserModel::findOne(['rowid' => Router::$session->get('user')]);
         }
         $this->viewParams['head']['links'] = [
             ['href' => '/assets/css/admincore.css']
@@ -33,7 +33,7 @@ class Admin extends Controller
     {
         $action = $request->action;
 
-        if (!AdminUser::isGuest()) {
+        if (!AdminUserModel::isGuest()) {
             // execute action only for logged in users
             if ($action && $action !== 'login' && method_exists($this, $action)) {
                 return $this->{$action}($request);
@@ -51,7 +51,7 @@ class Admin extends Controller
         if ($request->isPost()) {
             $loginModel->loadData($request->getBody());
             if ($loginModel->validate() && $loginModel->login()) {
-                $this->saveUserToSession($request, AdminUser::$user);
+                $this->saveUserToSession($request, AdminUserModel::$user);
                 Response::redirect('/admin/dashboard');
             }
         }
@@ -61,7 +61,7 @@ class Admin extends Controller
 
     public function logout(Request $request)
     {
-        AdminUser::$user = null;
+        AdminUserModel::$user = null;
         Router::$session->remove('user');
         Response::redirect('/admin');
     }
@@ -95,6 +95,10 @@ class Admin extends Controller
     {
         $manager = new AdminUserManager();
 
+        if ($request->params[0] ?? false == 'addAdminUser') {
+            return $manager->addAdminUser($request);
+        }
+
         return $manager->render();
     }
 
@@ -107,7 +111,7 @@ class Admin extends Controller
         return ob_get_clean();
     }
 
-    private function saveUserToSession(Request $request, AdminUser $user)
+    private function saveUserToSession(Request $request, AdminUserModel $user)
     {
         $primaryKey = $user->primaryKey();
         $primaryValue = $user->{$primaryKey};

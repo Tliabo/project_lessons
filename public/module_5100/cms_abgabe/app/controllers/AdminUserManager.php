@@ -3,7 +3,7 @@
 
 namespace App\Controllers;
 
-use Database\AdminUser;
+use Database\AdminUserModel;
 use src\Request;
 use src\Response;
 use src\Router;
@@ -15,22 +15,29 @@ use src\Router;
 class AdminUserManager extends Admin
 {
 
+    private AdminUserModel $adminUser;
+
+    public function __construct()
+    {
+        $this->adminUser = new AdminUserModel();
+        parent::__construct();
+    }
+
     public function addAdminUser(Request $request)
     {
-        $user = new AdminUser();
+        $userModel = $this->adminUser;
         if ($request->isPost()) {
-            $user->loadData($request->getBody());
+            $userModel->loadData($request->getBody());
 
-            if ($user->validate() && $user->save()) {
-                Router::$session->setFlash('success', 'Neue Adminuser hinzugefügt');
+            if ($userModel->validate() && $userModel->save()) {
+                Router::$session->setFlash('success', 'Neuer Adminuser hinzugefügt');
                 Response::redirect('/admin/usermanager');
                 exit;
             }
         }
 
-        $this->viewParams['contend'] = $user->getForm();
         return $this->render([
-            'errors' => $user->errors
+            'errors' => $userModel->errors
         ]);
     }
 

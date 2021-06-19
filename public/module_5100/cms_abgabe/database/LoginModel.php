@@ -21,7 +21,7 @@ class LoginModel extends Model
 
     public function login()
     {
-        $user = AdminUser::findOne(['email' => $this->email]);
+        $user = AdminUserModel::findOne(['email' => $this->email]);
         if (!$user) {
             $this->addError('email', 'Dieser Benutzer Existiert nicht');
             return false;

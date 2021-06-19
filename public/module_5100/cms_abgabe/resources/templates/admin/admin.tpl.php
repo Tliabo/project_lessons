@@ -1,6 +1,6 @@
 <?php
 
-use Database\AdminUser;
+use Database\AdminUserModel;
 
 use src\Router;
 

@@ -1,6 +1,6 @@
 <?php
 
-use Database\AdminUser;
+use Database\AdminUserModel;
 
 ?>
 <header id="header-main">
@@ -8,7 +8,7 @@ use Database\AdminUser;
         <div class="container-fluid">
             <a class="navbar-brand" href="/admin">Admin Space</a>
             <?php
-            if (!AdminUser::isGuest()): ?>
+            if (!AdminUserModel::isGuest()): ?>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -26,7 +26,7 @@ use Database\AdminUser;
             endif; ?>
             <a href="/" class="me-3" target="_blank">Webseite Anzeigen <i class="fas fa-external-link-alt"></i></a>
             <?php
-            if (!AdminUser::isGuest()): ?>
+            if (!AdminUserModel::isGuest()): ?>
             <a href="/admin/logout">Logout <i class="fas fa-sign-out-alt"></i></a>
             <?php
             endif; ?>

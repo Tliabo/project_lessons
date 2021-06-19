@@ -4,6 +4,7 @@
 namespace App\Controllers;
 
 use Database\AdminImageModel;
+use Database\AdminUserModel;
 use Database\AktuellModel;
 use Database\BiografieModel;
 use Database\AdminCategoryModel;
@@ -58,7 +59,6 @@ class AdminGalleryManager extends Admin
         $this->imageModel = new AdminImageModel();
         $this->controls[0]['target']['content'] = $this->categoryModel->getCategoryForm();
         $this->controls[1]['target']['content'] = $this->imageModel->getUploadImageForm();
-//        $this->controls[2]['target']['content'] = '';
 
         parent::__construct();
     }
@@ -84,7 +84,6 @@ class AdminGalleryManager extends Admin
 
     public function uploadImage(Request $request, $file)
     {
-
         $imageModel = $this->imageModel;
 
         if ($request->isPost()) {
@@ -98,7 +97,6 @@ class AdminGalleryManager extends Admin
                 exit;
             }
         }
-        var_dump($imageModel->validate());
         $this->viewParams['content'] = $imageModel->getUploadImageForm();
         return $this->render([
             'errors' => $imageModel->errors
