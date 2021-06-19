@@ -38,16 +38,7 @@ class AdminGalleryManager extends Admin
                 'type' => 'modal',
                 'content' => ''
             ]
-        ],
-        // commented out for future
-        //        [
-        //            'name' => 'Edit Image',
-        //            'target' => [
-        //                'id' => 'editImages',
-        //                'type' => 'modal',
-        //                'content' => ''
-        //            ]
-        //        ]
+        ]
     ];
 
     private AdminCategoryModel $categoryModel;
@@ -57,8 +48,6 @@ class AdminGalleryManager extends Admin
     {
         $this->categoryModel = new AdminCategoryModel();
         $this->imageModel = new AdminImageModel();
-        $this->controls[0]['target']['content'] = $this->categoryModel->getCategoryForm();
-        $this->controls[1]['target']['content'] = $this->imageModel->getUploadImageForm();
 
         parent::__construct();
     }
@@ -71,12 +60,12 @@ class AdminGalleryManager extends Admin
 
             if ($categoryModel->validate() && $categoryModel->save()) {
                 Router::$session->setFlash('success', 'Neue Kategorie hinzugefügt');
-                Response::redirect('/admin/gallerymanager');
+                Response::redirect('/admin/gallerymanager/addCategory');
                 exit;
             }
         }
 
-        $this->viewParams['content'] = $categoryModel->getCategoryForm();
+        $this->viewParams['contentPlaceholder'] = $categoryModel->getCategoryForm();
         return $this->render([
             'errors' => $categoryModel->errors
         ]);
@@ -93,11 +82,11 @@ class AdminGalleryManager extends Admin
             if ($imageModel->validate() && $imageModel->save()) {
                 Router::$session->setFlash('success', 'Neues Bild hinzugefügt');
 
-                Response::redirect('/admin/gallerymanager');
+                Response::redirect('/admin/gallerymanager/uploadImage');
                 exit;
             }
         }
-        $this->viewParams['content'] = $imageModel->getUploadImageForm();
+        $this->viewParams['contentPlaceholder'] = $imageModel->getUploadImageForm();
         return $this->render([
             'errors' => $imageModel->errors
         ]);

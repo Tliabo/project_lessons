@@ -22,7 +22,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <a class="btn btn-primary stretched-link" href="/admin/usermanager">User-Manager</a>
+                <a class="btn btn-primary stretched-link" href="/admin/usermanager/addAdmin">User-Manager</a>
             </div>
         </div>
     </div>
