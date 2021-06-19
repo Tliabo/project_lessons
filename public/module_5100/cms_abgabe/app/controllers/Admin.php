@@ -49,6 +49,7 @@ class Admin extends Controller
     {
         $loginModel = new LoginModel();
         if ($request->isPost()) {
+            var_dump($request->getBody());
             $loginModel->loadData($request->getBody());
             if ($loginModel->validate() && $loginModel->login()) {
                 $this->saveUserToSession($request, AdminUserModel::$user);

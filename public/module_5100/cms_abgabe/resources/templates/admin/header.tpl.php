@@ -18,7 +18,7 @@ use Database\AdminUserModel;
                             <a class="nav-link" href="/admin/gallerymanager">Gallery-Manager</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/usermanager">User-Manager</a>
+                            <a class="nav-link" href="/admin/usermanager/addAdmin">User-Manager</a>
                         </li>
                     </ul>
                 </div>

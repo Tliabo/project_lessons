@@ -45,10 +45,12 @@ abstract class ModelDb extends Model
             $statement->bindValue(":$key", $value);
         }
         $userData = $statement->execute()->fetchArray();
-        $returnUser = new AdminUserModel();
-        $returnUser->loadData($userData);
-
-        return $returnUser;
+        if ($userData) {
+            $returnUser = new AdminUserModel();
+            $returnUser->loadData($userData);
+            return $returnUser;
+        }
+        return false;
     }
 
 

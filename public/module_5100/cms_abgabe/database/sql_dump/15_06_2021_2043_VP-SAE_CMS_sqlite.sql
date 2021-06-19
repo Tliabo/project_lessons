@@ -1,6 +1,10 @@
 /*
 Create SQLITE DB
 does not need id, because rowid is generated automatically
+
+example admin user
+email: admin@example.com
+pw: 06p8Vdo#1t#I
 */
 
 CREATE TABLE `adminUser`
@@ -32,3 +36,5 @@ CREATE TABLE `category`
 (
     `name` varchar(255) NOT NULL
 );
+
+INSERT INTO adminUser (firstname, lastname, email, password) VALUES ('ad', 'min', 'admin@example.com', '$2y$10$kQe2.8omqglRh8Mb3LDF5e032BNeEiatg.k1UkCpGSgM746t0mLI6');
