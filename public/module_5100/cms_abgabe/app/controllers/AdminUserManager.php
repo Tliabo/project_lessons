@@ -35,7 +35,7 @@ class AdminUserManager extends Admin
                 exit;
             }
         }
-
+        $this->viewParams['contentPlaceholder'] = $userModel->getForm();
         return $this->render([
             'errors' => $userModel->errors
         ]);
@@ -43,6 +43,15 @@ class AdminUserManager extends Admin
 
     public function render(array $params = [])
     {
+        if (!isset($this->viewParams['contentPlaceholder'])) {
+            ob_start();
+            $this->viewParams['adminUsers'] = AdminUserModel::loadAdminUsers();
+
+            include_once RESOURCE_DIR . '/views/admin/manager/partial/showAdminUsers.php';
+
+            $this->viewParams['contentPlaceholder'] = ob_get_clean();
+        }
+
         ob_start();
         include_once RESOURCE_DIR . '/views/admin/manager/user.php';
 

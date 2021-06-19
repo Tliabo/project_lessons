@@ -44,7 +44,7 @@ abstract class ModelDb extends Model
         foreach ($where as $key => $value) {
             $statement->bindValue(":$key", $value);
         }
-        $userData = $statement->execute()->fetchArray();
+        $userData = $statement->execute()->fetchArray(SQLITE3_ASSOC);
         if ($userData) {
             $returnUser = new AdminUserModel();
             $returnUser->loadData($userData);

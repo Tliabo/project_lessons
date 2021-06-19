@@ -3,6 +3,7 @@
 namespace Database;
 
 
+use src\Database;
 use src\ModelDb;
 
 /**
@@ -38,6 +39,19 @@ class AdminCategoryModel extends ModelDb
         return [
             'name' => 'Kategorie Name'
         ];
+    }
+
+    public static function loadAllCategories(): array
+    {
+        $query = "SELECT ROWID, * FROM `category`";
+        $statement = Database::prepare($query);
+        $result = $statement->execute();
+        $categories = [];
+        while ($value = $result->fetchArray(SQLITE3_ASSOC)) {
+            $categories[] = $value;
+        }
+
+        return $categories;
     }
 
     public function getCategoryForm() {

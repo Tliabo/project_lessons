@@ -40,18 +40,20 @@ $pages = [
 
 <h2 class="text-center mt-3">Site Manager</h2>
 
-<div class="row row-cols-sm-1 row-cols-md-3">
+<div class="row row-cols-1 row-cols-sm-3">
     <?php
     foreach ($pages as $page): ?>
         <div class="col">
-            <div class="card">
+            <div class="card mb-2">
                 <div class="card-header">
                     <?= $page['name'] ?>
                 </div>
 
-                <img class="card-img-top" src="<?= $page['screenshot']['src'] ?>" alt="<?= $page['screenshot']['alt'] ?>">
+                <img class="card-img-top" src="<?= $page['screenshot']['src'] ?>"
+                     alt="<?= $page['screenshot']['alt'] ?>">
                 <div class="card-body">
-                    <a href="<?= $page['admin-url'] ?>" class="btn btn-primary">Bearbeiten <i class="far fa-edit"></i></a>
+                    <a href="<?= $page['admin-url'] ?>" class="btn btn-primary">Bearbeiten <i
+                            class="far fa-edit"></i></a>
                 </div>
             </div>
         </div>

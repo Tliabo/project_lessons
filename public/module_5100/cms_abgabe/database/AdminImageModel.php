@@ -51,9 +51,10 @@ class AdminImageModel extends ModelDb
         return ['src', 'alt', 'name', 'description', 'price', 'category'];
     }
 
-    public function loadImages()
+    public function loadImagesFromCategory(string $category)
     {
-        $query = "SELECT * FROM image";
+
+        $query = "SELECT * FROM image WHERE `category` = $category";
         $statement = Database::prepare($query);
         $statement->execute();
     }

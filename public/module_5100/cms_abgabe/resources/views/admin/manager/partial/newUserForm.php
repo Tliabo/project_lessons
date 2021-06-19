@@ -17,7 +17,7 @@ $form = Form::begin('', 'post') ?>
 <?= new InputField($this, 'email') ?>
 <?= new InputField($this, 'password', InputField::TYPE_PASSWORD) ?>
 <?= new InputField($this, 'passwordConfirm', InputField::TYPE_PASSWORD) ?>
-<button class="btn btn-primary" type="submit">Registrieren</button>
+<button class="btn btn-primary" type="submit">Benutzer erstellen</button>
 
 <?php
 Form::end(); ?>

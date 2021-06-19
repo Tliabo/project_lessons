@@ -11,7 +11,7 @@
 ?>
 <h2 class="text-center mt-3">Image Manager</h2>
 <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <div class="list-group">
             <?php
             foreach ($this->controls as $control): ?>

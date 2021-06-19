@@ -60,7 +60,7 @@ class AdminGalleryManager extends Admin
 
             if ($categoryModel->validate() && $categoryModel->save()) {
                 Router::$session->setFlash('success', 'Neue Kategorie hinzugefügt');
-                Response::redirect('/admin/gallerymanager/addCategory');
+                Response::redirect('/admin/gallerymanager');
                 exit;
             }
         }
@@ -94,6 +94,15 @@ class AdminGalleryManager extends Admin
 
     public function render(array $params = [])
     {
+        ob_start();
+        if (!isset($this->viewParams['contentPlaceholder'])) {
+            $this->viewParams['categories'] = AdminCategoryModel::loadAllCategories();
+
+            include_once RESOURCE_DIR . '/views/admin/manager/partial/showCategories.php';
+
+            $this->viewParams['contentPlaceholder'] = ob_get_clean();
+        }
+
         ob_start();
         include_once RESOURCE_DIR . '/views/admin/manager/gallery.php';
 

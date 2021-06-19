@@ -4,6 +4,7 @@
 namespace Database;
 
 
+use src\Database;
 use src\ModelDb;
 
 /**
@@ -73,6 +74,19 @@ class AdminUserModel extends ModelDb
             'password' => 'Passwort',
             'passwordConfirm' => 'Passwort bestätigen'
         ];
+    }
+
+    public static function loadAdminUsers(): array
+    {
+        $query = "SELECT ROWID, `firstname`, `lastname`, `email` FROM `adminUser`";
+        $statement = Database::prepare($query);
+        $result = $statement->execute();
+        $adminUsers = [];
+        while ($value = $result->fetchArray(SQLITE3_ASSOC)) {
+            $adminUsers[] = $value;
+        }
+
+        return $adminUsers;
     }
 
     public static function isGuest(): bool

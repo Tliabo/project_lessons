@@ -85,24 +85,26 @@ class Admin extends Controller
     {
         $manager = new AdminGalleryManager();
 
-        if ($request->params[0] ?? false == 'uploadImage') {
-            return $manager->uploadImage($request, $_FILES['name'] ?? null);
-        } elseif ($request->params[0] ?? false == 'addCategory') {
-            return $manager->addCategory($request);
+        switch ($request->params[0] ?? false) {
+            case 'uploadImage':
+                return $manager->uploadImage($request, $_FILES['name'] ?? null);
+            case 'addCategory':
+                return $manager->addCategory($request);
+            default:
+                return $manager->render();
         }
-
-        return $manager->render();
     }
 
     public function usermanager(Request $request)
     {
         $manager = new AdminUserManager();
 
-        if ($request->params[0] ?? false == 'addAdminUser') {
-            return $manager->addAdminUser($request);
+        switch ($request->params[0] ?? false) {
+            case 'addAdminUser':
+                return $manager->addAdminUser($request);
+            default:
+                return $manager->render();
         }
-
-        return $manager->render();
     }
 
     public function render(array $params = [])

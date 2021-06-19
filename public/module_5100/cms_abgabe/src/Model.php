@@ -64,7 +64,7 @@ abstract class Model
                     $statement = Database::prepare("SELECT * FROM $tableName WHERE $uniqueAttribute = :attr");
                     $statement->bindValue(":attr", $value);
                     $statement->execute();
-                    $record = $statement->execute()->fetchArray() ?? $statement->fetch() ?? false;
+                    $record = $statement->execute()->fetchArray(SQLITE3_ASSOC) ?? $statement->fetch() ?? false;
                     if ($record) {
                         $this->addErrorForRule($attribute, RULE_UNIQUE, ['field' => $attribute]);
                     }

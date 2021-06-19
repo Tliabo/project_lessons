@@ -3,11 +3,11 @@
         <div class="container-fluid">
             <a class="h1 navbar-brand mb-0 w-50 text-center" href="/">Verena Prezioso</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    data-bs-target="#navbarVP" aria-controls="navbarVP"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <div id="navbarVP" class="collapse navbar-collapse">
                 <ul class="navbar-nav justify-content-around w-100">
                     <li class="nav-item">
                         <a class="nav-link" href="/aktuell">Aktuell</a>
