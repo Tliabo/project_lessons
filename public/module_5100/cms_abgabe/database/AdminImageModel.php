@@ -34,7 +34,7 @@ class AdminImageModel extends ModelDb
 //        ];
 //    }
 
-    public function save()
+    public function saveInsert()
     {
         var_dump($this->uploadFile);
         $target_file = UPLOAD_DIR . "/" . basename($this->uploadFile['name']);
@@ -43,7 +43,7 @@ class AdminImageModel extends ModelDb
         } else {
             Router::$session->setFlash('error', 'Hochladen fehlgeschlagen');
         }
-        return parent::save();
+        return parent::saveInsert();
     }
 
     public function attributes(): array

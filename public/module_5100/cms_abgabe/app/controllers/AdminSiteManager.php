@@ -4,6 +4,9 @@
 namespace App\Controllers;
 
 
+use Database\AktuellModel;
+use Database\BiografieModel;
+use Database\HomeModel;
 use Database\SiteModel;
 use src\Request;
 use src\Response;
@@ -14,32 +17,52 @@ use src\Router;
  */
 class AdminSiteManager extends Admin
 {
+    public SiteModel $siteModel;
 
-    public function addSite(Request $request)
+    public function __construct()
     {
-        $model = new SiteModel();
-        if ($request->isPost()) {
-            $model->loadData($request->getBody());
+        parent::__construct();
+    }
 
-            if ($model->validate() && $model->save()) {
-                Router::$session->setFlash('success', 'Neue Kategorie hinzugefügt');
-                Response::redirect('/admin/gallerymanager');
-                exit;
+    public function editSite(Request $request)
+    {
+        $pageName = $request->params[0];
+        $model = SiteModel::findOne(['title' => $pageName]);
+        if ($request->isPost()) {
+            $model->loadData($request->getBody(false));
+
+            if ($model->update()) {
+//                Response::redirect('/admin/sitemanager');
             }
+
         }
 
         $this->viewParams['contend'] = $model->getForm();
-        return $this->render([
+
+        return $this->renderEditSite([
             'errors' => $model->errors
         ]);
     }
 
-    public function render(array $params = [])
+    public function renderEditSite(array $params = [])
+    {
+        $this->viewParams['afterFooter']['js'][] = ['src' => '/assets/js/ckeditor/ckeditor.js'];
+        $this->viewParams['afterFooter']['js'][] = ['src' => '/assets/js/siteEditor.js'];
+
+        return $this->render($params);
+    }
+
+    public function renderManager(array $params = [])
     {
         ob_start();
         include_once RESOURCE_DIR . '/views/admin/manager/site.php';
 
         $this->viewParams['contend'] = ob_get_clean();
+        return $this->render($params);
+    }
+
+    public function render(array $params = [])
+    {
         return parent::render($params);
     }
 

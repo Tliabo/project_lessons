@@ -58,7 +58,7 @@ class AdminGalleryManager extends Admin
         if ($request->isPost()) {
             $categoryModel->loadData($request->getBody());
 
-            if ($categoryModel->validate() && $categoryModel->save()) {
+            if ($categoryModel->validate() && $categoryModel->saveInsert()) {
                 Router::$session->setFlash('success', 'Neue Kategorie hinzugefügt');
                 Response::redirect('/admin/gallerymanager');
                 exit;
@@ -79,7 +79,7 @@ class AdminGalleryManager extends Admin
             $imageModel->loadData($request->getBody());
             $imageModel->uploadFile = $file;
 
-            if ($imageModel->validate() && $imageModel->save()) {
+            if ($imageModel->validate() && $imageModel->saveInsert()) {
                 Router::$session->setFlash('success', 'Neues Bild hinzugefügt');
 
                 Response::redirect('/admin/gallerymanager/uploadImage');

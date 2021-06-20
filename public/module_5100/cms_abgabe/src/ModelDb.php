@@ -2,8 +2,6 @@
 
 namespace src;
 
-use Database\AdminUserModel;
-
 abstract class ModelDb extends Model
 {
 
@@ -11,7 +9,7 @@ abstract class ModelDb extends Model
 
     abstract public function attributes(): array;
 
-    public function save()
+    public function saveInsert()
     {
         $tableName = $this->tableName();
         $attributes = $this->attributes();
@@ -29,6 +27,21 @@ abstract class ModelDb extends Model
 
     public function update()
     {
+        $tableName = $this->tableName();
+        $attributes = $this->attributes();
+        $params = [];
+        foreach ($attributes as $attribute) {
+            $params[] = "$attribute = :$attribute";
+        }
+
+        $query = "UPDATE $tableName SET " . implode(',', $params) . "  WHERE `rowid` = $this->rowid";
+        $statement = Database::prepare($query);
+        foreach ($attributes as $attribute) {
+            $statement->bindValue(":$attribute", $this->{$attribute});
+        }
+
+        $statement->execute();
+        return true;
     }
 
     public function delete()
@@ -46,9 +59,10 @@ abstract class ModelDb extends Model
         }
         $userData = $statement->execute()->fetchArray(SQLITE3_ASSOC);
         if ($userData) {
-            $returnUser = new AdminUserModel();
-            $returnUser->loadData($userData);
-            return $returnUser;
+            $class = '\\' . static::class;
+            $returnModel = new $class();
+            $returnModel->loadData($userData);
+            return $returnModel;
         }
         return false;
     }

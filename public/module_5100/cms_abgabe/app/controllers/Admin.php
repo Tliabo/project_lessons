@@ -78,7 +78,12 @@ class Admin extends Controller
     public function sitemanager(Request $request)
     {
         $manager = new AdminSiteManager();
-        return $manager->render();
+
+        if ($request->params[0] ?? false) {
+            return $manager->editSite($request);
+        } else {
+            return $manager->renderManager();
+        }
     }
 
     public function gallerymanager(Request $request)

@@ -4,7 +4,7 @@ use src\CaptureScreenshot;
 
 $pages = [
     [
-        'name' => 'Startseite',
+        'name' => 'frontpage',
         'public-url' => '/',
         'admin-url' => '/admin/sitemanager/frontpage',
         'screenshot' => [

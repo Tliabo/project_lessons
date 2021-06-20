@@ -18,7 +18,7 @@ class Auth extends Controller
         if ($request->isPost()) {
             $user->loadData($request->getBody());
 
-            if ($user->validate() && $user->save()) {
+            if ($user->validate() && $user->saveInsert()) {
                 Router::$session->setFlash('success', 'Erfolgreich Registriert');
                 Response::redirect('/register');
                 exit;

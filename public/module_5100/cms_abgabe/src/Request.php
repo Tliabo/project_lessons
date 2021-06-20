@@ -54,13 +54,22 @@ class Request
      * returns the sanitized request body
      * @return array|null
      */
-    public function getBody(): ?array
+    public function getBody(bool $sanitize = true): ?array
     {
-        if ($this->isGet()) {
-            return $this->sanitizeMethod($_GET);
-        } elseif ($this->isPost()) {
-            return $this->sanitizeMethod($_POST);
+        if ($sanitize) {
+            if ($this->isGet()) {
+                return $this->sanitizeMethod($_GET);
+            } elseif ($this->isPost()) {
+                return $this->sanitizeMethod($_POST);
+            }
+        } else {
+            if ($this->isGet()) {
+                return $_GET;
+            } elseif ($this->isPost()) {
+                return $_POST;
+            }
         }
+
         return null;
     }
 

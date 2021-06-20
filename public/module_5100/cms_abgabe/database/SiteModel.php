@@ -26,7 +26,7 @@ class SiteModel extends ModelDb
 
     public function attributes(): array
     {
-        return ['title', 'contend'];
+        return ['rowid', 'title', 'contend'];
     }
 
     public function labels(): array

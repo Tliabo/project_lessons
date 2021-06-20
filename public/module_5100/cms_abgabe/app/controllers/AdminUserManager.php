@@ -29,7 +29,7 @@ class AdminUserManager extends Admin
         if ($request->isPost()) {
             $userModel->loadData($request->getBody());
 
-            if ($userModel->validate() && $userModel->save()) {
+            if ($userModel->validate() && $userModel->saveInsert()) {
                 Router::$session->setFlash('success', 'Neuer Adminuser hinzugefügt');
                 Response::redirect('/admin/usermanager');
                 exit;

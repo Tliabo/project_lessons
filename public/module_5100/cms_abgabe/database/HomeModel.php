@@ -15,7 +15,7 @@ class HomeModel extends SiteModel
 
     public function getContend()
     {
-        $query = "SELECT * FROM `page` WHERE `title` = 'startseite'";
+        $query = "SELECT * FROM `page` WHERE `title` = 'frontpage'";
         $statement = Database::prepare($query);
         $statement->execute();
         $result = $statement->execute()->fetchArray(SQLITE3_ASSOC);

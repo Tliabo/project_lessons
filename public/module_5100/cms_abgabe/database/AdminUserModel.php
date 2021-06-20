@@ -40,11 +40,11 @@ class AdminUserModel extends ModelDb
         return ['firstname', 'lastname', 'email', 'password'];
     }
 
-    public function save()
+    public function saveInsert()
     {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-        return parent::save();
+        return parent::saveInsert();
     }
 
     public function getForm()
