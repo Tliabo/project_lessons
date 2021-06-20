@@ -32,7 +32,7 @@ class AdminSiteManager extends Admin
             $model->loadData($request->getBody(false));
 
             if ($model->update()) {
-//                Response::redirect('/admin/sitemanager');
+                Response::redirect('/admin/sitemanager');
             }
 
         }
