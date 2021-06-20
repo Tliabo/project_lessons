@@ -36,5 +36,3 @@
 
     <a id="button-toTop" class="d-none" title="Back To Top" href="#"><i class="fas fa-chevron-circle-up fa-3x"></i></a>
 </header>
-
-
