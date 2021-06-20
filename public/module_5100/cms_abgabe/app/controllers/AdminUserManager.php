@@ -40,6 +40,10 @@ class AdminUserManager extends Admin
             'errors' => $userModel->errors
         ]);
     }
+    public function showAdminUsers(Request $request) {
+        Response::redirect('/admin/usermanager');
+        exit;
+    }
 
     public function render(array $params = [])
     {

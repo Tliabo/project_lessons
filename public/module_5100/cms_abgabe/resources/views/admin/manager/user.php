@@ -3,6 +3,9 @@
 <div class="row">
     <div class="col-sm-3">
         <div class="list-group">
+            <a href="/admin/usermanager/" class="list-group-item list-group-item-action bg-primary" role="button">
+                Show Admin Users
+            </a>
             <a href="/admin/usermanager/addAdminUser" class="list-group-item list-group-item-action bg-primary" role="button">
                 Add Admin User
             </a>
