@@ -4,6 +4,9 @@ namespace src;
 
 abstract class SiteModel extends Model
 {
+    public string $pageTitle = '';
+    public string $pageContend = '';
+
     public abstract function getTitle();
 
     public function getJS(): array

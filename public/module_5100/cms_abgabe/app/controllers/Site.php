@@ -53,6 +53,7 @@ class Site extends Controller
         $aktuellModel = new AktuellModel();
         $this->viewParams['head']['title'] = $aktuellModel->getTitle();
         $this->viewParams['contend'] = $aktuellModel->getContend();
+        $this->viewParams['pageTitle'] = $aktuellModel->pageTitle;
         return $this->render();
     }
 
@@ -65,6 +66,7 @@ class Site extends Controller
         $galerieModel = new GalerieModel();
         $this->viewParams['head']['title'] = $galerieModel->getTitle();
         $this->viewParams['contend'] = $galerieModel->getContend();
+        $this->viewParams['pageTitle'] = $galerieModel->pageTitle;
         return $this->render();
     }
 
@@ -77,6 +79,7 @@ class Site extends Controller
         $biografieModel = new BiografieModel();
         $this->viewParams['head']['title'] = $biografieModel->getTitle();
         $this->viewParams['contend'] = $biografieModel->getContend();
+        $this->viewParams['pageTitle'] = $biografieModel->pageTitle;
         return $this->render();
     }
 }

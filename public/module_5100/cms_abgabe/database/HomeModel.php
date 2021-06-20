@@ -2,10 +2,12 @@
 
 namespace Database;
 
+use src\Database;
 use src\SiteModel;
 
 class HomeModel extends SiteModel
 {
+
     public function getTitle(): string
     {
         return 'VP - Home';
@@ -13,8 +15,12 @@ class HomeModel extends SiteModel
 
     public function getContend()
     {
-        ob_start();
-        include_once RESOURCE_DIR . "/views/home.php";
-        return ob_get_clean();
+        $query = "SELECT * FROM `page` WHERE `title` = 'startseite'";
+        $statement = Database::prepare($query);
+        $statement->execute();
+        $result = $statement->execute()->fetchArray(SQLITE3_ASSOC);
+        $this->pageTitle = $result['title'];
+        $this->pageContend = $result['contend'];
+        return $this->pageContend;
     }
 }

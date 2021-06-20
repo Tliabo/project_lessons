@@ -13,43 +13,33 @@ use src\Request;
 class SiteModel extends ModelDb
 {
     public string $rowid = '';
-    public string $name = '';
+    public string $title = '';
+    public string $contend = '';
 
     /**
      * @return string
      */
     public static function tableName(): string
     {
-        return 'category';
+        return 'page';
     }
 
     public function attributes(): array
     {
-        return ['name'];
-    }
-
-    public function save()
-    {
-        return parent::save();
-    }
-
-    public function rules(): array
-    {
-        return [
-            'name' => [RULE_REQUIRED, [RULE_UNIQUE, 'class' => self::class]]
-        ];
+        return ['title', 'contend'];
     }
 
     public function labels(): array
     {
         return [
-            'name' => 'Kategorie Name'
+            'title' => 'Seiten Titel',
+            'contend' => 'Seiten Inhalt'
         ];
     }
 
     public function getForm() {
         ob_start();
-        include_once RESOURCE_DIR . '/views/admin/manager/partial/newSiteForm.php';
+        include_once RESOURCE_DIR . '/views/admin/manager/partial/editSiteForm.php';
         return ob_get_clean();
     }
 

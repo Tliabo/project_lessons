@@ -5,7 +5,7 @@ use function src\renderLinks;
 
 ?>
 <!DOCTYPE html>
-<html lang="<?= $head['lang'] ?>">
+<html lang="<?= $head['lang'] ?? 'VP' ?>">
 <head>
     <meta charset="<?= $head['charset'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,8 @@ include_once RESOURCE_DIR . '/templates/header.tpl.php';
 ?>
 
 <main class="container-fluid">
-    <?= $contend ?>
+    <?= $pageTitle ? "<h2 class=\"text-center mt-3\">$pageTitle</h2>" : '' ?>
+    <?= $contend ?? '' ?>
 </main>
 <?php
 include_once RESOURCE_DIR . '/templates/footer.tpl.php';

@@ -23,6 +23,7 @@ abstract class Controller
                 ]
             ]
         ],
+        'pageTitle' => '',
         'contend' => '',
         'afterFooter' => [
             'js' => [
