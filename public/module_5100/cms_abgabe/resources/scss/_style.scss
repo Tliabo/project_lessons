@@ -20,6 +20,27 @@ h2, .h2 {
 
 main {
     min-height: 80vh;
+
+    .paintings-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-rows: repeat(3, 150px);
+        gap: 4rem;
+        grid-auto-flow: dense;
+
+        .img-wrapper {
+            height: 100%;
+        }
+
+        .painting-img {
+            object-fit: cover;
+            height: 100%;
+
+            border: 0.5rem ridge $rose-dark-opac;
+            padding: 1rem;
+            box-shadow: 0 1.9px 2.2px rgb(0 0 0 / 3%), 0 4.4px 5.3px rgb(0 0 0 / 4%), 0 7.9px 10px rgb(0 0 0 / 4%), 0 13.4px 17.9px rgb(0 0 0 / 5%), 0 23.9px 33.4px rgb(0 0 0 / 5%), 0 55px 80px rgb(0 0 0 / 7%);
+        }
+    }
 }
 
 #button-toTop {
@@ -42,3 +63,4 @@ main {
 .vp-border {
     border: 1rem double $rose-dark;
 }
+

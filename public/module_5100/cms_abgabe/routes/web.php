@@ -23,5 +23,8 @@ Router::get('aktuell', [Site::class, 'aktuell']);
 Router::get('galerie', [Site::class, 'galerie']);
 Router::get('biografie', [Site::class, 'biografie']);
 
+/**
+ * Admin sites / space
+ */
 Router::get('admin', [Admin::class, 'admin']);
 Router::post('admin', [Admin::class, 'admin']);

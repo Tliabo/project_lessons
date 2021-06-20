@@ -16,20 +16,14 @@
                         <a class="nav-link dropdown-toggle" href="/galerie" id="navbarDropdownMenuLink" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">Galerie</a>
                         <ul class="dropdown-menu shadow border-0" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item" href="/galerie/collagen">Collagen</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/galerie/aquarell">Aquarell</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item"
-                                   href="/galerie/absprengtechnik">Absprengtechnik</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item"
-                                   href="/galerie/mischtechnik">Mischtechnik</a>
-                            </li>
+                            <?php
+                            foreach ($this->viewParams['categories'] as $category): ?>
+                                <li>
+                                    <a class="dropdown-item"
+                                       href="/galerie/<?= $category['name'] ?>"><?= $category['name'] ?></a>
+                                </li>
+                            <?php
+                            endforeach; ?>
                         </ul>
                     </li>
                     <li class="nav-item">

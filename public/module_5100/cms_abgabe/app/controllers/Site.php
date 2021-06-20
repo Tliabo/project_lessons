@@ -9,6 +9,8 @@ use Database\ErrorCodeModel;
 use Database\GalerieModel;
 use Database\HomeModel;
 use src\Controller;
+use src\Database;
+use src\Request;
 
 /**
  * Handles the public sites
@@ -17,6 +19,14 @@ use src\Controller;
  */
 class Site extends Controller
 {
+    protected GalerieModel $galerieModel;
+
+    public function __construct()
+    {
+        $this->galerieModel = new GalerieModel();
+        $this->viewParams['categories'] = $this->galerieModel->loadAllCategories();
+    }
+
     /**
      * Loads the errorview with the specified error code
      * @param $code
@@ -38,9 +48,11 @@ class Site extends Controller
     {
         $homeModel = new HomeModel();
         $this->viewParams['head']['title'] = $homeModel->getTitle();
-        $this->viewParams['head']['links'] = array_merge($this->viewParams['head']['links'] , $homeModel->getStyleSheets());
+        $this->viewParams['head']['links'] = array_merge($this->viewParams['head']['links'],
+            $homeModel->getStyleSheets());
         $this->viewParams['contend'] = $homeModel->getContend();
-        $this->viewParams['afterFooter']['js'] = array_merge($this->viewParams['afterFooter']['js'], $homeModel->getJS());
+        $this->viewParams['afterFooter']['js'] = array_merge($this->viewParams['afterFooter']['js'],
+            $homeModel->getJS());
         return $this->render();
     }
 
@@ -61,12 +73,18 @@ class Site extends Controller
      * Loads the galerie view and sub views
      * @return false|string
      */
-    public function galerie()
+    public function galerie(Request $request)
     {
-        $galerieModel = new GalerieModel();
+        $galerieModel = $this->galerieModel;
+        foreach ($galerieModel->loadAllCategories() as $category) {
+            if ($category['name'] == $request->action) {
+                $galerieModel->loadData($category);
+            }
+        }
         $this->viewParams['head']['title'] = $galerieModel->getTitle();
-        $this->viewParams['contend'] = $galerieModel->getContend();
-        $this->viewParams['pageTitle'] = $galerieModel->pageTitle;
+        $this->viewParams['pageTitle'] = $galerieModel->name;
+        $this->viewParams['contend'] = $galerieModel->getTechnik();
+
         return $this->render();
     }
 
