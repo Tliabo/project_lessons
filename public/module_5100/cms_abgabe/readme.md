@@ -38,7 +38,7 @@ SQLite3
 Go into directory [database/](/directory)
 copy and rename `example.database.sqlite` to `database.sqlite` in the same directory.
 
-There is also a configuration for MYSQL but its not 
+There is also a configuration for MYSQL for future implementation. 
 
 ## License
 [ISC](https://choosealicense.com/licenses/isc/)
