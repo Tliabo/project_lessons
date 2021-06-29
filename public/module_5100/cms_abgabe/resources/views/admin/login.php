@@ -13,7 +13,7 @@ use src\Form\InputField;
         $form = Form::begin('', 'post') ?>
 
         <?= new InputField($this, 'email') ?>
-        <?= new InputField($this, 'password', InputField::TYPE_PASSWORD) ?>
+        <?= new InputField($this, 'password', '',InputField::TYPE_PASSWORD) ?>
         <button class="btn btn-outline-primary" type="submit">Einloggen</button>
 
         <?php
