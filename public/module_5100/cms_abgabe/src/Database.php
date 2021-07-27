@@ -15,10 +15,7 @@ use SQLite3Stmt;
  */
 class Database
 {
-    /**
-     * @var null|mysqli|SQLite3
-     */
-    private static $db = null;
+    private static mysqli|SQLite3|null $db = null;
 
     private function __construct()
     {
@@ -27,7 +24,7 @@ class Database
     /**
      * @return mysqli|SQLite3|null
      */
-    public static function getDb()
+    public static function getDb(): mysqli|SQLite3|null
     {
         if (is_null(self::$db)) {
             $db_conf = include_once CONF_DIR . '/database.php';
@@ -35,7 +32,7 @@ class Database
                 case 'mysql':
                     $mysql = $db_conf['connections']['mysql'];
                     self::$db = new mysqli($mysql['host'], $mysql['username'], $mysql['password'], $mysql['database'],
-                        $mysql['port']);
+                      $mysql['port']);
                     break;
                 case 'sqlite':
                     $sqlite = $db_conf['connections']['sqlite'];
