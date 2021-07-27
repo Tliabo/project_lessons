@@ -47,6 +47,7 @@ header li a {
 
 .more-info {
   font-size: 1.5em;
+  margin-top: 1rem;
 }
 
 .aqi {
@@ -61,4 +62,12 @@ header li a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.5rem;
+}
+
+.mood-container {
+  margin-top: 1rem;
+}
+
+.face-container {
+  margin: 1rem 0;
 }

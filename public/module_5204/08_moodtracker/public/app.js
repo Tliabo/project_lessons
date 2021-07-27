@@ -57,4 +57,36 @@ function setup() {
   } else {
     console.error('Geolocation is not available in this browser');
   }
+
+  // what happens after user clicks send
+
+  document.querySelector('form button').addEventListener('click', async e => {
+    e.preventDefault();
+    // get user input
+    const mood = document.querySelector('form input').value;
+    // Get current image
+    video.loadPixels();
+    const image64 = video.canvas.toDataURL();
+    const data = {
+      mood,
+      city,
+      temp,
+      description,
+      aqi,
+      image64
+    }
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+
+    // send data to API endpoint
+    const response = await fetch('/api', options);
+    const json = await response.json();
+
+  })
 }
