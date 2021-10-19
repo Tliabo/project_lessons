@@ -1,0 +1,70 @@
+{ "Students": [
+    {
+        "Name": "Bakougou",
+		"Username": "Kacchan",
+		"Email": "k.cchan@bnha.com",
+		"Address": "123 Hero Road"
+    },
+    {
+        "Name": "Kirishima",
+		"Username": "Red Riot",
+		"Email": "r.riot@bnha.com",
+		"Address": "123 Hero Road"
+    },
+    {
+        "Name": "Deku Chan",
+        "Username": "Deku",
+        "Email": "deku@bnha.com",
+        "Address": "123 Hero Road"
+    }, 
+    {
+        "Name": "Momo Yayo",
+        "Username": "Momo",
+        "Email": "m.yayo@bnha.com",
+        "Address": "123 Hero Road"
+    }, 
+    {
+        "Name": "Naruto",
+		"Username": "Naruto Ninja",
+		"Email": "rasengan@konoha.com",
+		"Address": "987 Konoha"
+    }
+],
+"Teachers": [
+    {
+        "Name": "Kakashi",
+		"Username": "Kakasho",
+		"Email": "k.cchan@bnha.com",
+		"Address": "123 Hero Road"
+    },
+    {
+        "Name": "Aizawa",
+		"Username": "Aizawa",
+		"Email": "r.riot@bnha.com",
+		"Address": "123 Hero Road"
+    },
+    {
+        "Name": "Piccolo",
+        "Username": "Picci",
+        "Email": "deku@bnha.com",
+        "Address": "123 Hero Road"
+    }, 
+    {
+        "Name": "Hisoka",
+        "Username": "Perv Dude",
+        "Email": "m.yayo@bnha.com",
+        "Address": "123 Hero Road"
+    }, 
+    {
+        "Name": "Shanks",
+		"Username": "Schenkel",
+		"Email": "rasengan@konoha.com",
+		"Address": "987 Konoha"
+    }
+]
+}
+
+
+
+
+
