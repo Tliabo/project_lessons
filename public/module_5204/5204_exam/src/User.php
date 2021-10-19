@@ -8,6 +8,8 @@ class User
 {
     private $db;
 
+    public $loginStatus;
+
     public function __construct()
     {
         $this->db = Database::getDb();
@@ -31,19 +33,21 @@ class User
         $hasError = false;
 
         if ($userdata['username'] === $dbData['username']) {
-            $message['username'] = 'Is valid';
+            $message['login_message'] = 'Is valid';
         } else {
             $hasError = true;
         }
 
         if ($userdata['password'] === $dbData['password']) {
-            $message['password'] = 'Is valid';
+            $message['login_message'] = 'Is valid';
         } else {
             $hasError = true;
         }
 
         if ($hasError) {
-            $message['error'] = 'User or password is invalid';
+            $message['login_message'] = 'User or password is invalid';
+        } else {
+            $this->loginStatus = true;
         }
 
         return $message;
