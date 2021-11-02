@@ -6,9 +6,9 @@ use Exam\Login;
 
 require_once 'src/helper.php';
 require_once 'src/Database.php';
-require_once 'src/User.php';
+require_once 'src/Login.php';
 
-$data = $_POST;
+$data = $_POST ?? [];
 $response = [];
 $_SESSION['message'] = '';
 
@@ -16,16 +16,16 @@ if ($data ?? false) {
     $username = sanitize($data['username']);
     $password = sanitize($data['password']);
 
-    $user = new Login();
+    $login = new Login();
 
-    $user->validate($username, $password);
+    $login->validate($username, $password);
 
-    $_SESSION['message'] = $user->loginMessage;
-    $_SESSION['loginStatus'] = $user->loginStatus;
+    $_SESSION['message'] = $login->loginMessage;
+    $_SESSION['loginStatus'] = $login->loginStatus;
     $_SESSION['username'] = $username;
 
     if ($_SESSION['loginStatus']) {
-      redirect('private/display.php');
+        redirect('private/display.php');
     }
 }
 
@@ -38,7 +38,7 @@ if ($data ?? false) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
+  <title>Login - Retake</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -55,7 +55,7 @@ if ($data ?? false) {
             echo $_SESSION['message'];
         } ?>
     </div>
-    <button type="submit">Go!</button>
+    <button type="submit">Log In</button>
   </form>
 </div>
 </body>
