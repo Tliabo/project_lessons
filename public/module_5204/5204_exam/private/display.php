@@ -4,33 +4,43 @@ session_start();
 require_once "../src/helper.php";
 $sessionData = $_SESSION;
 
+if ($_GET['logout'] ?? false) {
+    clearSession();
+}
+
 if ($sessionData['loginStatus'] ?? false) {
     $username = $sessionData['username'];
 } else {
+    // clean session data
+    clearSession();
+}
+
+function clearSession() {
+    // clean session data
     $_SESSION['loginStatus'] = false;
-    $_SESSION['loginMessage'] = 'logout';
     $_SESSION['username'] = null;
     redirect('../login.php');
 }
+
 ?>
 
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-  <meta charset = "UTF-8">
-  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-  <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Display Data</title>
-  <link rel = "stylesheet" href = "../style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<div class = "wrapper-main">
-  <h1>You are loged in as: <?= $username ?></h1>
-  <div class = "button-container">
-    <button class = "student">Students</button>
-    <button class = "teacher">Teachers</button>
+<div class="wrapper-main">
+  <h1>You are logged in as: <?= $username ?></h1>
+  <div class="button-container">
+    <button class="student">Students</button>
+    <button class="teacher">Teachers</button>
   </div>
-  <table class = "display-table">
+  <table class="display-table">
     <thead>
     <tr>
       <th>Name</th>
@@ -46,19 +56,25 @@ if ($sessionData['loginStatus'] ?? false) {
     
     </tfoot>
   </table>
-  <button class = "logout">Log Out</button>
+  <button class="logout" name="logout">Log Out</button>
 </div>
-<script src = "https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity = "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin = "anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
+    let data;
 
     function getdata(type) {
         // YOUR CODE HERE
-        let data = $.getJSON('../api/data.json', function (data) {
-            return data;
-        });
+        $.ajax({
+            url: '../api/data.json'
+        }).done(function (p_data) {
+            data = p_data;
+            renderTable(type);
+        })
+    }
 
+    function renderTable(type) {
         let template = `
 <tr>
   <td>{name}</td>
@@ -71,7 +87,7 @@ if ($sessionData['loginStatus'] ?? false) {
         // reset table body contend
         $('.display-table tbody').html('');
 
-        data.forEach(person => function (person) {
+        data.forEach((person) => {
             // add person to table
             if (person.type === type) {
                 let html = template.replace('{name}', person.name);
@@ -84,11 +100,16 @@ if ($sessionData['loginStatus'] ?? false) {
     }
 
     document.querySelector('.student').addEventListener('click', () => {
-        getdata('student')
+        getdata('student');
     })
 
     document.querySelector('.teacher').addEventListener('click', () => {
         getdata('teacher')
+    })
+
+    document.querySelector('.logout').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = '?logout=true'
     })
 
 </script>

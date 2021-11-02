@@ -6,7 +6,7 @@ return [
       'driver' => 'mysql',
       'host' => 'localhost',
       'port' => '',
-      'dbname' => 'exam',
+      'dbname' => 'exam_5204',
       'username' => 'homestead',
       'password' => 'secret'
     ]

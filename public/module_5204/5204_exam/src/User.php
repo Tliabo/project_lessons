@@ -18,7 +18,7 @@ class User
 
     public function show(string $username)
     {
-        $query = "SELECT * FROM admin_user where `username` = :username";
+        $query = "SELECT * FROM user where `username` = :username";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':username', $username);
         if ($stmt->execute()) {
@@ -26,28 +26,32 @@ class User
         }
     }
 
-    public function validate($username, $password)
+    public function validate(string $username, string $password)
     {
-        $dbData = $this->show($username);
-
         $hasError = false;
 
-        if ($username === $dbData['username']) {
-            $this->loginMessage = 'Is valid';
-        } else {
-            $hasError = true;
-        }
+        $dbData = $this->show($username);
 
-        if ($password === $dbData['password']) {
-            $this->loginMessage = 'Is valid';
-        } else {
-            $hasError = true;
-        }
+        if ($dbData) {
+            if ($username === $dbData['username']) {
+                $this->loginMessage = 'Is valid';
+            } else {
+                $hasError = true;
+            }
 
-        if ($hasError) {
-            $this->loginMessage = 'User or password is invalid';
+            if ($password === $dbData['password']) {
+                $this->loginMessage = 'Is valid';
+            } else {
+                $hasError = true;
+            }
+
+            if ($hasError) {
+                $this->loginMessage = 'Username or password is invalid';
+            } else {
+                $this->loginStatus = true;
+            }
         } else {
-            $this->loginStatus = true;
+            $this->loginMessage = 'No username or password provided';
         }
 
         return $this;
