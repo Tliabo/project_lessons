@@ -8,7 +8,8 @@ class User
 {
     private $db;
 
-    public $loginStatus;
+    public $loginStatus = false;
+    public $loginMessage = '';
 
     public function __construct()
     {
@@ -25,32 +26,31 @@ class User
         }
     }
 
-    public function validate(array $userdata)
+    public function validate($username, $password)
     {
-        $dbData = $this->show($userdata['username']);
-        $message = [];
+        $dbData = $this->show($username);
 
         $hasError = false;
 
-        if ($userdata['username'] === $dbData['username']) {
-            $message['login_message'] = 'Is valid';
+        if ($username === $dbData['username']) {
+            $this->loginMessage = 'Is valid';
         } else {
             $hasError = true;
         }
 
-        if ($userdata['password'] === $dbData['password']) {
-            $message['login_message'] = 'Is valid';
+        if ($password === $dbData['password']) {
+            $this->loginMessage = 'Is valid';
         } else {
             $hasError = true;
         }
 
         if ($hasError) {
-            $message['login_message'] = 'User or password is invalid';
+            $this->loginMessage = 'User or password is invalid';
         } else {
             $this->loginStatus = true;
         }
 
-        return $message;
+        return $this;
     }
 
 }

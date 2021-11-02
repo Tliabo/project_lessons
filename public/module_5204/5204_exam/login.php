@@ -16,18 +16,14 @@ if ($data ?? false) {
 
     $user = new User();
 
-    $userdata['username'] = $username;
-    $userdata['password'] = $password;
-
-    $validation = $user->validate($userdata);
+    $user->validate($username, $password);
 
     if ($user->loginStatus) {
-        $response['message'] = $validation['login_message'];
-        exit();
+        $response['message'] = $user->loginMessage;
     }
 
 
-    $_SESSION['user'] = $user;
+    $_SESSION['username'] = $username;
     exit();
 }
 ?>
